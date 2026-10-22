@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173c3b">
+  <meta name="description" content="LitmusLab：由 MoonBit 驱动的有限 SC / TSO 并发语义实验室。比较结果，逐步重放执行见证。">
+  <title>LitmusLab · 并发语义实验室</title>
+  <link rel="stylesheet" href="/web/style.css">
+  <script type="module" src="/web/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">跳转到实验区</a>
+  <header class="masthead">
+    <a class="wordmark" href="/" aria-label="LitmusLab 首页"><span class="brand-icon" aria-hidden="true">L<span>∥</span></span><span>LitmusLab<span class="wordmark-caption">并发语义实验室</span></span></a>
+    <nav aria-label="页面导航"><a href="#workspace">实验台</a><a href="#trace">见证重放</a><a href="/docs/TUTORIAL.md" target="_blank" rel="noopener">使用指南 <span aria-hidden="true">↗</span></a></nav>
+    <div class="engine-badge"><span class="dot"></span> MoonBit engine <span class="badge-muted">/ local</span></div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow">A SMALL PROGRAM. EVERY POSSIBLE ORDER.</p><h1 id="page-title">顺序之外，<span>看见并发。</span></h1><p class="lede">编辑一个小程序，比较 SC 与 TSO 的允许结果，<br class="desktop-break">再把每一种结果，拆成可观察的执行步骤。</p></div>
+      <div class="model-key" aria-label="模型简介"><div><span class="model-symbol">SC</span><p><strong>顺序一致性</strong><span>线程交错执行 · 写入立即可见</span></p></div><div><span class="model-symbol tso">TSO</span><p><strong>总存储顺序</strong><span>每线程 FIFO 写缓冲 · 同地址转发</span></p></div></div>
+    </section>
+
+    <div class="workspace" id="workspace">
+      <section class="panel program-panel" aria-labelledby="program-title">
+        <div class="panel-heading"><h2 id="program-title"><span class="section-number">01</span> 定义程序</h2><span class="quiet-label">FINITE LITMUS TEST</span></div>
+        <label class="field-label" for="example">载入教学案例</label>
+        <select id="example" aria-label="载入教学案例"><option value="">正在载入案例…</option></select>
+        <div class="example-summary"><h3 id="example-title">Store Buffering</h3><p id="example-description">正在读取本地案例。</p><span id="example-focus" class="focus-note"></span></div>
+        <div class="editor-top"><label for="source">程序 / DSL</label><span id="line-count">0 lines</span></div>
+        <div class="editor-wrap"><textarea id="source" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="source-help" aria-label="程序源代码" wrap="off"></textarea></div>
+        <p id="source-help" class="field-help">memory → thread → store / load / fence → end<br>load 的参数顺序为：寄存器、内存地址。<kbd>⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd> 运行</p>
+        <details class="dsl-help"><summary>DSL 语法速查</summary><pre>memory x=0 y=0
+thread P0
+store x 1   # 写入常量
+load r0 y   # 读取到寄存器
+fence       # 等待本线程缓冲排空
+end</pre><p>名称、大小和预算均由核心校验。程序没有循环、跳转或动态线程；观察结果包含最终内存与最终寄存器。</p></details>
+        <div class="settings"><div><label for="model">分析模型</label><select id="model"><option value="both">SC + TSO 对比</option><option value="SC">仅 SC</option><option value="TSO">仅 TSO</option></select></div><div><label for="strategy">搜索顺序</label><select id="strategy"><option value="bfs">BFS · 广度优先</option><option value="dfs">DFS · 深度优先</option></select></div><div><label for="max-states">最多状态数</label><input id="max-states" type="number" inputmode="numeric" value="20000" min="1" max="100000" step="1"></div><div><label for="max-outcomes">最多结果数</label><input id="max-outcomes" type="number" inputmode="numeric" value="256" min="1" max="1024" step="1"></div></div>
+        <div class="run-row"><button id="run" class="primary-button" type="button"><span aria-hidden="true">▶</span> 运行分析</button><button id="cancel" class="text-button" type="button" hidden>取消</button><span id="run-note">计算在本机浏览器中完成</span></div>
+      </section>
+
+      <div class="right-column">
+        <section class="panel results-panel" aria-labelledby="results-title">
+          <div class="panel-heading"><h2 id="results-title"><span class="section-number">02</span> 比较结果</h2><span id="results-badge" class="pill">等待运行</span></div>
+          <div id="status" class="status-box" role="status" aria-live="polite">正在载入本地引擎。运行后，选择一个结果查看它的执行见证。</div>
+          <div id="metrics" class="metrics"></div>
+          <div id="outcomes" class="outcomes"><div class="empty-state"><span class="empty-glyph" aria-hidden="true">{ · }</span><strong>一个程序，两种可见性。</strong><p>从 Store Buffering 开始，<br>观察写缓冲如何改变允许的结果。</p></div></div>
+          <p class="result-note" id="result-note">“未发现”只有在搜索完整时才表示这个模型不允许该结果。</p>
+        </section>
+
+        <section class="panel trace-panel" id="trace" aria-labelledby="trace-title">
+          <div class="panel-heading"><h2 id="trace-title"><span class="section-number">03</span> 逐步重放</h2><span id="trace-badge" class="pill">暂无见证</span></div>
+          <div id="trace-empty" class="trace-empty">选择上方结果的 <strong>SC / TSO</strong> 按钮，查看各线程、写缓冲与共享内存如何变化。</div>
+          <div id="trace-content" hidden>
+            <div class="trace-controls"><button id="first-step" type="button" aria-label="回到初始状态" title="回到初始状态">⏮</button><button id="prev-step" type="button" aria-label="上一步" title="上一步">←</button><span id="step-label" aria-live="polite">0 / 0</span><button id="next-step" type="button" aria-label="下一步" title="下一步">→</button><button id="last-step" type="button" aria-label="跳到最终状态" title="跳到最终状态">⏭</button><label class="sr-only" for="step-slider">重放步骤</label><input id="step-slider" type="range" min="0" max="0" value="0"></div>
+            <div id="step-description" class="step-description"></div>
+            <div id="thread-states" class="thread-states"></div>
+            <div class="memory-block"><div class="state-label">共享内存 <span>SHARED MEMORY</span></div><div id="memory-state" class="memory-state"></div></div>
+            <details class="witness-details"><summary>可复现见证与命令</summary><label for="witness-text">调度序列</label><textarea id="witness-text" readonly rows="2" aria-label="调度见证"></textarea><p>tN 执行线程 N 的下一条指令；fN 排空线程 N 的 FIFO 队头。</p><code id="replay-command"></code><button id="copy-witness" type="button" class="text-button">复制见证</button><span id="copy-status" role="status"></span></details>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <aside class="scope-note"><span class="scope-icon" aria-hidden="true">i</span><p><strong>把模型边界放在眼前。</strong> LitmusLab 分析的是明确定义的有限 SC / TSO 操作语义，不是完整的 x86、ARM 或 C++ 内存模型。预算耗尽时会显示 <code>incomplete</code>；部分结果不能用于宣称程序安全。</p></aside>
+  </main>
+  <footer><span>LitmusLab <span class="footer-divider">/</span> 并发，从可见开始。</span><span>本地运行 · 确定性语义 · 可重放见证</span></footer>
+</body>
+</html>
