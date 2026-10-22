@@ -1,0 +1,14 @@
+# A fence waits for its own store buffer to empty before proceeding.
+memory x=0 y=0
+
+thread P0
+store x 1
+fence
+load r0 y
+end
+
+thread P1
+store y 1
+fence
+load r1 x
+end

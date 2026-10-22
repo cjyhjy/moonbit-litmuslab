@@ -1,0 +1,12 @@
+# Message Passing: FIFO stores preserve the data-before-flag order.
+memory data=0 flag=0
+
+thread Writer
+store data 1
+store flag 1
+end
+
+thread Reader
+load seen flag
+load value data
+end

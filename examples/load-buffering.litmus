@@ -1,0 +1,12 @@
+# Load Buffering: neither SC nor this TSO model permits both loads to read 1.
+memory x=0 y=0
+
+thread P0
+load r0 x
+store y 1
+end
+
+thread P1
+load r1 y
+store x 1
+end

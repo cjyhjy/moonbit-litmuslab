@@ -1,0 +1,8 @@
+[
+  {"id":"store-buffering","label":"01 · Store Buffering","title":"两次读取，能否同时得到 0？","description":"每个线程先写入，再读取另一个地址。比较 SC 与 TSO，寻找写缓冲带来的额外结果。","focus":"关注 P0.r0=0、P1.r1=0","file":"store-buffering.litmus"},
+  {"id":"load-buffering","label":"02 · Load Buffering","title":"先读后写，会凭空读到 1 吗？","description":"每个线程先读取，再写入对方读取的地址。这个有限 SC/TSO 模型不允许两次读取同时得到 1。","focus":"关注 P0.r0=1、P1.r1=1","file":"load-buffering.litmus"},
+  {"id":"message-passing","label":"03 · Message Passing","title":"看见通知，是否也能看见数据？","description":"写线程依次发布数据和标志，读线程先检查标志再读数据。TSO 的 FIFO 写缓冲保留同一线程的写入顺序。","focus":"关注 Reader.seen=1、Reader.value=0","file":"message-passing.litmus"},
+  {"id":"store-buffering-fence","label":"04 · Fence / 屏障","title":"在写与读之间，加入一道屏障。","description":"在 Store Buffering 的两个线程中分别加入 fence；屏障等待本线程缓冲排空，再执行后续读取。","focus":"与案例 01 对照结果集合","file":"store-buffering-fence.litmus"},
+  {"id":"fifo","label":"05 · FIFO / 按序排空","title":"后写入的值，不能抢先公开。","description":"观察写缓冲从队头依次排空。读线程看到 second=1 后，不会再读到 first=0。","focus":"重放 flush，观察缓冲队头","file":"fifo.litmus"},
+  {"id":"forwarding","label":"06 · Forwarding / 同地址转发","title":"自己的新值，不必等到写入内存。","description":"线程先后写 x=1、x=2，再读取 x；读取从本线程缓冲中取得同地址最新值，其他线程只能读取共享内存。","focus":"关注 Local.own=2 与 Observer.seen","file":"forwarding.litmus"}
+]

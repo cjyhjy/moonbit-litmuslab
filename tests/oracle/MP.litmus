@@ -1,0 +1,12 @@
+X86 LL_MP
+{
+x=0;
+y=0;
+1:EAX=0;
+1:EBX=0;
+}
+P0 | P1;
+MOV [x],$1 | MOV EAX,[y];
+MOV [y],$1 | MOV EBX,[x];
+locations [x; y; 1:EAX; 1:EBX]
+exists (x=0)

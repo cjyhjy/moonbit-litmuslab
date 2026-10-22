@@ -1,0 +1,12 @@
+# A load reads the newest pending store to its own address.
+memory x=0
+
+thread Local
+store x 1
+store x 2
+load own x
+end
+
+thread Observer
+load seen x
+end

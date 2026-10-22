@@ -1,0 +1,12 @@
+# FIFO: seeing the second store excludes missing the first store in this order.
+memory first=0 second=0
+
+thread Producer
+store first 1
+store second 1
+end
+
+thread Observer
+load r0 second
+load r1 first
+end

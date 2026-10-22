@@ -1,0 +1,15 @@
+X86 LL_forwarding
+{
+x=0;
+y=0;
+0:EAX=0;
+0:EBX=0;
+1:EAX=0;
+}
+P0 | P1;
+MOV [x],$1 | MOV [y],$1;
+MOV [x],$2 | MOV EAX,[x];
+MOV EAX,[x] | ;
+MOV EBX,[y] | ;
+locations [x; y; 0:EAX; 0:EBX; 1:EAX]
+exists (x=0)
