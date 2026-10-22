@@ -1,0 +1,50 @@
+{
+  "slug": "litmuslab",
+  "extractedHead": "88f2fb07954d17e56b55e72a91f1467a2b166b71",
+  "commitCount": 8,
+  "metadataAndEveryTreeVerified": true,
+  "mapping": [
+    {
+      "original": "bcdaeb2b8e05a9e71f00bff5628d770ba209209e",
+      "extracted": "8e862e4363c0b9d43fca0d4f0d16678c60c6b419",
+      "tree": "39faccf0ed9c42120c973c0a97d2a5b440bb984f"
+    },
+    {
+      "original": "265ea9fd9be38a501d700274424cb3f94d74e471",
+      "extracted": "0d9d117774d564fd58aa4f4e95ecfe05bbb72116",
+      "tree": "4f7cf551bc6ecbdf8cc078913f0481add889d187"
+    },
+    {
+      "original": "bf2ecdff776970b734d20a395e7ac26b499b8a57",
+      "extracted": "e550b5bcf2bc7b2d7e0087503fd3cf4e0ddb7e96",
+      "tree": "bf2e77f87c515c5947ab6b3d4a3cd8b923ae28d1"
+    },
+    {
+      "original": "fbaf5d80d344d527c211b80b3286aa066fc7cf60",
+      "extracted": "31af71b707c0564cc90dbb2619921717d1de7cda",
+      "tree": "e03dcf578f78cc67c019ae21f04531e55587a392"
+    },
+    {
+      "original": "bcb23a8d9c312dad2a967f0a559f594656f86eea",
+      "extracted": "9d4e46f8bd047c2bfde0a8bb7d30a7adfcd6456d",
+      "tree": "65eb801d0000f4b096e7ee3b4314cc73a3862ff0"
+    },
+    {
+      "original": "4e610fff2186272e9f7815f0f5c9917fb5bd0e50",
+      "extracted": "7e7937ae0da7ff41157cc65d4573bc7df7f19e73",
+      "tree": "8f27e33e6abe8ea4bd240e1fb86e526dc68ed750"
+    },
+    {
+      "original": "2c596af47855848e68a918d141473223101a1279",
+      "extracted": "bb180c45ae2283ad7802b9346e79d3a61cbb1fe2",
+      "tree": "386d243874cbdeee45697a4ab5819fb741e6f957"
+    },
+    {
+      "original": "d36c55fe248fbd4eb65f5ee9c2682a91b852831d",
+      "extracted": "88f2fb07954d17e56b55e72a91f1467a2b166b71",
+      "tree": "ba72dec58d9d38e14b164dadf46f9d22f97bfbde"
+    }
+  ],
+  "sourceHead": "a0480d54e20c5056f1124cb41f412f66aa5979a0",
+  "method": "git subtree split without squash or annotation"
+}

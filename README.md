@@ -1,5 +1,7 @@
 # LitmusLab · 并发内存模型实验室
 
+[![LitmusLab checks](https://github.com/cjyhjy/moonbit-litmuslab/actions/workflows/ci.yml/badge.svg)](https://github.com/cjyhjy/moonbit-litmuslab/actions/workflows/ci.yml)
+
 用一段小程序，比较 **SC** 和 **FIFO 写缓冲 TSO** 的允许结果；选择一个结果，逐步查看它如何发生。
 
 核心解析、状态转移、去重搜索、预算判定、见证生成与重放均由 **MoonBit** 实现。CLI 和浏览器共用同一份编译引擎。浏览器使用 Worker，计算期间可以取消。无需账户、模型 API 或网络服务。
@@ -68,8 +70,8 @@ bash tools/build.sh              # MoonBit → dist/engine.mjs
 python3 tools/crosscheck.py
 ```
 
-固定工具链见 `toolchain.lock.json`。安装器只写 `.tools/moon/`，不改 shell 配置或全局工具链。预编译引擎为普通 ES module；Linux x86_64 引导配置已提供，当前交付实际执行平台以验证记录为准。
+固定工具链见 `toolchain.lock.json`。安装器只写 `.tools/moon/`，不改 shell 配置或全局工具链。预编译引擎为普通 ES module。GitHub Actions 在 Linux x86_64 上检查、构建并测试 JS、Native、Wasm-GC 三个后端，执行独立 Python 对照、CLI/HTTP 验证和已记录 herd7 结果的重比对；每次运行的结论与证据见上方 CI 链接。
 
 进一步阅读：[语义与 DSL](docs/SEMANTICS.md) · [API](docs/API.md) · [实现结构](docs/ARCHITECTURE.md) · [教学案例](docs/TUTORIAL.md) · [开发与 AI 说明](docs/DEVELOPMENT.md) · [第三方来源](THIRD_PARTY_NOTICES.md)。
 
-本地实现、公开发布、包发布与参赛提交是不同状态。此项目仅完成本地交付，没有代填身份声明、公开推送或正式参赛提交。
+公开源码仓库：[cjyhjy/moonbit-litmuslab](https://github.com/cjyhjy/moonbit-litmuslab)。保留 8 条实际开发提交的提取历史，映射和证据边界见 [公开仓库说明](docs/PUBLICATION.md)。源码公开不代表包发布、网站部署或参赛提交；这些事项尚未执行。
