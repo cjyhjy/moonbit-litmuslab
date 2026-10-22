@@ -1,0 +1,7 @@
+name = "litmuslab/engine"
+version = "0.1.0"
+license = "Apache-2.0"
+readme = "README.md"
+preferred_target = "js"
+supported_targets = "+js+wasm-gc+native"
+description = "Finite SC and FIFO store-buffer TSO operational semantics laboratory"
