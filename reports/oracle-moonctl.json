@@ -1,0 +1,68 @@
+{
+  "upstream": "https://github.com/length-super/moonctl",
+  "version": "0.2.0",
+  "commit": "4174d616c4fe84236aa57782dd247f7320e20738",
+  "kind": "upstream-neighbor-run-not-memory-model-oracle",
+  "run_at": "2026-10-22T15:38:22.676500+00:00",
+  "runs": [
+    {
+      "case": "tests",
+      "command": [
+        "moon",
+        "test",
+        "--target",
+        "native"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "matched": true
+    },
+    {
+      "case": "buggy",
+      "command": [
+        "moon",
+        "run",
+        "--target",
+        "native",
+        "cmd/main",
+        "--",
+        "--json",
+        "examples/buggy.json",
+        "AG !double_charge"
+      ],
+      "returncode": 1,
+      "expected_returncode": 1,
+      "matched": true
+    },
+    {
+      "case": "fixed",
+      "command": [
+        "moon",
+        "run",
+        "--target",
+        "native",
+        "cmd/main",
+        "--",
+        "--json",
+        "examples/fixed.json",
+        "AG !double_charge"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "matched": true
+    },
+    {
+      "case": "explore",
+      "command": [
+        "moon",
+        "run",
+        "--target",
+        "wasm-gc",
+        "examples/explore"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "matched": true
+    }
+  ]
+}

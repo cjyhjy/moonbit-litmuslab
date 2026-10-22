@@ -1,0 +1,27 @@
+$ /Library/Developer/CommandLineTools/usr/bin/python3 -m unittest discover -s tests -p test_reference.py -v
+test_invalid_search_options (test_reference.BudgetTests) ... ok
+test_outcome_budget_exact_boundary (test_reference.BudgetTests) ... ok
+test_state_budget_exact_boundary (test_reference.BudgetTests) ... ok
+test_comments_whitespace_and_distinct_namespaces (test_reference.ParserTests) ... ok
+test_error_line (test_reference.ParserTests) ... ok
+test_invalid_programs (test_reference.ParserTests) ... ok
+test_limits_are_inclusive (test_reference.ParserTests) ... ok
+test_bad_witnesses_are_rejected (test_reference.ReplayTests) ... ok
+test_empty_thread_empty_witness (test_reference.ReplayTests) ... ok
+test_ended_threads_still_need_flushes (test_reference.ReplayTests) ... ok
+test_fence_blocks_only_its_own_pending_writes (test_reference.ReplayTests) ... ok
+test_bfs_dfs_and_witnesses (test_reference.SemanticsTests) ... ok
+test_fences_remove_store_buffering_zero_zero (test_reference.SemanticsTests) ... ok
+test_final_memory_and_all_registers_are_observable (test_reference.SemanticsTests) ... ok
+test_final_memory_distinguishes_outcomes_without_loads (test_reference.SemanticsTests) ... ok
+test_latest_own_buffer_entry_forwards (test_reference.SemanticsTests) ... ok
+test_load_buffering_does_not_read_from_future (test_reference.SemanticsTests) ... ok
+test_message_passing_preserves_fifo_order (test_reference.SemanticsTests) ... ok
+test_other_thread_buffer_does_not_forward (test_reference.SemanticsTests) ... ok
+test_register_names_are_thread_local (test_reference.SemanticsTests) ... ok
+test_store_buffering (test_reference.SemanticsTests) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.007s
+
+OK

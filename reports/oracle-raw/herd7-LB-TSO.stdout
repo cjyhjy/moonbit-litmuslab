@@ -1,0 +1,13 @@
+Test LL_LB Allowed
+States 3
+0:EAX=0; 1:EAX=0; [x]=1; [y]=1;
+0:EAX=0; 1:EAX=1; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=0; [x]=1; [y]=1;
+No
+Witnesses
+Positive: 0 Negative: 3
+Condition exists ([x]=0)
+Observation LL_LB Never 0 3
+Time LL_LB 0.00
+Hash=3cb9cea00b82af3c988507dfc4c2b648
+

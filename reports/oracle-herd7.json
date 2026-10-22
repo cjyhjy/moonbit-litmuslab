@@ -1,0 +1,890 @@
+{
+  "schema_version": 1,
+  "kind": "external-memory-model-oracle",
+  "tool": "herd7",
+  "version": "7.58, Rev: 1ca343e16a2038e406d1ac674e7e3a1b722b36c7 (source archive)",
+  "upstream_tag": "7.58",
+  "upstream_commit": "1ca343e16a2038e406d1ac674e7e3a1b722b36c7",
+  "retrieved_at": "2026-10-22T15:38:22.526399+00:00",
+  "scope": "X86 MOV immediate store, MOV register load, MFENCE; all final memory and named registers",
+  "runs": [
+    {
+      "case": "SB",
+      "model": "SC",
+      "command": [
+        "herd7",
+        "-model",
+        "sc.cat",
+        "-show",
+        "none",
+        "tests/oracle/SB.litmus"
+      ],
+      "input_sha256": "8c268dd69f243ca9ed954d45b010a5b86094c286d26c4c26bfed21835a8a15ac",
+      "dsl_input_sha256": "26a659d63c339edabfca5ca1b582dcf148652fd584d86f4ae7c51e304f3c02ce",
+      "stdout_sha256": "9155a64e9715d3803b60438610dbee6458b9c06bb5ab953fc2c47206630e1630",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 3,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 0
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "SB",
+      "model": "TSO",
+      "command": [
+        "herd7",
+        "-model",
+        "x86tso.cat",
+        "-show",
+        "none",
+        "tests/oracle/SB.litmus"
+      ],
+      "input_sha256": "8c268dd69f243ca9ed954d45b010a5b86094c286d26c4c26bfed21835a8a15ac",
+      "dsl_input_sha256": "26a659d63c339edabfca5ca1b582dcf148652fd584d86f4ae7c51e304f3c02ce",
+      "stdout_sha256": "d5b3da0884889f3c1bf333e5a4efaf6273bc7ff2ed761825f4e4d04521ee4477",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 4,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 0
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 0
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "LB",
+      "model": "SC",
+      "command": [
+        "herd7",
+        "-model",
+        "sc.cat",
+        "-show",
+        "none",
+        "tests/oracle/LB.litmus"
+      ],
+      "input_sha256": "f4e5e26934e102337faae7899d8f10e649b956f8573751a241b8101e10d7e6ba",
+      "dsl_input_sha256": "a356cd90aa49ad30019350b9bcd10844750fa78cc8609f9aa411a44fcc16ceb4",
+      "stdout_sha256": "78c59b97ef753253757f7f01a5e31a6d8cfdaf49b557a39d69981757e7c2627b",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 3,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 0
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 0
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "LB",
+      "model": "TSO",
+      "command": [
+        "herd7",
+        "-model",
+        "x86tso.cat",
+        "-show",
+        "none",
+        "tests/oracle/LB.litmus"
+      ],
+      "input_sha256": "f4e5e26934e102337faae7899d8f10e649b956f8573751a241b8101e10d7e6ba",
+      "dsl_input_sha256": "a356cd90aa49ad30019350b9bcd10844750fa78cc8609f9aa411a44fcc16ceb4",
+      "stdout_sha256": "78c59b97ef753253757f7f01a5e31a6d8cfdaf49b557a39d69981757e7c2627b",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 3,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 0
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 0
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "MP",
+      "model": "SC",
+      "command": [
+        "herd7",
+        "-model",
+        "sc.cat",
+        "-show",
+        "none",
+        "tests/oracle/MP.litmus"
+      ],
+      "input_sha256": "723a98158d73979d4e4e98c4c1de9384388f772a187da01d42eea85c99db7b3e",
+      "dsl_input_sha256": "2714c67447abace72b6f21c2a06fbf68e411f7425bacd6a1fc05e2fd5da13b99",
+      "stdout_sha256": "ae8d25d2dba1b903dfceb7fbc5ccfcc51b1b797b1faec6e5a5817f8faf344041",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 3,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 1,
+              "r1": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "MP",
+      "model": "TSO",
+      "command": [
+        "herd7",
+        "-model",
+        "x86tso.cat",
+        "-show",
+        "none",
+        "tests/oracle/MP.litmus"
+      ],
+      "input_sha256": "723a98158d73979d4e4e98c4c1de9384388f772a187da01d42eea85c99db7b3e",
+      "dsl_input_sha256": "2714c67447abace72b6f21c2a06fbf68e411f7425bacd6a1fc05e2fd5da13b99",
+      "stdout_sha256": "ae8d25d2dba1b903dfceb7fbc5ccfcc51b1b797b1faec6e5a5817f8faf344041",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 3,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 1,
+              "r1": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "fence",
+      "model": "SC",
+      "command": [
+        "herd7",
+        "-model",
+        "sc.cat",
+        "-show",
+        "none",
+        "tests/oracle/fence.litmus"
+      ],
+      "input_sha256": "303615b7577a9c87ed0ab2dbec3c993895167634f671e90cf82c6c18e0259b5b",
+      "dsl_input_sha256": "f09d285f4602ce4a605a464a183d945c7230f4b6caec010ff751084dd2f893c2",
+      "stdout_sha256": "84d583d15830f136cad8fa24df1c1fa7747aa3822116f3a7776af36af5cb6c0a",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 3,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 0
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "fence",
+      "model": "TSO",
+      "command": [
+        "herd7",
+        "-model",
+        "x86tso.cat",
+        "-show",
+        "none",
+        "tests/oracle/fence.litmus"
+      ],
+      "input_sha256": "303615b7577a9c87ed0ab2dbec3c993895167634f671e90cf82c6c18e0259b5b",
+      "dsl_input_sha256": "f09d285f4602ce4a605a464a183d945c7230f4b6caec010ff751084dd2f893c2",
+      "stdout_sha256": "84d583d15830f136cad8fa24df1c1fa7747aa3822116f3a7776af36af5cb6c0a",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 3,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 0
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 1,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "FIFO",
+      "model": "SC",
+      "command": [
+        "herd7",
+        "-model",
+        "sc.cat",
+        "-show",
+        "none",
+        "tests/oracle/FIFO.litmus"
+      ],
+      "input_sha256": "fcf9858066703adfa34736982414541e75d625c1474e2d2c7bc9f75987917816",
+      "dsl_input_sha256": "26d663163ccdc7642b9eea61ddd318e0d980be60198ab98718d1cdecd962a95d",
+      "stdout_sha256": "6637e62d59a00a7e91bb9af518e395dac6ffe334f19bc1d99158cfe63855805b",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 6,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 2
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 1,
+              "r1": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 1,
+              "r1": 2
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 2,
+              "r1": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "FIFO",
+      "model": "TSO",
+      "command": [
+        "herd7",
+        "-model",
+        "x86tso.cat",
+        "-show",
+        "none",
+        "tests/oracle/FIFO.litmus"
+      ],
+      "input_sha256": "fcf9858066703adfa34736982414541e75d625c1474e2d2c7bc9f75987917816",
+      "dsl_input_sha256": "26d663163ccdc7642b9eea61ddd318e0d980be60198ab98718d1cdecd962a95d",
+      "stdout_sha256": "6637e62d59a00a7e91bb9af518e395dac6ffe334f19bc1d99158cfe63855805b",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 6,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 0,
+              "r1": 2
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 1,
+              "r1": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 1,
+              "r1": 2
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2
+          },
+          "registers": {
+            "P0": {},
+            "P1": {
+              "r0": 2,
+              "r1": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "forwarding",
+      "model": "SC",
+      "command": [
+        "herd7",
+        "-model",
+        "sc.cat",
+        "-show",
+        "none",
+        "tests/oracle/forwarding.litmus"
+      ],
+      "input_sha256": "a1c33920d21e1b9e1fccc39ddedec1d31e0afb3d0a66280c0209931a32f66247",
+      "dsl_input_sha256": "4636d571d9d61d391924646881d761f308aadd13ed9f00a65bf5fe29f06c7f0a",
+      "stdout_sha256": "2164cccc429587c486b20be41c02e169c2e0988b8c6bfb147baebb365fe11145",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 4,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 0
+            },
+            "P1": {
+              "r0": 2
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 1
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 1
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 1
+            },
+            "P1": {
+              "r0": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "forwarding",
+      "model": "TSO",
+      "command": [
+        "herd7",
+        "-model",
+        "x86tso.cat",
+        "-show",
+        "none",
+        "tests/oracle/forwarding.litmus"
+      ],
+      "input_sha256": "a1c33920d21e1b9e1fccc39ddedec1d31e0afb3d0a66280c0209931a32f66247",
+      "dsl_input_sha256": "4636d571d9d61d391924646881d761f308aadd13ed9f00a65bf5fe29f06c7f0a",
+      "stdout_sha256": "12c1a5e4311ed8f3b096cff277bf618ae7c0ccbebd51ceb5f064851fe37a68e9",
+      "returncode": 0,
+      "complete": true,
+      "state_count": 6,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 0
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 0
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 0
+            },
+            "P1": {
+              "r0": 2
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 1
+            },
+            "P1": {
+              "r0": 0
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 1
+            },
+            "P1": {
+              "r0": 1
+            }
+          }
+        },
+        {
+          "memory": {
+            "x": 2,
+            "y": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 2,
+              "r1": 1
+            },
+            "P1": {
+              "r0": 2
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

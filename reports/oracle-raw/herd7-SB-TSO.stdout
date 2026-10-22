@@ -1,0 +1,14 @@
+Test LL_SB Allowed
+States 4
+0:EAX=0; 1:EAX=0; [x]=1; [y]=1;
+0:EAX=0; 1:EAX=1; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=0; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=1; [x]=1; [y]=1;
+No
+Witnesses
+Positive: 0 Negative: 4
+Condition exists ([x]=0)
+Observation LL_SB Never 0 4
+Time LL_SB 0.00
+Hash=1312b5c124ccb51c6f7c86144b299ec2
+

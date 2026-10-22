@@ -1,0 +1,30 @@
+The following actions will be performed:
+=== recompile 1 package
+  ↻ herdtools7 7.58
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><>  🐫 
+⬇ retrieved herdtools7.7.58  (cached)
+[ERROR] The compilation of herdtools7.7.58 failed at "make build PREFIX=/Users/cjy/Documents/ChatGPT/\233\187\145\229\174\162\230\157\190\230\150\176\233\161\185\231\155\174/projects/litmuslab/.tools/oracle/opam/litmus-oracle".
+
+#=== ERROR while compiling herdtools7.7.58 ====================================#
+# context              2.6.1 | macos/arm64 | ocaml-base-compiler.4.14.2 | https://opam.ocaml.org#1e58433fa2f64930a3c434cf1401568cf5047283
+# path                 ~/Documents/ChatGPT/黑客松新项目/projects/litmuslab/.tools/oracle/opam/litmus-oracle/.opam-switch/build/herdtools7.7.58
+# command              /usr/bin/make build PREFIX=/Users/cjy/Documents/ChatGPT/黑客松新项目/projects/litmuslab/.tools/oracle/opam/litmus-oracle
+# exit-code            2
+# env-file             ~/Documents/ChatGPT/黑客松新项目/projects/litmuslab/.tools/oracle/opam/log/herdtools7-36467-df42eb.env
+# output-file          ~/Documents/ChatGPT/黑客松新项目/projects/litmuslab/.tools/oracle/opam/log/herdtools7-36467-df42eb.out
+### output ###
+# sysctl: sysctl fmt -1 1024 1: Operation not permitted
+# dune: option '-j' needs an argument
+# Usage: dune build [OPTION]… [TARGET]…
+# Try 'dune build --help' or 'dune --help' for more information.
+# make: *** [just-build] Error 1
+
+
+
+<><> Error report <><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  🐫 
+┌─ The following actions failed
+│ λ build herdtools7 7.58
+└─ 
+╶─ No changes have been performed
+# To update the current shell environment, run: eval $(opam env)

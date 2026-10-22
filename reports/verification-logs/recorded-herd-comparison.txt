@@ -1,0 +1,13 @@
+$ node tools/oracle-compare.mjs
+SB           SC: PASS (herd=3, engine=3, complete)
+SB           TSO: PASS (herd=4, engine=4, complete)
+LB           SC: PASS (herd=3, engine=3, complete)
+LB           TSO: PASS (herd=3, engine=3, complete)
+MP           SC: PASS (herd=3, engine=3, complete)
+MP           TSO: PASS (herd=3, engine=3, complete)
+fence        SC: PASS (herd=3, engine=3, complete)
+fence        TSO: PASS (herd=3, engine=3, complete)
+FIFO         SC: PASS (herd=6, engine=6, complete)
+FIFO         TSO: PASS (herd=6, engine=6, complete)
+forwarding   SC: PASS (herd=4, engine=4, complete)
+forwarding   TSO: PASS (herd=6, engine=6, complete)

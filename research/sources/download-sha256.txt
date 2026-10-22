@@ -1,0 +1,5 @@
+3e7f67bda3ba0bf72f597917b17dc337ed5a1bd48224df8b747bb35ce05c569e  .tools/oracle/bin/opam
+a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898  .tools/oracle/gmp-6.3.0.tar.xz
+cd05c9589b9f86ecf044c10a2269822bc9eb001eced2582cfffd658b0a50c243  .tools/oracle/pkgconf-2.5.1.tar.xz
+1b72798457e678dec781ce914c4bd84dc6bae3c3c044cf4257d0974bf7f066ad  .tools/oracle/herdtools7-7.58.tar.gz
+fb520ce6a50959c7d7bf4b11e04248b1c4c1a1c448f7dd68e6d7474e35182e3b  .tools/oracle/moonctl.tar.gz

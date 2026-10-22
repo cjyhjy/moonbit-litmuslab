@@ -1,0 +1,16 @@
+Test LL_forwarding Allowed
+States 6
+0:EAX=2; 0:EBX=0; 1:EAX=0; [x]=2; [y]=1;
+0:EAX=2; 0:EBX=0; 1:EAX=1; [x]=2; [y]=1;
+0:EAX=2; 0:EBX=0; 1:EAX=2; [x]=2; [y]=1;
+0:EAX=2; 0:EBX=1; 1:EAX=0; [x]=2; [y]=1;
+0:EAX=2; 0:EBX=1; 1:EAX=1; [x]=2; [y]=1;
+0:EAX=2; 0:EBX=1; 1:EAX=2; [x]=2; [y]=1;
+No
+Witnesses
+Positive: 0 Negative: 6
+Condition exists ([x]=0)
+Observation LL_forwarding Never 0 6
+Time LL_forwarding 0.00
+Hash=e304291aca659957ac77d667e607e794
+

@@ -1,0 +1,12 @@
+{
+  "source_url": "https://codeload.github.com/herd/herdtools7/tar.gz/refs/tags/7.58",
+  "source_tag": "7.58",
+  "source_commit": "1ca343e16a2038e406d1ac674e7e3a1b722b36c7",
+  "archive_sha256": "1b72798457e678dec781ce914c4bd84dc6bae3c3c044cf4257d0974bf7f066ad",
+  "archive_sha512": "a8acfafe1b95867f50cfac41ec5f5d46f10a14babe3c6a34fcb412b89cbeb163de539f19a7f35690cf4ba1420480b0aaa17a7f4429f8482a810b1405bc224f94",
+  "matches_official_opam_sha512": true,
+  "build": "dune build --root . -j 4 --profile release herd/herd.exe",
+  "metadata_only_adjustment": "Generated Version.ml directly with verified source archive revision and local library path to avoid inheriting unrelated ancestor Git metadata. No simulator or model semantic changes.",
+  "binary_sha256": "3b488c77af0a7ac75bacf91f1a51172cce9454fe1591c398662b03f28728e15b",
+  "final_log": "reports/oracle-raw/herd7-bootstrap-final.log"
+}

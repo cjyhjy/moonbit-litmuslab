@@ -1,0 +1,148 @@
+{
+  "formatVersion": 1,
+  "date": "2026-10-22T15:36:49.914Z",
+  "tool": "Installed Tabbit CLI with Playwright assertions",
+  "source": "Actual local browser connected to compiled MoonBit engine through Web Worker; no mocked model logic",
+  "page": "http://127.0.0.1:4173/",
+  "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+  "passed": 18,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "example store-buffering",
+      "expectedRows": 4,
+      "passed": true
+    },
+    {
+      "name": "example load-buffering",
+      "expectedRows": 3,
+      "passed": true
+    },
+    {
+      "name": "example message-passing",
+      "expectedRows": 3,
+      "passed": true
+    },
+    {
+      "name": "example store-buffering-fence",
+      "expectedRows": 3,
+      "passed": true
+    },
+    {
+      "name": "example fifo",
+      "expectedRows": 3,
+      "passed": true
+    },
+    {
+      "name": "example forwarding",
+      "expectedRows": 3,
+      "passed": true
+    },
+    {
+      "name": "incomplete unknown outcome is not labeled forbidden",
+      "passed": true
+    },
+    {
+      "name": "DFS completes with SC3 TSO4",
+      "passed": true
+    },
+    {
+      "name": "unknown address error locates line 3",
+      "passed": true
+    },
+    {
+      "name": "Ctrl+Enter runs analysis",
+      "passed": true
+    },
+    {
+      "name": "keyboard slider advances into buffered store",
+      "passed": true
+    },
+    {
+      "name": "terminal replay retains 0/0 registers and drains buffers to memory 1/1",
+      "passed": true
+    },
+    {
+      "name": "cancel terminates worker, clears conclusions, restarts engine",
+      "passed": true,
+      "requestId": "cancel-and-layout"
+    },
+    {
+      "name": "analysis works after cancellation",
+      "passed": true,
+      "requestId": "cancel-and-layout"
+    },
+    {
+      "name": "no horizontal overflow at viewport 320",
+      "passed": true,
+      "viewport": 320,
+      "documentWidth": 305,
+      "requestId": "cancel-and-layout"
+    },
+    {
+      "name": "no horizontal overflow at viewport 390",
+      "passed": true,
+      "viewport": 390,
+      "documentWidth": 375,
+      "requestId": "cancel-and-layout"
+    },
+    {
+      "name": "no horizontal overflow at viewport 768",
+      "passed": true,
+      "viewport": 768,
+      "documentWidth": 753,
+      "requestId": "cancel-and-layout"
+    },
+    {
+      "name": "no horizontal overflow at viewport 1248",
+      "passed": true,
+      "viewport": 1248,
+      "documentWidth": 1233,
+      "requestId": "cancel-and-layout"
+    }
+  ],
+  "pageErrors": [],
+  "viewports": [
+    320,
+    390,
+    768,
+    1248
+  ],
+  "screenshots": [
+    {
+      "path": "reports/screenshots/desktop.png",
+      "width": 1233,
+      "height": 1546,
+      "sha256": "fab59b660e64c4be621b3b9b84bf9d418be49a5979224cf8eedb36f1082a848f",
+      "visuallyInspected": true
+    },
+    {
+      "path": "reports/screenshots/mobile-390.png",
+      "width": 390,
+      "height": 900,
+      "sha256": "e3e4cbe97abbe516cc1fae20db379d70b54e6206b77fa2084e4a4ea79476fec4",
+      "visuallyInspected": true
+    }
+  ],
+  "repairedFindings": [
+    {
+      "requestId": "ui-coverage",
+      "finding": "390px layout initially overflowed by 3px",
+      "repair": "Use minmax(0,1fr), min-width:0 and wrap metric cards",
+      "verification": "mobile-fixed and cancel-and-layout passed at all listed widths"
+    }
+  ],
+  "limits": [
+    "Screenshots document browser UI, not real hardware behavior.",
+    "Browser page retained; local preview stopped after verification."
+  ],
+  "requests": [
+    "open-local",
+    "sb-analysis",
+    "ui-coverage",
+    "inspect-narrow",
+    "mobile-fixed",
+    "cancel-and-layout",
+    "final-functional-record"
+  ]
+}

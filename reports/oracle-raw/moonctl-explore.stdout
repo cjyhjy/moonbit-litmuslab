@@ -1,0 +1,5 @@
+small budget: incomplete StateBudgetReached states=2 edges=1
+full graph: holds=false states=4
+  new
+  --charge--> charged_once
+  --retry_without_idempotency--> charged_twice

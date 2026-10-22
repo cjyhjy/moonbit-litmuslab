@@ -1,0 +1,13 @@
+Test LL_MP Allowed
+States 3
+1:EAX=0; 1:EBX=0; [x]=1; [y]=1;
+1:EAX=0; 1:EBX=1; [x]=1; [y]=1;
+1:EAX=1; 1:EBX=1; [x]=1; [y]=1;
+No
+Witnesses
+Positive: 0 Negative: 3
+Condition exists ([x]=0)
+Observation LL_MP Never 0 3
+Time LL_MP 0.00
+Hash=edeab4c1dca324b2ca7e093ac9adbee8
+

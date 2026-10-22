@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "kind": "external-oracle-full-outcome-set-comparison",
+  "run_at": "2026-10-22T15:38:22.651Z",
+  "oracle_version": "7.58, Rev: 1ca343e16a2038e406d1ac674e7e3a1b722b36c7 (source archive)",
+  "oracle_report_sha256": "6a106a669cc85819a4705e775b6c1578d8c96da4faf2a0121fad6e3342f0de86",
+  "engine_sha256": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+  "raw_engine_sha256": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af",
+  "command": "node tools/oracle-compare.mjs",
+  "cases": 12,
+  "passed": 12,
+  "all_matched": true,
+  "runs": [
+    {
+      "case": "SB",
+      "model": "SC",
+      "source_sha256": "26a659d63c339edabfca5ca1b582dcf148652fd584d86f4ae7c51e304f3c02ce",
+      "engine_status": "complete",
+      "expected_count": 3,
+      "actual_count": 3,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "SB",
+      "model": "TSO",
+      "source_sha256": "26a659d63c339edabfca5ca1b582dcf148652fd584d86f4ae7c51e304f3c02ce",
+      "engine_status": "complete",
+      "expected_count": 4,
+      "actual_count": 4,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "LB",
+      "model": "SC",
+      "source_sha256": "a356cd90aa49ad30019350b9bcd10844750fa78cc8609f9aa411a44fcc16ceb4",
+      "engine_status": "complete",
+      "expected_count": 3,
+      "actual_count": 3,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "LB",
+      "model": "TSO",
+      "source_sha256": "a356cd90aa49ad30019350b9bcd10844750fa78cc8609f9aa411a44fcc16ceb4",
+      "engine_status": "complete",
+      "expected_count": 3,
+      "actual_count": 3,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "MP",
+      "model": "SC",
+      "source_sha256": "2714c67447abace72b6f21c2a06fbf68e411f7425bacd6a1fc05e2fd5da13b99",
+      "engine_status": "complete",
+      "expected_count": 3,
+      "actual_count": 3,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "MP",
+      "model": "TSO",
+      "source_sha256": "2714c67447abace72b6f21c2a06fbf68e411f7425bacd6a1fc05e2fd5da13b99",
+      "engine_status": "complete",
+      "expected_count": 3,
+      "actual_count": 3,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "fence",
+      "model": "SC",
+      "source_sha256": "f09d285f4602ce4a605a464a183d945c7230f4b6caec010ff751084dd2f893c2",
+      "engine_status": "complete",
+      "expected_count": 3,
+      "actual_count": 3,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "fence",
+      "model": "TSO",
+      "source_sha256": "f09d285f4602ce4a605a464a183d945c7230f4b6caec010ff751084dd2f893c2",
+      "engine_status": "complete",
+      "expected_count": 3,
+      "actual_count": 3,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "FIFO",
+      "model": "SC",
+      "source_sha256": "26d663163ccdc7642b9eea61ddd318e0d980be60198ab98718d1cdecd962a95d",
+      "engine_status": "complete",
+      "expected_count": 6,
+      "actual_count": 6,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "FIFO",
+      "model": "TSO",
+      "source_sha256": "26d663163ccdc7642b9eea61ddd318e0d980be60198ab98718d1cdecd962a95d",
+      "engine_status": "complete",
+      "expected_count": 6,
+      "actual_count": 6,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "forwarding",
+      "model": "SC",
+      "source_sha256": "4636d571d9d61d391924646881d761f308aadd13ed9f00a65bf5fe29f06c7f0a",
+      "engine_status": "complete",
+      "expected_count": 4,
+      "actual_count": 4,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "case": "forwarding",
+      "model": "TSO",
+      "source_sha256": "4636d571d9d61d391924646881d761f308aadd13ed9f00a65bf5fe29f06c7f0a",
+      "engine_status": "complete",
+      "expected_count": 6,
+      "actual_count": 6,
+      "matched": true,
+      "missing": [],
+      "unexpected": []
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "synthetic-resource-stress",
+  "passed": true,
+  "command": [
+    "node",
+    "tools/stress.mjs"
+  ],
+  "model": "TSO",
+  "strategy": "dfs",
+  "threads": 4,
+  "instructionsPerThread": 16,
+  "limit": 100000,
+  "status": "incomplete",
+  "reason": "max_states",
+  "stats": {
+    "visitedStates": 100000,
+    "expandedStates": 99786,
+    "transitions": 367860,
+    "outcomes": 6
+  },
+  "elapsedMilliseconds": 459.161292,
+  "maxRssKiB": 248032,
+  "node": "v26.7.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "scope": "one finite synthetic stress case; not a performance guarantee"
+}

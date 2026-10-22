@@ -1,0 +1,16 @@
+Test LL_FIFO Allowed
+States 6
+1:EAX=0; 1:EBX=0; [x]=2;
+1:EAX=0; 1:EBX=1; [x]=2;
+1:EAX=0; 1:EBX=2; [x]=2;
+1:EAX=1; 1:EBX=1; [x]=2;
+1:EAX=1; 1:EBX=2; [x]=2;
+1:EAX=2; 1:EBX=2; [x]=2;
+No
+Witnesses
+Positive: 0 Negative: 6
+Condition exists ([x]=0)
+Observation LL_FIFO Never 0 6
+Time LL_FIFO 0.00
+Hash=6c7b3749323468e9535e7c2013d36ac6
+

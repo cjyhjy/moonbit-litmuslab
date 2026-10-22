@@ -1,0 +1,149 @@
+{
+  "sha": "78d658b7434649b43e755e765462494690a072af",
+  "node_id": "C_kwDOUaTXR9oAKDc4ZDY1OGI3NDM0NjQ5YjQzZTc1NWU3NjU0NjI0OTQ2OTBhMDcyYWY",
+  "commit": {
+    "author": {
+      "name": "mizchi",
+      "email": "miz404@gmail.com",
+      "date": "2026-09-15T18:28:42Z"
+    },
+    "committer": {
+      "name": "mizchi",
+      "email": "miz404@gmail.com",
+      "date": "2026-09-15T18:28:42Z"
+    },
+    "message": "release: prepare mizchi/veri 0.2.0",
+    "tree": {
+      "sha": "a2709cc273bb401c661f314c34b9dde933d83071",
+      "url": "https://api.github.com/repos/mizchi/veri/git/trees/a2709cc273bb401c661f314c34b9dde933d83071"
+    },
+    "url": "https://api.github.com/repos/mizchi/veri/git/commits/78d658b7434649b43e755e765462494690a072af",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/mizchi/veri/commits/78d658b7434649b43e755e765462494690a072af",
+  "html_url": "https://github.com/mizchi/veri/commit/78d658b7434649b43e755e765462494690a072af",
+  "comments_url": "https://api.github.com/repos/mizchi/veri/commits/78d658b7434649b43e755e765462494690a072af/comments",
+  "author": {
+    "login": "mizchi",
+    "id": 73962,
+    "node_id": "MDQ6VXNlcjczOTYy",
+    "avatar_url": "https://avatars.githubusercontent.com/u/73962?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mizchi",
+    "html_url": "https://github.com/mizchi",
+    "followers_url": "https://api.github.com/users/mizchi/followers",
+    "following_url": "https://api.github.com/users/mizchi/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mizchi/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mizchi/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mizchi/subscriptions",
+    "organizations_url": "https://api.github.com/users/mizchi/orgs",
+    "repos_url": "https://api.github.com/users/mizchi/repos",
+    "events_url": "https://api.github.com/users/mizchi/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mizchi/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "mizchi",
+    "id": 73962,
+    "node_id": "MDQ6VXNlcjczOTYy",
+    "avatar_url": "https://avatars.githubusercontent.com/u/73962?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mizchi",
+    "html_url": "https://github.com/mizchi",
+    "followers_url": "https://api.github.com/users/mizchi/followers",
+    "following_url": "https://api.github.com/users/mizchi/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mizchi/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mizchi/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mizchi/subscriptions",
+    "organizations_url": "https://api.github.com/users/mizchi/orgs",
+    "repos_url": "https://api.github.com/users/mizchi/repos",
+    "events_url": "https://api.github.com/users/mizchi/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mizchi/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "f9d1b4b317bf9a75df3d8bc51425c22c958233c7",
+      "url": "https://api.github.com/repos/mizchi/veri/commits/f9d1b4b317bf9a75df3d8bc51425c22c958233c7",
+      "html_url": "https://github.com/mizchi/veri/commit/f9d1b4b317bf9a75df3d8bc51425c22c958233c7"
+    }
+  ],
+  "stats": {
+    "total": 10,
+    "additions": 5,
+    "deletions": 5
+  },
+  "files": [
+    {
+      "sha": "fb7eb7460f2a71477d87698f15b15f0ef9bb4492",
+      "filename": "examples/moon.mod",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/mizchi/veri/blob/78d658b7434649b43e755e765462494690a072af/examples%2Fmoon.mod",
+      "raw_url": "https://github.com/mizchi/veri/raw/78d658b7434649b43e755e765462494690a072af/examples%2Fmoon.mod",
+      "contents_url": "https://api.github.com/repos/mizchi/veri/contents/examples%2Fmoon.mod?ref=78d658b7434649b43e755e765462494690a072af",
+      "patch": "@@ -3,6 +3,6 @@ name = \"mizchi/veri-examples\"\n version = \"0.1.0\"\n \n import {\n-  \"mizchi/veri@0.1.0\",\n+  \"mizchi/veri@0.2.0\",\n   \"moonbitlang/async@0.21.3\",\n }"
+    },
+    {
+      "sha": "5d54e6621dccaeb9f7fd709d324851bb10d9dcec",
+      "filename": "moon.mod",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/mizchi/veri/blob/78d658b7434649b43e755e765462494690a072af/moon.mod",
+      "raw_url": "https://github.com/mizchi/veri/raw/78d658b7434649b43e755e765462494690a072af/moon.mod",
+      "contents_url": "https://api.github.com/repos/mizchi/veri/contents/moon.mod?ref=78d658b7434649b43e755e765462494690a072af",
+      "patch": "@@ -1,6 +1,6 @@\n name = \"mizchi/veri\"\n \n-version = \"0.1.0\"\n+version = \"0.2.0\"\n \n readme = \"README.md\"\n "
+    },
+    {
+      "sha": "a5b7074dc3622932e5e8937ddbeff5fd87595160",
+      "filename": "tools/check-array-capabilities.mjs",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/mizchi/veri/blob/78d658b7434649b43e755e765462494690a072af/tools%2Fcheck-array-capabilities.mjs",
+      "raw_url": "https://github.com/mizchi/veri/raw/78d658b7434649b43e755e765462494690a072af/tools%2Fcheck-array-capabilities.mjs",
+      "contents_url": "https://api.github.com/repos/mizchi/veri/contents/tools%2Fcheck-array-capabilities.mjs?ref=78d658b7434649b43e755e765462494690a072af",
+      "patch": "@@ -18,7 +18,7 @@ for (const probe of probes) {\n   const directory = mkdtempSync(join(tmpdir(), \"veri-array-capability-\"));\n   try {\n     const source = readFileSync(new URL(`../checks/capabilities/${probe.name}.mbt.txt`, import.meta.url), \"utf8\");\n-    writeFileSync(join(directory, \"moon.mod\"), 'name = \"mizchi/array-capability\"\\nimport { \"mizchi/veri@0.1.0\" }\\n');\n+    writeFileSync(join(directory, \"moon.mod\"), 'name = \"mizchi/array-capability\"\\nimport { \"mizchi/veri@0.2.0\" }\\n');\n     writeFileSync(join(directory, \"moon.work\"), 'members = [\".\", ' + JSON.stringify(fileURLToPath(new URL(\"../\", import.meta.url))) + ']\\n');\n     writeFileSync(join(directory, \"moon.pkg\"), (probe.imports.length ? `import { ${probe.imports.join(\", \")} }\\n` : \"\") + 'options(\"proof-enabled\": true)\\n');\n     writeFileSync(join(directory, \"probe.mbt\"), source);"
+    },
+    {
+      "sha": "da87dccaf3e21c818219ca95cf1e66cebb9af94f",
+      "filename": "tools/check-graph-capabilities.mjs",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/mizchi/veri/blob/78d658b7434649b43e755e765462494690a072af/tools%2Fcheck-graph-capabilities.mjs",
+      "raw_url": "https://github.com/mizchi/veri/raw/78d658b7434649b43e755e765462494690a072af/tools%2Fcheck-graph-capabilities.mjs",
+      "contents_url": "https://api.github.com/repos/mizchi/veri/contents/tools%2Fcheck-graph-capabilities.mjs?ref=78d658b7434649b43e755e765462494690a072af",
+      "patch": "@@ -39,7 +39,7 @@ for (const [name, parameter, expression, postcondition, expected] of probes) {\n `;\n   const imports = '\"mizchi/veri/runtime/graph\"';\n   try {\n-    writeFileSync(join(directory, \"moon.mod\"), 'name = \"mizchi/graph-capability\"\\nimport { \"mizchi/veri@0.1.0\" }\\n');\n+    writeFileSync(join(directory, \"moon.mod\"), 'name = \"mizchi/graph-capability\"\\nimport { \"mizchi/veri@0.2.0\" }\\n');\n     writeFileSync(join(directory, \"moon.work\"), 'members = [\".\", ' + JSON.stringify(fileURLToPath(new URL(\"../\", import.meta.url))) + ']\\n');\n     writeFileSync(join(directory, \"moon.pkg\"), `import { ${imports} }\\noptions(\"proof-enabled\": true)\\n`);\n     writeFileSync(join(directory, \"probe.mbt\"), source);"
+    },
+    {
+      "sha": "d40acb27b888d60b86b8670f4d11b93a12135800",
+      "filename": "tools/check-negative.mjs",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/mizchi/veri/blob/78d658b7434649b43e755e765462494690a072af/tools%2Fcheck-negative.mjs",
+      "raw_url": "https://github.com/mizchi/veri/raw/78d658b7434649b43e755e765462494690a072af/tools%2Fcheck-negative.mjs",
+      "contents_url": "https://api.github.com/repos/mizchi/veri/contents/tools%2Fcheck-negative.mjs?ref=78d658b7434649b43e755e765462494690a072af",
+      "patch": "@@ -35,7 +35,7 @@ for (const check of checks) {\n     for (const entry of readdirSync(source, {withFileTypes: true})) {\n       if (entry.isFile()) copyFileSync(new URL(entry.name, source), join(directory, entry.name));\n     }\n-    writeFileSync(join(directory, \"moon.mod\"), 'name = \"mizchi/veri-negative\"\\nimport { \"mizchi/veri@0.1.0\" }\\n');\n+    writeFileSync(join(directory, \"moon.mod\"), 'name = \"mizchi/veri-negative\"\\nimport { \"mizchi/veri@0.2.0\" }\\n');\n     writeFileSync(join(directory, \"moon.work\"), 'members = [\".\", ' +\n       JSON.stringify(fileURLToPath(new URL(\"../\", import.meta.url))) + ']\\n');\n     const sourceName = check.fixture.endsWith('.mbt.txt') ? \"negative.mbt\" : \"negative.mbtp\";"
+    }
+  ]
+}

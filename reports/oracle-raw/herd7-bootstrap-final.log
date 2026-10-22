@@ -1,0 +1,10 @@
+2.6.1
+[NOTE] Package conf-which is already installed (current version is 1).
+[NOTE] Package conf-pkg-config is already installed (current version is 5).
+[NOTE] Package conf-gmp is already installed (current version is 5).
+[NOTE] Package zarith is already installed (current version is 1.14).
+[NOTE] Package ocamlfind is already installed (current version is 1.9.8).
+[NOTE] Package menhir is already installed (current version is 20260209).
+[NOTE] Package dune is already installed (current version is 3.24.2).
+/Users/cjy/Documents/ChatGPT/黑客松新项目/projects/litmuslab/.tools/oracle/herdtools7-7.58.tar.gz: OK
+7.58, Rev: 1ca343e16a2038e406d1ac674e7e3a1b722b36c7 (source archive)

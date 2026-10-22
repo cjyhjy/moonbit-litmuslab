@@ -1,0 +1,45 @@
+2.6.1
+The following actions will be performed:
+=== install 12 packages
+  ∗ conf-gmp        5        [required by zarith]
+  ∗ conf-pkg-config 5        [required by zarith]
+  ∗ conf-which      1        [required by herdtools7]
+  ∗ dune            3.24.2   [required by herdtools7]
+  ∗ herdtools7      7.58
+  ∗ menhir          20260209 [required by herdtools7]
+  ∗ menhirCST       20260209 [required by menhir]
+  ∗ menhirGLR       20260209 [required by menhir]
+  ∗ menhirLib       20260209 [required by menhir]
+  ∗ menhirSdk       20260209 [required by menhir]
+  ∗ ocamlfind       1.9.8    [required by zarith]
+  ∗ zarith          1.14     [required by herdtools7]
+
+The following system packages will first need to be installed:
+    gmp pkgconf
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><>  🐫 
+∗ installed conf-which.1
+⬇ retrieved conf-gmp.5  (https://opam.ocaml.org/cache)
+⬇ retrieved conf-pkg-config.5  (2 extra sources)
+⬇ retrieved conf-pkg-config.5  (2 extra sources)
+∗ installed conf-pkg-config.5
+[NOTE] Requirement for system package pkgconf overridden in this switch. Use `opam option 'depext-bypass-="pkgconf"'` to revert.
+∗ installed conf-gmp.5
+[NOTE] Requirement for system package gmp overridden in this switch. Use `opam option 'depext-bypass-="gmp"'` to revert.
+⬇ retrieved dune.3.24.2  (https://opam.ocaml.org/cache)
+⬇ retrieved menhir.20260209, menhirCST.20260209, menhirGLR.20260209, menhirLib.20260209, menhirSdk.20260209  (https://opam.ocaml.org/cache)
+⬇ retrieved herdtools7.7.58  (https://opam.ocaml.org/cache)
+⬇ retrieved ocamlfind.1.9.8  (https://opam.ocaml.org/cache)
+⬇ retrieved zarith.1.14  (https://opam.ocaml.org/cache)
+∗ installed ocamlfind.1.9.8
+∗ installed zarith.1.14
+∗ installed dune.3.24.2
+∗ installed menhirCST.20260209
+∗ installed menhirSdk.20260209
+∗ installed menhirLib.20260209
+∗ installed menhirGLR.20260209
+∗ installed menhir.20260209
+∗ installed herdtools7.7.58
+Done.
+# To update the current shell environment, run: eval $(opam env)
+7.58, Rev: 265ea9fd9be38a501d700274424cb3f94d74e471

@@ -1,0 +1,1 @@
+{"formula":"AG !double_charge","report":{"schema_version":1,"holds":false,"state_count":4,"satisfying_count":1,"satisfying_states":[false,false,false,true],"trace_role":"counterexample","trace":[{"state":"new","via":null},{"state":"charged_once","via":"charge"},{"state":"charged_twice","via":"retry_without_idempotency"}],"loop_start":null}}

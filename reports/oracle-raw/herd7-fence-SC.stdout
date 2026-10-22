@@ -1,0 +1,13 @@
+Test LL_fence Allowed
+States 3
+0:EAX=0; 1:EAX=1; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=0; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=1; [x]=1; [y]=1;
+No
+Witnesses
+Positive: 0 Negative: 3
+Condition exists ([x]=0)
+Observation LL_fence Never 0 3
+Time LL_fence 0.00
+Hash=49c4f047f1da2155ff89e896a49a640e
+

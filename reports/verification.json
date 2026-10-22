@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "project": "LitmusLab",
+  "version": "0.1.0",
+  "verifiedAt": "2026-10-22T15:41:45.663734+00:00",
+  "status": "passed",
+  "scope": "Local finite SC/TSO implementation and reproducible artifact; no hardware experiment or publication claim",
+  "platform": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.9.6",
+    "node": "v26.7.0",
+    "moon": [
+      "moon 0.1.20261012 (748b63c 2026-10-12) ~/Documents/ChatGPT/黑客松新项目/projects/litmuslab/.tools/moon/bin/moon",
+      "moonc v0.10.15+943464bfa (2026-10-12) ~/Documents/ChatGPT/黑客松新项目/projects/litmuslab/.tools/moon/bin/moonc",
+      "moonrun 0.1.20261012 (748b63c 2026-10-12) ~/Documents/ChatGPT/黑客松新项目/projects/litmuslab/.tools/moon/bin/moonrun",
+      "",
+      "Feature flags enabled: rr_moon_mod,rr_moon_pkg"
+    ]
+  },
+  "checks": [
+    {
+      "name": "moon-check-js",
+      "command": [
+        "./tools/moon",
+        "check",
+        "--target",
+        "js"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.049,
+      "log": "reports/verification-logs/moon-check-js.txt"
+    },
+    {
+      "name": "moon-test-js",
+      "command": [
+        "./tools/moon",
+        "test",
+        "--target",
+        "js"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.162,
+      "log": "reports/verification-logs/moon-test-js.txt"
+    },
+    {
+      "name": "moon-test-native",
+      "command": [
+        "./tools/moon",
+        "test",
+        "--target",
+        "native"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.044,
+      "log": "reports/verification-logs/moon-test-native.txt"
+    },
+    {
+      "name": "moon-test-wasm-gc",
+      "command": [
+        "./tools/moon",
+        "test",
+        "--target",
+        "wasm-gc"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.038,
+      "log": "reports/verification-logs/moon-test-wasm-gc.txt"
+    },
+    {
+      "name": "build-js",
+      "command": [
+        "sh",
+        "tools/build.sh"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.03,
+      "log": "reports/verification-logs/build-js.txt"
+    },
+    {
+      "name": "reference-unit-tests",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_reference.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.052,
+      "log": "reports/verification-logs/reference-unit-tests.txt"
+    },
+    {
+      "name": "crosscheck",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "tools/crosscheck.py"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 1.752,
+      "log": "reports/verification-logs/crosscheck.txt"
+    },
+    {
+      "name": "upper-state-budget",
+      "command": [
+        "node",
+        "tools/stress.mjs"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.496,
+      "log": "reports/verification-logs/upper-state-budget.txt"
+    },
+    {
+      "name": "interfaces",
+      "command": [
+        "node",
+        "tools/check-interfaces.mjs"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 1.998,
+      "log": "reports/verification-logs/interfaces.txt"
+    },
+    {
+      "name": "recorded-herd-comparison",
+      "command": [
+        "node",
+        "tools/oracle-compare.mjs"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.037,
+      "log": "reports/verification-logs/recorded-herd-comparison.txt"
+    },
+    {
+      "name": "live-herd7",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "tools/oracle-run.py"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.12,
+      "log": "reports/verification-logs/live-herd7.txt"
+    },
+    {
+      "name": "fresh-herd-comparison",
+      "command": [
+        "node",
+        "tools/oracle-compare.mjs"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.038,
+      "log": "reports/verification-logs/fresh-herd-comparison.txt"
+    },
+    {
+      "name": "live-moonctl",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "tools/oracle-moonctl.py"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.204,
+      "log": "reports/verification-logs/live-moonctl.txt"
+    }
+  ],
+  "moonbitTests": {
+    "js": {
+      "total": 12,
+      "passed": 12,
+      "failed": 0
+    },
+    "native": {
+      "total": 12,
+      "passed": 12,
+      "failed": 0
+    },
+    "wasm-gc": {
+      "total": 12,
+      "passed": 12,
+      "failed": 0
+    }
+  },
+  "independentCrosscheck": {
+    "status": "passed",
+    "programs": 584,
+    "modelStrategyComparisons": 2336,
+    "distinctPrograms": 578,
+    "exhaustivePrograms": 441,
+    "randomPrograms": 128,
+    "witnessesIndependentlyReplayed": 3418,
+    "boundaryChecks": 89,
+    "engineCalls": 9358,
+    "hostTypeChecks": 74,
+    "resourceChecks": 2,
+    "elapsedSeconds": 1.704,
+    "evidence": "reports/crosscheck.json",
+    "externalOracle": false
+  },
+  "externalOracle": {
+    "tool": "herd7",
+    "version": "7.58, Rev: 1ca343e16a2038e406d1ac674e7e3a1b722b36c7 (source archive)",
+    "passed": 12,
+    "cases": 12,
+    "allMatched": true,
+    "evidence": "reports/oracle-comparison.json",
+    "realHardware": false
+  },
+  "neighbor": {
+    "tool": "MoonCTL",
+    "version": "0.2.0",
+    "allRunsMatched": true,
+    "upstreamTests": 29,
+    "evidence": "reports/oracle-moonctl.json",
+    "memoryModelOracle": false
+  },
+  "interfaces": {
+    "passed": 70,
+    "failed": 0,
+    "evidence": "reports/interfaces.json"
+  },
+  "browser": {
+    "passed": 18,
+    "failed": 0,
+    "viewports": [
+      320,
+      390,
+      768,
+      1248
+    ],
+    "evidence": "reports/browser.json",
+    "hashes": {
+      "web/app.mjs": "a5b939a316afb4906fbced059a89063b5f9739f96433653012f74a1a13b11fcd",
+      "web/engine-worker.mjs": "7be69e46cb15055c2e5846e6b5637b0566d6f85dcbded83208ea1a5a05fd9ce6",
+      "web/index.html": "03f47a31429afd5a5b02af0e6fd8d3d4927802d6ac1c163f2e00258bfe16e240",
+      "web/style.css": "4bd0833ef53cb122b86d38032a87881da7bef130298455b15816e4f59a5cd72a"
+    }
+  },
+  "cleanCopy": {
+    "status": "passed",
+    "method": "Extract ZIP in a fresh directory, verify every manifest hash, run CLI/reference/oracle comparison, rebuild all MoonBit project sources, compare generated JS byte-for-byte",
+    "compiler": "Pinned project-local external toolchain; no build cache is included in the ZIP",
+    "finalArchiveAttestation": "release/acceptance.json (outside the ZIP, binds the exact final archive SHA-256)",
+    "checksPassed": 11
+  },
+  "hashes": {
+    "core/json.mbt": "e1f100770aa5737c43fbdba0acccd3e7eb26f8c0fd3225395c5eb6f6f209bbf3",
+    "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
+    "core/replay.mbt": "252f0941cadd1a3c0957770fd67f8aa62b0c22157002cef1e0bacaad23982534",
+    "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+    "core/semantics.mbt": "a31feea1cee009db406796e13125a4e4fcdd7673154bff157aef66ca6b65cc67",
+    "core/semantics_wbtest.mbt": "ddfdf4465bdb610df3c716341a70a4d00e62bdc7b392f98324642eed5fc10993",
+    "core/types.mbt": "711567c2bb56cc84558e4cd1b229722190f1f22eef6c0f2a67ff7559654885e1",
+    "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+    "dist/engine.raw.mjs": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af"
+  },
+  "resolvedIssues": [
+    "JavaScript NaN/fraction/string budget bypass blocked by public FFI wrapper",
+    "CLI non-regular FIFO input opened nonblocking and rejected",
+    "390px UI horizontal overflow fixed",
+    "herd7 source archive inherited unrelated ancestor Git revision; final verified source metadata generated explicitly"
+  ],
+  "notTested": [
+    "Linux and Windows execution",
+    "GitHub-hosted CI execution",
+    "Real CPU hardware outcomes",
+    "Full x86, ARM, RISC-V, C/C++ memory models",
+    "Formal proof for every supported program"
+  ],
+  "publication": {
+    "githubPushed": false,
+    "mooncakesPublished": false,
+    "hostedWebsite": false,
+    "contestSubmitted": false,
+    "identityDeclarationMade": false
+  },
+  "archive": {
+    "path": "release/LitmusLab-0.1.0.zip",
+    "checksums": "release/SHA256SUMS",
+    "excludes": [
+      ".tools",
+      "_build",
+      ".acceptance",
+      "node_modules",
+      "release",
+      ".git"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+.tools/
+_build/
+node_modules/
+release/
+__pycache__/
+.DS_Store
+
+.acceptance/

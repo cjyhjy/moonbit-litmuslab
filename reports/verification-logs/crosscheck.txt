@@ -1,0 +1,20 @@
+$ /Library/Developer/CommandLineTools/usr/bin/python3 tools/crosscheck.py
+checked 100 programs; failures=0
+checked 200 programs; failures=0
+checked 300 programs; failures=0
+checked 400 programs; failures=0
+checked 500 programs; failures=0
+{
+  "status": "passed",
+  "programs": 584,
+  "modelStrategyComparisons": 2336,
+  "distinctPrograms": 578,
+  "exhaustivePrograms": 441,
+  "randomPrograms": 128,
+  "witnessesIndependentlyReplayed": 3418,
+  "boundaryChecks": 89,
+  "engineCalls": 9358,
+  "hostTypeChecks": 74,
+  "resourceChecks": 2,
+  "elapsedSeconds": 1.704
+}

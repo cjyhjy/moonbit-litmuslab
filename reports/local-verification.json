@@ -1,0 +1,177 @@
+{
+  "generatedAt": "2026-10-22T15:38:17.830318+00:00",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "status": "passed",
+  "liveOracleRequested": true,
+  "checks": [
+    {
+      "name": "moon-check-js",
+      "command": [
+        "./tools/moon",
+        "check",
+        "--target",
+        "js"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.049,
+      "log": "reports/verification-logs/moon-check-js.txt"
+    },
+    {
+      "name": "moon-test-js",
+      "command": [
+        "./tools/moon",
+        "test",
+        "--target",
+        "js"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.162,
+      "log": "reports/verification-logs/moon-test-js.txt"
+    },
+    {
+      "name": "moon-test-native",
+      "command": [
+        "./tools/moon",
+        "test",
+        "--target",
+        "native"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.044,
+      "log": "reports/verification-logs/moon-test-native.txt"
+    },
+    {
+      "name": "moon-test-wasm-gc",
+      "command": [
+        "./tools/moon",
+        "test",
+        "--target",
+        "wasm-gc"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.038,
+      "log": "reports/verification-logs/moon-test-wasm-gc.txt"
+    },
+    {
+      "name": "build-js",
+      "command": [
+        "sh",
+        "tools/build.sh"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.03,
+      "log": "reports/verification-logs/build-js.txt"
+    },
+    {
+      "name": "reference-unit-tests",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_reference.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.052,
+      "log": "reports/verification-logs/reference-unit-tests.txt"
+    },
+    {
+      "name": "crosscheck",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "tools/crosscheck.py"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 1.752,
+      "log": "reports/verification-logs/crosscheck.txt"
+    },
+    {
+      "name": "upper-state-budget",
+      "command": [
+        "node",
+        "tools/stress.mjs"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.496,
+      "log": "reports/verification-logs/upper-state-budget.txt"
+    },
+    {
+      "name": "interfaces",
+      "command": [
+        "node",
+        "tools/check-interfaces.mjs"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 1.998,
+      "log": "reports/verification-logs/interfaces.txt"
+    },
+    {
+      "name": "recorded-herd-comparison",
+      "command": [
+        "node",
+        "tools/oracle-compare.mjs"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.037,
+      "log": "reports/verification-logs/recorded-herd-comparison.txt"
+    },
+    {
+      "name": "live-herd7",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "tools/oracle-run.py"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.12,
+      "log": "reports/verification-logs/live-herd7.txt"
+    },
+    {
+      "name": "fresh-herd-comparison",
+      "command": [
+        "node",
+        "tools/oracle-compare.mjs"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.038,
+      "log": "reports/verification-logs/fresh-herd-comparison.txt"
+    },
+    {
+      "name": "live-moonctl",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "tools/oracle-moonctl.py"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.204,
+      "log": "reports/verification-logs/live-moonctl.txt"
+    }
+  ],
+  "hashes": {
+    "core/json.mbt": "e1f100770aa5737c43fbdba0acccd3e7eb26f8c0fd3225395c5eb6f6f209bbf3",
+    "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
+    "core/replay.mbt": "252f0941cadd1a3c0957770fd67f8aa62b0c22157002cef1e0bacaad23982534",
+    "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+    "core/semantics.mbt": "a31feea1cee009db406796e13125a4e4fcdd7673154bff157aef66ca6b65cc67",
+    "core/semantics_wbtest.mbt": "ddfdf4465bdb610df3c716341a70a4d00e62bdc7b392f98324642eed5fc10993",
+    "core/types.mbt": "711567c2bb56cc84558e4cd1b229722190f1f22eef6c0f2a67ff7559654885e1",
+    "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+    "dist/engine.raw.mjs": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af"
+  }
+}

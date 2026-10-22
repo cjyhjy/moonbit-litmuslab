@@ -1,0 +1,61 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0 8957k    0 65536    0     0  27540      0  0:05:33  0:00:02  0:05:31  119k  6 8957k    6  607k    0     0   176k      0  0:00:50  0:00:03  0:00:47  381k 12 8957k   12 1103k    0     0   252k      0  0:00:35  0:00:04  0:00:31  436k 46 8957k   46 4141k    0     0   771k      0  0:00:11  0:00:05  0:00:06 1174k 92 8957k   92 8301k    0     0  1301k      0  0:00:06  0:00:06 --:--:-- 1830k100 8957k  100 8957k    0     0  1375k      0  0:00:06  0:00:06 --:--:-- 2153k
+2.6.1
+No configuration file found, using built-in defaults.
+Checking for available remotes: rsync and local, git.
+  - you won't be able to use mercurial repositories unless you install the hg command on your system.
+  - you won't be able to use darcs repositories unless you install the darcs command on your system.
+
+
+<><> Fetching repository information ><><><><><><><><><><><><><><><><><><><>  🐫 
+[default] Initialised
+
+<><> Installing new switch packages <><><><><><><><><><><><><><><><><><><><>  🐫 
+Switch invariant: ["ocaml-base-compiler" {= "4.14.2"}]
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><>  🐫 
+∗ installed base-bigarray.base
+∗ installed base-threads.base
+∗ installed base-unix.base
+∗ installed ocaml-options-vanilla.1
+⬇ retrieved ocaml-config.2  (2 extra sources)
+⬇ retrieved ocaml-config.2  (2 extra sources)
+⬇ retrieved ocaml-base-compiler.4.14.2  (https://opam.ocaml.org/cache)
+∗ installed ocaml-base-compiler.4.14.2
+∗ installed ocaml-config.2
+∗ installed ocaml.4.14.2
+Done.
+# To update the current shell environment, run: eval $(opam env --switch=litmus-oracle)
+The following actions will be performed:
+=== install 12 packages
+  ∗ conf-gmp        5        [required by zarith]
+  ∗ conf-pkg-config 5        [required by zarith]
+  ∗ conf-which      1        [required by herdtools7]
+  ∗ dune            3.24.2   [required by herdtools7]
+  ∗ herdtools7      7.58
+  ∗ menhir          20260209 [required by herdtools7]
+  ∗ menhirCST       20260209 [required by menhir]
+  ∗ menhirGLR       20260209 [required by menhir]
+  ∗ menhirLib       20260209 [required by menhir]
+  ∗ menhirSdk       20260209 [required by menhir]
+  ∗ ocamlfind       1.9.8    [required by zarith]
+  ∗ zarith          1.14     [required by herdtools7]
+
+The following system packages will first need to be installed:
+    gmp pkgconf
+
+<><> Handling external dependencies <><><><><><><><><><><><><><><><><><><><>  🐫 
+
+opam believes some required external dependencies are missing. opam can:
+> 1. Run brew to install them (may need root/sudo access)
+  2. Display the recommended brew command and wait while you run it manually (e.g. in another terminal)
+  3. Continue anyway, and, upon success, permanently register that this external dependency is present, but not detectable
+  4. Abort the installation
+
+[1/2/3/4] 4
+
+[NOTE] You can retry with '--assume-depexts' to skip this check, or run 'opam option depext=false' to permanently disable handling of system packages.
+       Running the system package manager non-interactively requires '--confirm-level=unsafe-yes'.
+
