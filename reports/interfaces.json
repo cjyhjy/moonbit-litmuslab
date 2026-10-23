@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "source": "Local configuration validation, CLI and loopback server checks; no external oracle claims.",
-  "started": "2026-10-23T15:49:56.310Z",
-  "finished": "2026-10-23T15:49:58.235Z",
+  "started": "2026-10-23T15:58:31.959Z",
+  "finished": "2026-10-23T15:58:33.913Z",
   "command": "node tools/check-interfaces.mjs",
   "evidence": {
     "algorithm": "sha256-path-nul-hash-newline-v1",
-    "digest": "c1cc5281614747ea5ffff219220a961f12b194cd83429e6342de471c69c7a5ff",
+    "digest": "dd115c3db770c9b59cd9ff102e334be1edd6f77c58a28ef95180a65083c44b1c",
     "files": {
       "bin/litmuslab.mjs": "c8ba870d71dbfb74e6c90b36a7596c01d27f63594b5d7b1b6c594505a533172f",
       "core/experiments.mbt": "45d5f827a68e57629abbe7fb572fcccfe40902a01059b3f5f8421bdfc3ffc06a",
@@ -38,7 +38,7 @@
       "tools/evidence.py": "d6ebea48705c526572a0b076a8a1262d8875776c164a17aa6801d06400b9a273",
       "tools/moon": "36c3942b693e5d8ce1cfffd09d328eff14659646a84a24d74cbfc9a88b99eb3f",
       "tools/serve.mjs": "6f5ac5722a409acedcd795c80cebb626b60ef0cfb4b4f9a0426865bc5d236adf",
-      "web/app.mjs": "fde0ff442ba68a7703dc7eb815fe6d2261ae86401c1c87d23e16cf3d36beac60",
+      "web/app.mjs": "695b0d1844104fae612d98d921e035cf611d9d52eaa4a9601a410635ee7a2f0c",
       "web/engine-worker.mjs": "c1de2de8271f6ca90ea0434fed9752c3904d13f8ce16ec63b5b82e495844402e",
       "web/experiment.mjs": "1322763b058d077fb4351ba6407d9bb14fc7c596c8325fa0956b917d846dfe67",
       "web/index.html": "cb849e724e90f305af5d43d32a08ae6e29efb7abd75ac1656f71ba420bab42bd",

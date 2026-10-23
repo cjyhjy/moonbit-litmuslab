@@ -3,7 +3,7 @@
   "kind": "external-oracle-full-outcome-set-comparison",
   "evidence": {
     "algorithm": "sha256-path-nul-hash-newline-v1",
-    "digest": "d0d21f01ce3fe5aad6209cdf5f2eb7049657728cdea5f27be34537fa98d747b7",
+    "digest": "83c87e58ab3421ff67deabacb9dd92c0fa05b39afe3b0970e207c66f8c79e379",
     "files": {
       "core/experiments.mbt": "45d5f827a68e57629abbe7fb572fcccfe40902a01059b3f5f8421bdfc3ffc06a",
       "core/experiments_wbtest.mbt": "e90041c5d93b7afa53d38d84778c60dcbae1f46ca44f11c2db0a5d34328894aa",
@@ -20,7 +20,7 @@
       "dist/engine.raw.mjs": "f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1",
       "moon.mod": "9bed3fa3653d81e98fd99d731bd87cf65597ca48e59d69af4b3196f955f38f7b",
       "package.json": "c6911584eb03c590de41964b9230e3a6331530f5347b32f04c5e03f8e4fe02ab",
-      "reports/oracle-herd7.json": "34fe113ff47c1ad0c9bb2b47b8ba48f167beb7a4379995b0f6c03083503c675a",
+      "reports/oracle-herd7.json": "2b7c3d041c31ac991f5765db9c51166efc6b47f79c8cda25816f4433f23bbc5a",
       "research/sources/herd-sc.cat": "fdca7a72f4c015a9763b339ddfda789a44c2f569cb64cb84e44143406eab3dd1",
       "research/sources/herd-x86tso.cat": "c3858187ba502010e8dfe50e262daf828ac49b150be38032f719e0baf644a3a3",
       "tests/oracle/FIFO.litmus": "fcf9858066703adfa34736982414541e75d625c1474e2d2c7bc9f75987917816",
@@ -47,9 +47,9 @@
     "profile": "oracle",
     "schemaVersion": 1
   },
-  "run_at": "2026-10-23T15:49:58.461Z",
+  "run_at": "2026-10-23T15:58:34.139Z",
   "oracle_version": "7.58, Rev: 1ca343e16a2038e406d1ac674e7e3a1b722b36c7 (source archive)",
-  "oracle_report_sha256": "34fe113ff47c1ad0c9bb2b47b8ba48f167beb7a4379995b0f6c03083503c675a",
+  "oracle_report_sha256": "2b7c3d041c31ac991f5765db9c51166efc6b47f79c8cda25816f4433f23bbc5a",
   "engine_sha256": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
   "raw_engine_sha256": "f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1",
   "command": "node tools/oracle-compare.mjs",

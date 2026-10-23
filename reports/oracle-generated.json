@@ -126,7 +126,7 @@
       "tools/oracle-run.py": "b5a58b13ba547ca5860e1b844355895ab56716150281e3587ef4084a6517e2a2"
     }
   },
-  "run_at": "2026-10-23T15:50:03.110904+00:00",
+  "run_at": "2026-10-23T15:58:38.762090+00:00",
   "seed": 20261022,
   "oracle_version": "7.58, Rev: 1ca343e16a2038e406d1ac674e7e3a1b722b36c7 (source archive)",
   "oracle_binary_sha256": "3b488c77af0a7ac75bacf91f1a51172cce9454fe1591c398662b03f28728e15b",
@@ -5927,7 +5927,7 @@
         "tests/oracle-generated/g07_overwrite_t4.litmus"
       ],
       "returncode": 0,
-      "stdout_sha256": "c9e450ee20ba9e3f7f71dbe9a15fe0632de4ef3e83c83c9035ec19e64fe7d453",
+      "stdout_sha256": "916feeeb770f674ad63f3ed0bb5274ec4e6c56b74a5b1ee4eb3666d0ebd1e10c",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "raw_stdout": "reports/oracle-generated-raw/g07_overwrite_t4-TSO.stdout",
       "raw_stderr": "reports/oracle-generated-raw/g07_overwrite_t4-TSO.stderr",
@@ -6437,7 +6437,7 @@
         "tests/oracle-generated/g10_negative_t3.litmus"
       ],
       "returncode": 0,
-      "stdout_sha256": "59a9fabc0ab0d46926a23037731a2ecd1f6bf91c7fa1a3b8e1f1e52730c3a1ef",
+      "stdout_sha256": "3b1234aee838849a704a3d4aee45a0b5b3e1df31bc96b196d92eebb99074cffd",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "raw_stdout": "reports/oracle-generated-raw/g10_negative_t3-SC.stdout",
       "raw_stderr": "reports/oracle-generated-raw/g10_negative_t3-SC.stderr",
@@ -6717,7 +6717,7 @@
         "tests/oracle-generated/g11_negative_t4.litmus"
       ],
       "returncode": 0,
-      "stdout_sha256": "20e81f21d6bd5592500c695c0bc6f10538fe07b7fb1937512b8a105da60513c2",
+      "stdout_sha256": "2646bf1e470e7b690fa3782af3a2ee009623cbb16052d1f630774d2b60cb5d03",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "raw_stdout": "reports/oracle-generated-raw/g11_negative_t4-SC.stdout",
       "raw_stderr": "reports/oracle-generated-raw/g11_negative_t4-SC.stderr",
@@ -16349,7 +16349,7 @@
         "tests/oracle-generated/g11_negative_t4.litmus"
       ],
       "returncode": 0,
-      "stdout_sha256": "0bffb66565e390c3f40a2ff2b5f5897239e9dc59e3ebc7c9648237536a1bdc82",
+      "stdout_sha256": "e1e39da07a5819da6150f873023b42b914f90913359a08650a8405890c9e686a",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "raw_stdout": "reports/oracle-generated-raw/g11_negative_t4-TSO.stdout",
       "raw_stderr": "reports/oracle-generated-raw/g11_negative_t4-TSO.stderr",
@@ -30848,7 +30848,7 @@
         "tests/oracle-generated/g30_forwarding_t3.litmus"
       ],
       "returncode": 0,
-      "stdout_sha256": "80114b82b55aa23ee96b4ecfe043427f18235c0e558f0b96b44ddfe8ba21b7a9",
+      "stdout_sha256": "b596defe2922ae4c5a5aa8890ab78456c72f5428e5cc99c223c81139d331d31b",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "raw_stdout": "reports/oracle-generated-raw/g30_forwarding_t3-SC.stdout",
       "raw_stderr": "reports/oracle-generated-raw/g30_forwarding_t3-SC.stderr",
@@ -32427,7 +32427,7 @@
         "tests/oracle-generated/g30_forwarding_t3.litmus"
       ],
       "returncode": 0,
-      "stdout_sha256": "d552a14b0b443e438e47b77972da52c5d2cb27e0c4aa46e995d678c223372a50",
+      "stdout_sha256": "844eb8b312a1e8df9c42cf84826c72e4aff0430748f882b67cb42d92ef94a932",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "raw_stdout": "reports/oracle-generated-raw/g30_forwarding_t3-TSO.stdout",
       "raw_stderr": "reports/oracle-generated-raw/g30_forwarding_t3-TSO.stderr",

@@ -40,7 +40,7 @@ Store Buffering 完整结果为 SC 3 种、TSO 4 种；TSO 多出双读零。只
 | MoonCTL 近邻 | 上游 29/29 与三个示例；它不是内存模型 oracle |
 | 查询与屏障独立检查 | 1,733/1,733；独立 Python 参考、映射重放、宿主边界及 CLI；`reports/experiments.json` |
 | CLI / loopback HTTP | 104/104；`reports/interfaces.json` |
-| 真实浏览器 | 43/43；`reports/browser-optimization.json`，含三模式、配置往返、竞态及 4 种宽度 |
+| 真实浏览器 | 44/44；`reports/browser-optimization.json`，含三模式、配置往返、竞态及 4 种宽度 |
 | 固定负载性能 | 各 5 次；完整分析输出相同，见 `reports/performance.json` |
 | 干净解包 | 16/16；ZIP 外 `release/acceptance.json`，含 wrapper/raw 与重建前后查询、屏障 API |
 

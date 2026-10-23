@@ -1,13 +1,13 @@
 {
   "formatVersion": 1,
   "projectVersion": "0.3.0",
-  "started": "2026-10-23T15:48:50.097Z",
-  "finished": "2026-10-23T15:48:53.556Z",
+  "started": "2026-10-23T15:58:19.758Z",
+  "finished": "2026-10-23T15:58:23.062Z",
   "command": "node tools/browser-qa.mjs",
   "tool": "Installed Tabbit CLI / Playwright",
   "evidence": {
     "algorithm": "sha256-path-nul-hash-newline-v1",
-    "digest": "9997cb0ca9e7b6c4cefee91b1acde4308350905bca9d4fdf9ef3ac76bc9fe4e3",
+    "digest": "a8460fa557cfa5d5d2baba57b9e210e742c057685c29ecec02e63a2bd278db1b",
     "files": {
       "bin/litmuslab.mjs": "c8ba870d71dbfb74e6c90b36a7596c01d27f63594b5d7b1b6c594505a533172f",
       "core/experiments.mbt": "45d5f827a68e57629abbe7fb572fcccfe40902a01059b3f5f8421bdfc3ffc06a",
@@ -33,13 +33,13 @@
       "moon.mod": "9bed3fa3653d81e98fd99d731bd87cf65597ca48e59d69af4b3196f955f38f7b",
       "package.json": "c6911584eb03c590de41964b9230e3a6331530f5347b32f04c5e03f8e4fe02ab",
       "toolchain.lock.json": "472026cb4fbd405c9f6ad98bbb15a0fab9d4e7f1a576807ae39f96777c3312a0",
-      "tools/browser-qa.mjs": "a7d4e6db55a833aa2374fb20c1f2447d031b717fca188abd65e08b4b6985b75c",
+      "tools/browser-qa.mjs": "f8783ef95bb62df50cd9b4e2a1a88876b2cdf53481d949d69dfed271e6510ca7",
       "tools/build.sh": "96889b2ba8e53c27857f7abb15bae27c5566fe413cb92d55b9153db32fb154f8",
       "tools/engine-wrapper.mjs": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
       "tools/evidence.py": "d6ebea48705c526572a0b076a8a1262d8875776c164a17aa6801d06400b9a273",
       "tools/moon": "36c3942b693e5d8ce1cfffd09d328eff14659646a84a24d74cbfc9a88b99eb3f",
       "tools/serve.mjs": "6f5ac5722a409acedcd795c80cebb626b60ef0cfb4b4f9a0426865bc5d236adf",
-      "web/app.mjs": "fde0ff442ba68a7703dc7eb815fe6d2261ae86401c1c87d23e16cf3d36beac60",
+      "web/app.mjs": "695b0d1844104fae612d98d921e035cf611d9d52eaa4a9601a410635ee7a2f0c",
       "web/engine-worker.mjs": "c1de2de8271f6ca90ea0434fed9752c3904d13f8ce16ec63b5b82e495844402e",
       "web/experiment.mjs": "1322763b058d077fb4351ba6407d9bb14fc7c596c8325fa0956b917d846dfe67",
       "web/index.html": "cb849e724e90f305af5d43d32a08ae6e29efb7abd75ac1656f71ba420bab42bd",
@@ -50,7 +50,7 @@
   },
   "evidenceAfter": {
     "algorithm": "sha256-path-nul-hash-newline-v1",
-    "digest": "9997cb0ca9e7b6c4cefee91b1acde4308350905bca9d4fdf9ef3ac76bc9fe4e3",
+    "digest": "a8460fa557cfa5d5d2baba57b9e210e742c057685c29ecec02e63a2bd278db1b",
     "files": {
       "bin/litmuslab.mjs": "c8ba870d71dbfb74e6c90b36a7596c01d27f63594b5d7b1b6c594505a533172f",
       "core/experiments.mbt": "45d5f827a68e57629abbe7fb572fcccfe40902a01059b3f5f8421bdfc3ffc06a",
@@ -76,13 +76,13 @@
       "moon.mod": "9bed3fa3653d81e98fd99d731bd87cf65597ca48e59d69af4b3196f955f38f7b",
       "package.json": "c6911584eb03c590de41964b9230e3a6331530f5347b32f04c5e03f8e4fe02ab",
       "toolchain.lock.json": "472026cb4fbd405c9f6ad98bbb15a0fab9d4e7f1a576807ae39f96777c3312a0",
-      "tools/browser-qa.mjs": "a7d4e6db55a833aa2374fb20c1f2447d031b717fca188abd65e08b4b6985b75c",
+      "tools/browser-qa.mjs": "f8783ef95bb62df50cd9b4e2a1a88876b2cdf53481d949d69dfed271e6510ca7",
       "tools/build.sh": "96889b2ba8e53c27857f7abb15bae27c5566fe413cb92d55b9153db32fb154f8",
       "tools/engine-wrapper.mjs": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
       "tools/evidence.py": "d6ebea48705c526572a0b076a8a1262d8875776c164a17aa6801d06400b9a273",
       "tools/moon": "36c3942b693e5d8ce1cfffd09d328eff14659646a84a24d74cbfc9a88b99eb3f",
       "tools/serve.mjs": "6f5ac5722a409acedcd795c80cebb626b60ef0cfb4b4f9a0426865bc5d236adf",
-      "web/app.mjs": "fde0ff442ba68a7703dc7eb815fe6d2261ae86401c1c87d23e16cf3d36beac60",
+      "web/app.mjs": "695b0d1844104fae612d98d921e035cf611d9d52eaa4a9601a410635ee7a2f0c",
       "web/engine-worker.mjs": "c1de2de8271f6ca90ea0434fed9752c3904d13f8ce16ec63b5b82e495844402e",
       "web/experiment.mjs": "1322763b058d077fb4351ba6407d9bb14fc7c596c8325fa0956b917d846dfe67",
       "web/index.html": "cb849e724e90f305af5d43d32a08ae6e29efb7abd75ac1656f71ba420bab42bd",
@@ -92,7 +92,7 @@
     "schemaVersion": 1
   },
   "source": "Real compiled MoonBit Worker. Network responses only delayed for race tests; model results never mocked.",
-  "passed": 43,
+  "passed": 44,
   "failed": 0,
   "checks": [
     {
@@ -152,6 +152,11 @@
     },
     {
       "name": "valid import restores configuration without trusting old results",
+      "passed": true,
+      "requestId": "import-validation"
+    },
+    {
+      "name": "completed run keeps neutral import facts without stale not-run prompts",
       "passed": true,
       "requestId": "import-validation"
     },
@@ -366,9 +371,9 @@
       "path": "reports/screenshots/optimization-desktop.png",
       "width": 1233,
       "height": 2003,
-      "sha256": "bd97d8ba6211cb7755e312257e1594fa61680fdb1483eb008e30f6f02e47bdfb",
+      "sha256": "cf5c4ea6cf024126074016af4a6a2e7b0b54087373423169c1d2fe4231b32e1e",
       "visuallyInspected": true,
-      "inspection": "Opened screenshot with view_image; Chinese text, verdicts, before/after sections, replay controls and FIFO/memory remain readable without clipping or overlap."
+      "inspection": "Opened with view_image. Text, verdicts, comparison sections, replay controls and FIFO/memory remain readable without overlap or clipping."
     },
     {
       "path": "reports/screenshots/optimization-mobile-390.png",
@@ -376,7 +381,7 @@
       "height": 900,
       "sha256": "6f94eafd8a6c2f79ea9ce8cafdceecdda8f565e09caddbf377eae28a003966e4",
       "visuallyInspected": true,
-      "inspection": "Opened screenshot with view_image; Chinese text, verdicts, before/after sections, replay controls and FIFO/memory remain readable without clipping or overlap."
+      "inspection": "Opened with view_image. Text, verdicts, comparison sections, replay controls and FIFO/memory remain readable without overlap or clipping."
     }
   ],
   "downloads": {
@@ -397,7 +402,7 @@
       768,
       1248
     ],
-    "desktop": "Full-page 1248 px: source/configuration and SC/TSO comparison cards align, target verdict and ordered-witness explanation are distinct.",
-    "mobile": "390 px replay viewport: navigation, effect, thread state and shared memory are readable; horizontal overflow assertions also passed at 320 and 768 px."
+    "desktop": "Full-page screenshot inspected: left column describes neutral import facts and no longer says not run or results need recalculation beside completed comparison and replay.",
+    "mobile": "390 px replay screenshot inspected: controls, thread state and shared memory remain readable. Horizontal overflow assertions also passed at 320 and 768 px."
   }
 }

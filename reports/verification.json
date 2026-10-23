@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "project": "LitmusLab",
   "version": "0.3.0",
-  "verifiedAt": "2026-10-23T15:55:15.107791+00:00",
+  "verifiedAt": "2026-10-23T15:59:28.638727+00:00",
   "status": "passed",
   "scope": "Current finite SC/TSO inputs and clean source tree; exact final ZIP requires the external attestation",
   "platform": {
@@ -27,7 +27,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.067,
+      "elapsedSeconds": 0.053,
       "log": "verification-logs/build-js.txt",
       "outputs": []
     },
@@ -53,7 +53,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.078,
+      "elapsedSeconds": 0.024,
       "log": "verification-logs/moon-check-js.txt",
       "outputs": []
     },
@@ -68,7 +68,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.019,
+      "elapsedSeconds": 0.022,
       "log": "verification-logs/moon-build-js.txt",
       "outputs": []
     },
@@ -82,7 +82,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.19,
+      "elapsedSeconds": 0.077,
       "log": "verification-logs/moon-test-js.txt",
       "outputs": []
     },
@@ -96,7 +96,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.072,
+      "elapsedSeconds": 0.02,
       "log": "verification-logs/moon-check-native.txt",
       "outputs": []
     },
@@ -112,7 +112,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.038,
+      "elapsedSeconds": 0.036,
       "log": "verification-logs/moon-build-native-test-executable.txt",
       "outputs": []
     },
@@ -126,7 +126,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.741,
+      "elapsedSeconds": 0.04,
       "log": "verification-logs/moon-test-native.txt",
       "outputs": []
     },
@@ -140,7 +140,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.071,
+      "elapsedSeconds": 0.022,
       "log": "verification-logs/moon-check-wasm-gc.txt",
       "outputs": []
     },
@@ -155,7 +155,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.105,
+      "elapsedSeconds": 0.025,
       "log": "verification-logs/moon-build-wasm-gc.txt",
       "outputs": []
     },
@@ -169,7 +169,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.065,
+      "elapsedSeconds": 0.069,
       "log": "verification-logs/moon-test-wasm-gc.txt",
       "outputs": []
     },
@@ -188,7 +188,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.257,
+      "elapsedSeconds": 0.253,
       "log": "verification-logs/reference-unit-tests.txt",
       "outputs": []
     },
@@ -200,16 +200,16 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 1.536,
+      "elapsedSeconds": 1.616,
       "log": "verification-logs/crosscheck.txt",
       "outputs": [
         {
           "path": "crosscheck.json",
-          "sha256": "0c51b89faddcd145a69377a4a09d75cbe11936c6abb565daa357cf6650feefe6"
+          "sha256": "f5fc95f722e6c2ef948a05c4d4eeb1872de2e2a996952b68f3a9e0e2650f4e76"
         },
         {
           "path": "crosscheck.md",
-          "sha256": "45e30f74b3c03c784d830960debe35152edf61ea61d600adb9603781dc134665"
+          "sha256": "1e221c0fc6ad32cbb23ddf69679285086d34391e8f4680ce3d2d821b8e05f56c"
         }
       ]
     },
@@ -221,12 +221,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.344,
+      "elapsedSeconds": 0.5,
       "log": "verification-logs/upper-state-budget.txt",
       "outputs": [
         {
           "path": "resource-stress.json",
-          "sha256": "ee7835e7070154ec2a272bc3dd09adce4210134f387d6f8f98369f3d0ad0d76d"
+          "sha256": "007789cc884b614ff13f603f3526fb3a116c0c7683f010dcd102974b0eb9a880"
         }
       ]
     },
@@ -238,12 +238,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 1.963,
+      "elapsedSeconds": 1.994,
       "log": "verification-logs/interfaces.txt",
       "outputs": [
         {
           "path": "interfaces.json",
-          "sha256": "3150d71c7adc746629931ffff9a3e9e3e7751a5d9a72b905124689430bc08fee"
+          "sha256": "87e795593c71259393e63f45c81d80d215fba78adb187ef1ff0c3eee1e4eacfe"
         }
       ]
     },
@@ -255,12 +255,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.134,
+      "elapsedSeconds": 0.137,
       "log": "verification-logs/live-herd7.txt",
       "outputs": [
         {
           "path": "oracle-herd7.json",
-          "sha256": "34fe113ff47c1ad0c9bb2b47b8ba48f167beb7a4379995b0f6c03083503c675a"
+          "sha256": "2b7c3d041c31ac991f5765db9c51166efc6b47f79c8cda25816f4433f23bbc5a"
         }
       ]
     },
@@ -272,12 +272,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.093,
+      "elapsedSeconds": 0.09,
       "log": "verification-logs/fresh-herd-comparison.txt",
       "outputs": [
         {
           "path": "oracle-comparison.json",
-          "sha256": "afcc99edc4cb15887523c71752c6d048146eaef93b7ce5db1a26f039ba0d4cab"
+          "sha256": "12a538b9c703fb8c3bda9ee87609f0232b0827a9ac31bb6378cadaee2671d345"
         }
       ]
     },
@@ -289,12 +289,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 4.673,
+      "elapsedSeconds": 4.646,
       "log": "verification-logs/generated-herd-comparison.txt",
       "outputs": [
         {
           "path": "oracle-generated.json",
-          "sha256": "e9d92e2bbf134b1284036b6a990e03b48ab5a31f957c17c8474fbb23b0b4d3fd"
+          "sha256": "ba364de9c0944392992399a3747aa939b0f92afc94b5e8fba8adb7b5596262e5"
         }
       ]
     },
@@ -306,12 +306,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.199,
+      "elapsedSeconds": 0.202,
       "log": "verification-logs/live-moonctl.txt",
       "outputs": [
         {
           "path": "oracle-moonctl.json",
-          "sha256": "84d33b57d6b41c1b1d9b3a16fc5589208a9153ce9c930364d7fe0552a115cc58"
+          "sha256": "cc9614a8541cf48ef412fbc528845fe9e2e476ddd5232e7e04892b856fa49b0a"
         }
       ]
     },
@@ -323,12 +323,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.987,
+      "elapsedSeconds": 0.991,
       "log": "verification-logs/experiments.txt",
       "outputs": [
         {
           "path": "experiments.json",
-          "sha256": "cba58326c5efd22ce4bf2ca65be3d2fab9ed4590b9f7a0606992709cc09cbf8b"
+          "sha256": "12a6cac2e8b66aeebcb543a9cb378f0e43e958c462486fe79516579af15aa3cc"
         }
       ]
     }
@@ -362,7 +362,7 @@
     "engineCalls": 9358,
     "hostTypeChecks": 74,
     "resourceChecks": 2,
-    "elapsedSeconds": 1.492,
+    "elapsedSeconds": 1.574,
     "evidence": "reports/crosscheck.json",
     "externalOracle": false
   },
@@ -411,11 +411,11 @@
     "evidence": "reports/interfaces.json"
   },
   "browser": {
-    "passed": 43,
+    "passed": 44,
     "failed": 0,
     "viewports": [],
     "evidence": "reports/browser-optimization.json",
-    "inputDigest": "9997cb0ca9e7b6c4cefee91b1acde4308350905bca9d4fdf9ef3ac76bc9fe4e3"
+    "inputDigest": "a8460fa557cfa5d5d2baba57b9e210e742c057685c29ecec02e63a2bd278db1b"
   },
   "performance": {
     "scope": "Three fixed synthetic workloads on this machine; not a general speed guarantee. Fresh process per sample, 20 identical small warmups, GC before timing, variant order alternates.",
@@ -475,7 +475,7 @@
   "cleanCopy": {
     "status": "passed",
     "sourceTreeVerified": true,
-    "inputDigest": "495f7d821c6ba03682297feb4a0d10397bc787e3e7365fe0ed2d5f388d7c40b7",
+    "inputDigest": "f8d8bfb5d4781d68015077722ca6ff945dae26660b622e382c79183afe2291c2",
     "sourceEvidenceReason": "current-archive",
     "method": "Fresh extraction; exact manifest; public API/CLI; rebuild and compare wrapper plus raw engine; rerun public API/CLI",
     "compiler": "Pinned project-local external toolchain; build cache excluded from ZIP",
@@ -487,7 +487,7 @@
     "schemaVersion": 1,
     "profile": "local",
     "algorithm": "sha256-path-nul-hash-newline-v1",
-    "digest": "495f7d821c6ba03682297feb4a0d10397bc787e3e7365fe0ed2d5f388d7c40b7",
+    "digest": "f8d8bfb5d4781d68015077722ca6ff945dae26660b622e382c79183afe2291c2",
     "files": {
       ".github/workflows/ci.yml": "42ea2e2093e336fba79597fd425d9b387d341690b2cdc67472cba2c5df2476c1",
       "bin/litmuslab.mjs": "c8ba870d71dbfb74e6c90b36a7596c01d27f63594b5d7b1b6c594505a533172f",
@@ -628,7 +628,7 @@
       "tools/acceptance.py": "9764f6e20d00ac337a3185f740c79a4d86868ce3d3932fabbc1e601ee47367ae",
       "tools/benchmark.py": "10d655b4466d0281250622b4f54df131b47650327afb0eeac3468078fd4fb1a1",
       "tools/bootstrap.py": "8a7699d4090c168b975c9ce5590a1fb8a9e251dd023c0261745ec00499655e00",
-      "tools/browser-qa.mjs": "a7d4e6db55a833aa2374fb20c1f2447d031b717fca188abd65e08b4b6985b75c",
+      "tools/browser-qa.mjs": "f8783ef95bb62df50cd9b4e2a1a88876b2cdf53481d949d69dfed271e6510ca7",
       "tools/build.sh": "96889b2ba8e53c27857f7abb15bae27c5566fe413cb92d55b9153db32fb154f8",
       "tools/check-experiments.mjs": "14fd4d955395c86d88ff4a7b861f933be6ae7c9f0d15ccc98573d7a22feb4d99",
       "tools/check-interfaces.mjs": "6fa77d3f2f64223571e54345ba40c234f9e19b2e6573292a0172b2c9cb378c61",
@@ -648,7 +648,7 @@
       "tools/stress.mjs": "1c4fb6e76d53990ef06aa5477df20af03546ec1c3d2add5df177674373c59691",
       "tools/summarize.py": "3acf10609bee423256360a08bbc5d08bd815a85f5e7b7c8120a115430462bd84",
       "tools/verify.py": "5df73d72add7f3b5357e2728286440db43d5617969efc1478579e76547fd32ae",
-      "web/app.mjs": "fde0ff442ba68a7703dc7eb815fe6d2261ae86401c1c87d23e16cf3d36beac60",
+      "web/app.mjs": "695b0d1844104fae612d98d921e035cf611d9d52eaa4a9601a410635ee7a2f0c",
       "web/engine-worker.mjs": "c1de2de8271f6ca90ea0434fed9752c3904d13f8ce16ec63b5b82e495844402e",
       "web/experiment.mjs": "1322763b058d077fb4351ba6407d9bb14fc7c596c8325fa0956b917d846dfe67",
       "web/index.html": "cb849e724e90f305af5d43d32a08ae6e29efb7abd75ac1656f71ba420bab42bd",
@@ -669,14 +669,14 @@
     "dist/engine.raw.mjs": "f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1"
   },
   "reportHashes": {
-    "reports/local-verification.json": "8da6d677fa8c36a7f0bd0f69e96d48ce53649380d14a4202789f06b762054649",
-    "reports/crosscheck.json": "0c51b89faddcd145a69377a4a09d75cbe11936c6abb565daa357cf6650feefe6",
-    "reports/oracle-comparison.json": "afcc99edc4cb15887523c71752c6d048146eaef93b7ce5db1a26f039ba0d4cab",
-    "reports/oracle-generated.json": "e9d92e2bbf134b1284036b6a990e03b48ab5a31f957c17c8474fbb23b0b4d3fd",
-    "reports/interfaces.json": "3150d71c7adc746629931ffff9a3e9e3e7751a5d9a72b905124689430bc08fee",
-    "reports/browser-optimization.json": "93f0a77dfae6eb4d76efb4ac15fef01c292f673e468e2211d30c34390bec74f5",
+    "reports/local-verification.json": "d5f07a02fdf56f7f0f30603ad2324a735605cb2d89635507ea737fc6681ef1ac",
+    "reports/crosscheck.json": "f5fc95f722e6c2ef948a05c4d4eeb1872de2e2a996952b68f3a9e0e2650f4e76",
+    "reports/oracle-comparison.json": "12a538b9c703fb8c3bda9ee87609f0232b0827a9ac31bb6378cadaee2671d345",
+    "reports/oracle-generated.json": "ba364de9c0944392992399a3747aa939b0f92afc94b5e8fba8adb7b5596262e5",
+    "reports/interfaces.json": "87e795593c71259393e63f45c81d80d215fba78adb187ef1ff0c3eee1e4eacfe",
+    "reports/browser-optimization.json": "d02f06820dbc2a4d12be0f5499c4fc5b0bc1fa9b3fa284acfa301a5ce873e2fb",
     "reports/performance.json": "474ebb02133675f6d61cc6525008f58c4919714684fddb5f5fcb2ee9d9af5171",
-    "reports/experiments.json": "cba58326c5efd22ce4bf2ca65be3d2fab9ed4590b9f7a0606992709cc09cbf8b"
+    "reports/experiments.json": "12a6cac2e8b66aeebcb543a9cb378f0e43e958c462486fe79516579af15aa3cc"
   },
   "experiments": {
     "passed": 1733,

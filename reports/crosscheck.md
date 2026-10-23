@@ -1,6 +1,6 @@
 # LitmusLab independent implementation cross-check
 
-Status: **passed**. Generated at 2026-10-23T15:49:54.456249+00:00.
+Status: **passed**. Generated at 2026-10-23T15:58:29.864584+00:00.
 
 This report compares the compiled MoonBit implementation with a separately written
 Python operational-semantics implementation. It is **not an external hardware or

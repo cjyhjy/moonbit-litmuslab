@@ -1,7 +1,7 @@
 {
   "kind": "independent-implementation-crosscheck",
   "externalOracle": false,
-  "generatedAt": "2026-10-23T15:49:54.456249+00:00",
+  "generatedAt": "2026-10-23T15:58:29.864584+00:00",
   "seed": 20261022,
   "versions": {
     "python": "3.9.6",
@@ -13640,7 +13640,7 @@
         "outcomes": 1
       },
       "status": "complete",
-      "elapsedSeconds": 0.121
+      "elapsedSeconds": 0.133
     },
     {
       "name": "incomplete-100000-states",
@@ -13652,7 +13652,7 @@
       },
       "status": "incomplete",
       "reason": "max_states",
-      "elapsedSeconds": 0.274
+      "elapsedSeconds": 0.325
     }
   ],
   "failures": [],
@@ -13681,6 +13681,6 @@
     "engineCalls": 9358,
     "hostTypeChecks": 74,
     "resourceChecks": 2,
-    "elapsedSeconds": 1.492
+    "elapsedSeconds": 1.574
   }
 }

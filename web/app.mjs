@@ -161,12 +161,12 @@ async function importConfiguration(file) {
     updateMode();
     $('example').value = '';
     $('example-title').textContent = '已导入实验配置';
-    $('example-description').textContent = '已恢复源程序、模型、搜索顺序和预算。点击运行分析，重新生成可验证结果。';
-    $('example-focus').textContent = `配置版本 ${configuration.version} · 结果需重新计算`;
+    $('example-description').textContent = '已恢复源程序、模型、搜索顺序和预算。导入仅恢复配置，结果由本地引擎生成。';
+    $('example-focus').textContent = `配置版本 ${configuration.version} · 源程序与分析选项`;
     updateLineCount();
     invalidate('配置已导入；旧搜索、结果与见证已清空。请运行分析。');
     startWorker();
-    fileStatus(`已导入 ${file.name}；尚未运行。`);
+    fileStatus(`已导入 ${file.name}；仅恢复配置。`);
   } catch (error) {
     if (request === state.importId) fileStatus(`导入失败：${error.message} 当前实验保持原样。`, true);
   } finally {

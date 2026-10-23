@@ -71,6 +71,7 @@ try{
  await expect(page.locator('#file-status')).toContainText('已导入');await expect(page.getByRole('textbox',{name:'程序源代码',exact:true})).toHaveValue(source);await expect(page.getByRole('button',{name:'下载结果 JSON',exact:false})).toBeDisabled();await expect(page.locator('#trace-content')).toBeHidden();
  checks.push('valid import restores configuration without trusting old results');
  await page.getByRole('button',{name:'运行分析',exact:false}).click();await expect(page.locator('.metric-value')).toHaveText(['3种结果','4种结果']);
+ const importCopy=await page.locator('#file-status, #example-description, #example-focus').allTextContents();expect(importCopy.join(' ')).not.toMatch(/尚未运行|结果需重新计算/);checks.push('completed run keeps neutral import facts without stale not-run prompts');
  await page.getByRole('spinbutton',{name:'最多状态数',exact:true}).fill('');await page.getByRole('button',{name:'运行分析',exact:false}).click();
  expect(await page.getByRole('spinbutton',{name:'最多状态数',exact:true}).evaluate(el=>el.validity.valueMissing)).toBe(true);await expect(page.getByRole('button',{name:'下载结果 JSON',exact:false})).toBeDisabled();
  checks.push('empty state budget fails required validation without page error');

@@ -41,6 +41,6 @@ test_register_names_are_thread_local (test_reference.SemanticsTests) ... ok
 test_store_buffering (test_reference.SemanticsTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 40 tests in 0.183s
+Ran 40 tests in 0.190s
 
 OK
