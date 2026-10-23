@@ -1,0 +1,13 @@
+X86 LL_g12_same_address_t1
+{
+x=2;
+y=2;
+z=-2;
+0:EAX=0;
+}
+P0;
+MOV [x],$-2;
+MOV [x],$-1;
+MOV EAX,[x];
+locations [x; y; z; 0:EAX]
+exists (x=2)

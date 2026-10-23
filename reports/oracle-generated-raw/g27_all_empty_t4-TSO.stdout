@@ -1,0 +1,11 @@
+Test LL_g27_all_empty_t4 Allowed
+States 1
+[x]=-2; [y]=2; [z]=-2;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=-2)
+Observation LL_g27_all_empty_t4 Always 1 0
+Time LL_g27_all_empty_t4 0.00
+Hash=dd244df4484df59858d5a62f6f85012b
+

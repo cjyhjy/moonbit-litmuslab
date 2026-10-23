@@ -1,0 +1,18 @@
+Test LL_g07_overwrite_t4 Allowed
+States 8
+0:EAX=1; 1:EAX=0; 2:EAX=0; 3:EAX=0; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=0; 2:EAX=0; 3:EAX=1; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=0; 2:EAX=1; 3:EAX=0; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=0; 2:EAX=1; 3:EAX=1; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=1; 2:EAX=0; 3:EAX=0; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=1; 2:EAX=0; 3:EAX=1; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=1; 2:EAX=1; 3:EAX=0; [x]=1; [y]=1;
+0:EAX=1; 1:EAX=1; 2:EAX=1; 3:EAX=1; [x]=1; [y]=1;
+No
+Witnesses
+Positive: 0 Negative: 128
+Condition exists ([x]=0)
+Observation LL_g07_overwrite_t4 Never 0 128
+Time LL_g07_overwrite_t4 0.05
+Hash=2bca13a8692fe01ca1b2d91ff5709495
+

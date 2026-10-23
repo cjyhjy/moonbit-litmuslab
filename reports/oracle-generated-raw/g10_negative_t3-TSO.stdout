@@ -1,0 +1,16 @@
+Test LL_g10_negative_t3 Allowed
+States 6
+0:EAX=-2; 0:EBX=-3; 1:EAX=-3; 2:EAX=0; [x]=-3; [y]=2;
+0:EAX=-2; 0:EBX=-3; 1:EAX=-3; 2:EAX=1; [x]=-3; [y]=0;
+0:EAX=-2; 0:EBX=-3; 1:EAX=-3; 2:EAX=1; [x]=-3; [y]=2;
+0:EAX=-2; 0:EBX=-3; 1:EAX=-2; 2:EAX=0; [x]=-3; [y]=2;
+0:EAX=-2; 0:EBX=-3; 1:EAX=-2; 2:EAX=1; [x]=-3; [y]=0;
+0:EAX=-2; 0:EBX=-3; 1:EAX=-2; 2:EAX=1; [x]=-3; [y]=2;
+No
+Witnesses
+Positive: 0 Negative: 6
+Condition exists ([x]=-2)
+Observation LL_g10_negative_t3 Never 0 6
+Time LL_g10_negative_t3 0.00
+Hash=68cacb539672174b41826b2b7a64e99a
+

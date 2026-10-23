@@ -1,0 +1,196 @@
+{
+  "status": "complete",
+  "exitCode": 0,
+  "model": "SC",
+  "strategy": "bfs",
+  "reason": null,
+  "program": {
+    "initialMemory": {
+      "x": -2,
+      "y": 0,
+      "z": 0
+    },
+    "threads": [
+      {
+        "name": "P0",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 4,
+            "op": "store",
+            "address": "y",
+            "value": -2
+          },
+          {
+            "line": 5,
+            "op": "fence"
+          },
+          {
+            "line": 6,
+            "op": "load",
+            "address": "x",
+            "register": "r0"
+          },
+          {
+            "line": 7,
+            "op": "fence"
+          }
+        ]
+      },
+      {
+        "name": "P1",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 11,
+            "op": "load",
+            "address": "y",
+            "register": "r0"
+          },
+          {
+            "line": 12,
+            "op": "store",
+            "address": "z",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "P2",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 16,
+            "op": "load",
+            "address": "z",
+            "register": "r0"
+          },
+          {
+            "line": 17,
+            "op": "store",
+            "address": "z",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "P3",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 21,
+            "op": "store",
+            "address": "x",
+            "value": -1
+          },
+          {
+            "line": 22,
+            "op": "load",
+            "address": "z",
+            "register": "r0"
+          }
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "visitedStates": 267,
+    "expandedStates": 267,
+    "transitions": 700,
+    "outcomes": 4
+  },
+  "outcomes": [
+    {
+      "memory": {
+        "x": -1,
+        "y": -2,
+        "z": 0
+      },
+      "registers": {
+        "P0": {
+          "r0": -2
+        },
+        "P1": {
+          "r0": -2
+        },
+        "P2": {
+          "r0": 0
+        },
+        "P3": {
+          "r0": 0
+        }
+      }
+    },
+    {
+      "memory": {
+        "x": -1,
+        "y": -2,
+        "z": 0
+      },
+      "registers": {
+        "P0": {
+          "r0": -1
+        },
+        "P1": {
+          "r0": -2
+        },
+        "P2": {
+          "r0": 0
+        },
+        "P3": {
+          "r0": 0
+        }
+      }
+    },
+    {
+      "memory": {
+        "x": -1,
+        "y": -2,
+        "z": 0
+      },
+      "registers": {
+        "P0": {
+          "r0": -2
+        },
+        "P1": {
+          "r0": 0
+        },
+        "P2": {
+          "r0": 0
+        },
+        "P3": {
+          "r0": 0
+        }
+      }
+    },
+    {
+      "memory": {
+        "x": -1,
+        "y": -2,
+        "z": 0
+      },
+      "registers": {
+        "P0": {
+          "r0": -1
+        },
+        "P1": {
+          "r0": 0
+        },
+        "P2": {
+          "r0": 0
+        },
+        "P3": {
+          "r0": 0
+        }
+      }
+    }
+  ]
+}

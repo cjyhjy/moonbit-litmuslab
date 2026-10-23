@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "kind": "evidence-binding-regressions",
+  "generatedAt": "2026-10-22T16:27:28.163565+00:00",
+  "status": "passed",
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_evidence.py",
+    "-v"
+  ],
+  "checks": 15,
+  "exitCode": 0,
+  "auditedInputs": {
+    "algorithm": "sha256-path-nul-hash-newline-v1",
+    "digest": "92b1effe0654ecf4e27c9a6c4cf155f98ed5891c9915a7b3c05dd375231db72e",
+    "files": {
+      "tools/evidence.py": "3c66c600cd60e9e93ff94880a7619b55a4daff8cc445f0cb72000f0145666983",
+      "tools/summarize.py": "e600e3ce45131ddb949aa64afbe5922f8e421a6629b76752ab64462820a3db87",
+      "tools/acceptance.py": "02ccd1c24ee4fc0d9adde08c9dba92a8f21cb964eaac7252b8c9c674918b8a89",
+      "tests/test_evidence.py": "d5bf9af7a453063008821372024338ead49f6286d64a9ac31cdfe57160cb5812"
+    }
+  },
+  "inputsUnchanged": true,
+  "stdout": "",
+  "stderr": "test_archive_change_preserves_only_source_tree_proof (test_evidence.EvidenceTests) ... ok\ntest_changed_inputs_invalidate_old_clean_pass (test_evidence.EvidenceTests) ... ok\ntest_complete_bound_summary_does_not_attest_embedded_archive (test_evidence.EvidenceTests) ... ok\ntest_crosscheck_cannot_reuse_old_reference_evidence (test_evidence.EvidenceTests) ... ok\ntest_documentation_reports_archives_and_caches_do_not_self_invalidate (test_evidence.EvidenceTests) ... ok\ntest_generated_oracle_evidence_covers_added_fixtures (test_evidence.EvidenceTests) ... ok\ntest_interface_evidence_covers_cli (test_evidence.EvidenceTests) ... ok\ntest_legacy_clean_pass_without_input_binding_is_rejected (test_evidence.EvidenceTests) ... ok\ntest_manifest_requires_exact_coverage (test_evidence.EvidenceTests) ... ok\ntest_new_and_deleted_inputs_are_detected (test_evidence.EvidenceTests) ... ok\ntest_old_browser_pass_cannot_gain_new_web_hashes (test_evidence.EvidenceTests) ... ok\ntest_oracle_evidence_covers_upstream_recorded_output (test_evidence.EvidenceTests) ... ok\ntest_performance_must_use_current_candidate (test_evidence.EvidenceTests) ... ok\ntest_public_wrapper_change_is_a_rebuild_failure_even_when_raw_matches (test_evidence.EvidenceTests) ... ok\ntest_recorded_digest_and_profile_cannot_be_relabelled (test_evidence.EvidenceTests) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.194s\n\nOK\n",
+  "scope": "Synthetic isolated file mutations; tests rejection of stale evidence, exact archive binding, and wrapper rebuild mismatches. Does not retroactively validate old reports."
+}

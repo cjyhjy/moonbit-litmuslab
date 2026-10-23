@@ -1,0 +1,14 @@
+X86 LL_g16_fenced_t1
+{
+x=2;
+y=1;
+z=1;
+0:EAX=0;
+}
+P0;
+MOV [x],$1;
+MFENCE;
+MOV EAX,[y];
+MFENCE;
+locations [x; y; z; 0:EAX]
+exists (x=2)

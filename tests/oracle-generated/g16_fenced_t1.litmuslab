@@ -1,0 +1,8 @@
+memory x=2 y=1 z=1
+
+thread P0
+store x 1
+fence
+load r0 y
+fence
+end

@@ -1,0 +1,118 @@
+{
+  "status": "complete",
+  "exitCode": 0,
+  "model": "TSO",
+  "strategy": "bfs",
+  "reason": null,
+  "program": {
+    "initialMemory": {
+      "x": -1
+    },
+    "threads": [
+      {
+        "name": "P0",
+        "registers": [
+          "r0",
+          "r1"
+        ],
+        "instructions": [
+          {
+            "line": 4,
+            "op": "store",
+            "address": "x",
+            "value": -2
+          },
+          {
+            "line": 5,
+            "op": "load",
+            "address": "x",
+            "register": "r0"
+          },
+          {
+            "line": 6,
+            "op": "fence"
+          },
+          {
+            "line": 7,
+            "op": "load",
+            "address": "x",
+            "register": "r1"
+          },
+          {
+            "line": 8,
+            "op": "fence"
+          },
+          {
+            "line": 9,
+            "op": "fence"
+          },
+          {
+            "line": 10,
+            "op": "fence"
+          },
+          {
+            "line": 11,
+            "op": "fence"
+          },
+          {
+            "line": 12,
+            "op": "store",
+            "address": "x",
+            "value": 2
+          },
+          {
+            "line": 13,
+            "op": "load",
+            "address": "x",
+            "register": "r0"
+          },
+          {
+            "line": 14,
+            "op": "fence"
+          },
+          {
+            "line": 15,
+            "op": "load",
+            "address": "x",
+            "register": "r1"
+          },
+          {
+            "line": 16,
+            "op": "fence"
+          },
+          {
+            "line": 17,
+            "op": "fence"
+          },
+          {
+            "line": 18,
+            "op": "fence"
+          },
+          {
+            "line": 19,
+            "op": "fence"
+          }
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "visitedStates": 21,
+    "expandedStates": 21,
+    "transitions": 22,
+    "outcomes": 1
+  },
+  "outcomes": [
+    {
+      "memory": {
+        "x": 2
+      },
+      "registers": {
+        "P0": {
+          "r0": 2,
+          "r1": 2
+        }
+      }
+    }
+  ]
+}

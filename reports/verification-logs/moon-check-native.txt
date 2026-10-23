@@ -1,0 +1,2 @@
+$ ./tools/moon check --target native
+Finished. moon: ran 3 tasks, now up to date

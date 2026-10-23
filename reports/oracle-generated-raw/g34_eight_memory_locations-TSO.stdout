@@ -1,0 +1,12 @@
+Test LL_g34_eight_memory_locations Allowed
+States 2
+0:EAX=-3; 2:EAX=-4; [m0]=2; [m1]=-3; [m2]=-2; [m3]=-1; [m4]=0; [m5]=1; [m6]=2; [m7]=3;
+0:EAX=-3; 2:EAX=2; [m0]=2; [m1]=-3; [m2]=-2; [m3]=-1; [m4]=0; [m5]=1; [m6]=2; [m7]=3;
+No
+Witnesses
+Positive: 0 Negative: 2
+Condition exists ([m0]=-4)
+Observation LL_g34_eight_memory_locations Never 0 2
+Time LL_g34_eight_memory_locations 0.00
+Hash=f515283156dbdcb7c32fce21ca1b2589
+

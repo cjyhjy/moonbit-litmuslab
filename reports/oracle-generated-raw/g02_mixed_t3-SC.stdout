@@ -1,0 +1,22 @@
+Test LL_g02_mixed_t3 Allowed
+States 12
+0:EAX=0; 0:EBX=0; 1:EAX=-2; 2:EAX=-2; [x]=1; [y]=-2; [z]=2;
+0:EAX=0; 0:EBX=0; 1:EAX=-2; 2:EAX=2; [x]=1; [y]=-2; [z]=2;
+0:EAX=0; 0:EBX=0; 1:EAX=1; 2:EAX=-2; [x]=1; [y]=-2; [z]=2;
+0:EAX=0; 0:EBX=0; 1:EAX=1; 2:EAX=2; [x]=1; [y]=-2; [z]=2;
+0:EAX=0; 0:EBX=1; 1:EAX=-2; 2:EAX=-2; [x]=1; [y]=-2; [z]=2;
+0:EAX=0; 0:EBX=1; 1:EAX=-2; 2:EAX=2; [x]=1; [y]=-2; [z]=2;
+0:EAX=0; 0:EBX=1; 1:EAX=1; 2:EAX=-2; [x]=1; [y]=-2; [z]=2;
+0:EAX=0; 0:EBX=1; 1:EAX=1; 2:EAX=2; [x]=1; [y]=-2; [z]=2;
+0:EAX=1; 0:EBX=1; 1:EAX=-2; 2:EAX=-2; [x]=1; [y]=-2; [z]=2;
+0:EAX=1; 0:EBX=1; 1:EAX=-2; 2:EAX=2; [x]=1; [y]=-2; [z]=2;
+0:EAX=1; 0:EBX=1; 1:EAX=1; 2:EAX=-2; [x]=1; [y]=-2; [z]=2;
+0:EAX=1; 0:EBX=1; 1:EAX=1; 2:EAX=2; [x]=1; [y]=-2; [z]=2;
+No
+Witnesses
+Positive: 0 Negative: 12
+Condition exists ([x]=0)
+Observation LL_g02_mixed_t3 Never 0 12
+Time LL_g02_mixed_t3 0.00
+Hash=f3868d9601f357db1779c399443b6ccc
+

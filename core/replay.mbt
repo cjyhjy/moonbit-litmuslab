@@ -37,7 +37,7 @@ pub fn replay(source : String, model : String, witness : String) -> String {
     }
   }
   let mut s = initial_state(p)
-  let trace = [snapshot_json(p, s, 0, Json::null(), "initial")]
+  let trace = [snapshot_json(p, s, 0, Json::null(), "initial", Json::null())]
   let canonical : Array[String] = []
   let tso = model == "TSO"
   let mut step = 0
@@ -75,10 +75,11 @@ pub fn replay(source : String, model : String, witness : String) -> String {
       } else {
         "\{p.threads[t].name}: " + instruction_text(p, t, s.pcs[t])
       }
+      let effect = effect_json(p, s, tso, a)
       s = transition(p, s, tso, a)
       canonical.push(token.text)
       trace.push(
-        snapshot_json(p, s, step, Json::string(token.text), description),
+        snapshot_json(p, s, step, Json::string(token.text), description, effect),
       )
     }
   }

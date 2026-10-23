@@ -1,0 +1,2 @@
+$ ./tools/moon test --build-only --target native --release
+{"artifacts_path":["/Users/cjy/Documents/ChatGPT/黑客松新项目/projects/litmuslab/_build/native/release/test/core/core.whitebox_test.exe"]}

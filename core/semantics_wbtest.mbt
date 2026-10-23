@@ -153,3 +153,62 @@ test "API rejects unsupported models strategies and budgets" {
   assert_true(analyze(sb(), "SC", "bfs", 100001, 4).contains("InvalidBudget"))
   assert_true(analyze(sb(), "SC", "bfs", 100, 1025).contains("InvalidBudget"))
 }
+
+///|
+test "branching successors cannot mutate retained sibling states" {
+  let p = fixture(
+    "memory x=-1 y=7\nthread A\nstore x 1\nload r y\nfence\nload r x\nend\nthread B\nstore y 2\nload r x\nend",
+  )
+  for tso in [false, true] {
+    let roots = [initial_state(p)]
+    for depth = 0; depth < 5; depth = depth + 1 {
+      let before = roots.map(state_key)
+      let branch_count = roots.length()
+      for i = 0; i < branch_count; i = i + 1 {
+        for a in enabled(p, roots[i], tso) {
+          let successor = transition(p, roots[i], tso, a)
+          // Follow a sibling far enough to write each kind of shared array.
+          let mut descendant = successor
+          for _ in 0..<12 {
+            let actions = enabled(p, descendant, tso)
+            if actions.is_empty() {
+              break
+            }
+            descendant = transition(p, descendant, tso, actions[0])
+          }
+          roots.push(successor)
+        }
+      }
+      for i = 0; i < branch_count; i = i + 1 {
+        assert_eq(state_key(roots[i]), before[i])
+      }
+    }
+  }
+}
+
+///|
+test "state key preserves the version one canonical representation" {
+  let p = fixture(sb())
+  let s = initial_state(p)
+  assert_eq(state_key(s), "0,0|0,0|0|0|b||")
+  let s = transition(p, s, true, { thread: 0, flush: false, })
+  assert_eq(state_key(s), "0,0|1,0|0|0|b|0:1|")
+}
+
+///|
+test "read provenance reports newest matching pre-step FIFO index" {
+  let p = fixture(
+    "memory x=-1 y=7\nthread A\nstore x 1\nstore x 2\nstore y 9\nload r x\nend",
+  )
+  let mut s = initial_state(p)
+  assert_eq(read_value(s, 0, 0), (-1, -1))
+  for _ in 0..<3 {
+    s = transition(p, s, true, { thread: 0, flush: false, })
+  }
+  assert_eq(read_value(s, 0, 0), (2, 1))
+  let e = effect_json(p, s, true, { thread: 0, flush: false, }).stringify()
+  assert_true(e.contains("\"source\":\"buffer\""))
+  assert_true(e.contains("\"bufferIndex\":1"))
+  s = transition(p, s, true, { thread: 0, flush: true, })
+  assert_eq(read_value(s, 0, 0), (2, 0))
+}

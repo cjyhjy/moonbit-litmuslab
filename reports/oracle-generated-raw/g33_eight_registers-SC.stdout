@@ -1,0 +1,11 @@
+Test LL_g33_eight_registers Allowed
+States 1
+0:EAX=-2; 0:EBX=-1; 0:ECX=2; 0:EDX=-1; 0:ESI=2; 0:EDI=-1; 0:EBP=2; 0:ESP=-1; [x]=-2; [y]=2;
+No
+Witnesses
+Positive: 0 Negative: 1
+Condition exists ([x]=-1)
+Observation LL_g33_eight_registers Never 0 1
+Time LL_g33_eight_registers 0.01
+Hash=c2465ae31c6ed9701e06c7252fd08a97
+

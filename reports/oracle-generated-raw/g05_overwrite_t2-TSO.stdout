@@ -1,0 +1,12 @@
+Test LL_g05_overwrite_t2 Allowed
+States 2
+0:EAX=2; 1:EAX=2; [x]=2; [y]=1;
+0:EAX=2; 1:EAX=2; [x]=2; [y]=2;
+Ok
+Witnesses
+Positive: 3 Negative: 0
+Condition exists ([x]=2)
+Observation LL_g05_overwrite_t2 Always 3 0
+Time LL_g05_overwrite_t2 0.00
+Hash=0eb1f9e5a7995204daa33a8760c3c9a1
+

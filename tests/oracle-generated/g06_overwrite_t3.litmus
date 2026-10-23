@@ -1,0 +1,15 @@
+X86 LL_g06_overwrite_t3
+{
+x=2;
+y=-2;
+z=1;
+0:EAX=0;
+1:EAX=0;
+2:EAX=0;
+}
+P0 | P1 | P2;
+MOV EAX,[z] | MOV [z],$-1 | MOV [z],$2;
+MOV [z],$2 | MOV EAX,[z] | MOV EAX,[z];
+MOV EAX,[y] |  | ;
+locations [x; y; z; 0:EAX; 1:EAX; 2:EAX]
+exists (x=2)

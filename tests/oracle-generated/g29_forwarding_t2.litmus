@@ -1,0 +1,16 @@
+X86 LL_g29_forwarding_t2
+{
+x=-1;
+y=1;
+z=1;
+0:EAX=0;
+0:EBX=0;
+1:EAX=0;
+}
+P0 | P1;
+MOV [x],$-2 | MOV EAX,[z];
+MOV EAX,[x] | MOV [y],$-2;
+MOV [x],$-1 | ;
+MOV EBX,[x] | ;
+locations [x; y; z; 0:EAX; 0:EBX; 1:EAX]
+exists (x=-1)

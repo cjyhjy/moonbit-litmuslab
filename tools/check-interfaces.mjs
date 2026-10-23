@@ -5,6 +5,7 @@ import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createExperiment, createResultBundle, parseExperiment, MAX_CONFIG_BYTES } from '../web/experiment.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const checks = [];
@@ -12,6 +13,14 @@ const failures = [];
 const started = new Date().toISOString();
 const temporary = await mkdtemp(join(tmpdir(), 'litmuslab-interfaces-'));
 let server;
+
+function captureEvidence() {
+  const result = spawnSync('python3', ['tools/evidence.py', 'snapshot', 'interfaces'], { cwd: root, encoding: 'utf8', timeout: 10000 });
+  if (result.status !== 0) throw new Error(`Evidence snapshot failed: ${result.stderr}`);
+  return JSON.parse(result.stdout);
+}
+
+const evidence = captureEvidence();
 
 function verify(name, condition, evidence = {}) {
   const check = { name, passed: Boolean(condition), ...evidence };
@@ -58,6 +67,38 @@ async function startPreview() {
 }
 
 try {
+  const fixture = createExperiment('memory x=0\nthread P0\nload r0 x\nend\n', { model: 'both', strategy: 'bfs', maxStates: 20000, maxOutcomes: 256 });
+  const encoded = (value) => new TextEncoder().encode(JSON.stringify(value));
+  const rejected = (bytes) => { try { parseExperiment(bytes); return false; } catch { return true; } };
+  verify('experiment configuration round trip', JSON.stringify(parseExperiment(encoded(fixture))) === JSON.stringify(fixture));
+  for (const [name, value] of [
+    ['unknown root field', { ...fixture, results: {} }],
+    ['result bundle import', { ...fixture, kind: 'litmuslab.results' }],
+    ['unsupported version', { ...fixture, version: 2 }],
+    ['string version', { ...fixture, version: '1' }],
+    ['source type', { ...fixture, source: [] }],
+    ['oversized source', { ...fixture, source: 'x'.repeat(32769) }],
+    ['lone surrogate', { ...fixture, source: '\ud800' }],
+    ['missing options field', { ...fixture, options: { model: 'SC' } }],
+    ['unknown option field', { ...fixture, options: { ...fixture.options, cached: true } }],
+    ['unknown model', { ...fixture, options: { ...fixture.options, model: 'ARM' } }],
+    ['unknown strategy', { ...fixture, options: { ...fixture.options, strategy: 'random' } }],
+    ['fraction budget', { ...fixture, options: { ...fixture.options, maxStates: 1.5 } }],
+    ['string budget', { ...fixture, options: { ...fixture.options, maxStates: '20000' } }],
+    ['null budget', { ...fixture, options: { ...fixture.options, maxStates: null } }],
+    ['zero budget', { ...fixture, options: { ...fixture.options, maxStates: 0 } }],
+    ['state upper bound', { ...fixture, options: { ...fixture.options, maxStates: 100001 } }],
+    ['outcome upper bound', { ...fixture, options: { ...fixture.options, maxOutcomes: 1025 } }],
+    ['array root', [fixture]], ['null root', null]
+  ]) verify(`config rejects ${name}`, rejected(encoded(value)));
+  verify('config rejects invalid UTF8', rejected(new Uint8Array([255])));
+  verify('config rejects invalid JSON', rejected(new TextEncoder().encode('{')));
+  verify('config rejects byte limit', rejected(new Uint8Array(MAX_CONFIG_BYTES + 1)));
+  const limits = createExperiment('😀'.repeat(32768), { model: 'TSO', strategy: 'dfs', maxStates: 100000, maxOutcomes: 1024 });
+  verify('config accepts Unicode codepoint and budget upper boundaries', parseExperiment(encoded(limits)).source === limits.source);
+  let rejectedResults = false;
+  try { createResultBundle(fixture, {}); } catch { rejectedResults = true; }
+  verify('result export rejects missing actual results', rejectedResults);
   for (const file of ['store-buffering', 'load-buffering', 'message-passing', 'store-buffering-fence', 'fifo', 'forwarding']) {
     const result = cli(['analyze', `examples/${file}.litmus`, '--model', 'both']);
     verify(`${file}: complete`, result.code === 0 && result.output.comparison?.definitive, { exitCode: result.code });
@@ -111,7 +152,10 @@ try {
   await rm(temporary, { recursive: true, force: true });
 }
 
-const report = { formatVersion: 1, source: 'Local CLI and loopback server checks; no external oracle claims.', started, finished: new Date().toISOString(), command: 'node tools/check-interfaces.mjs', node: process.version, platform: process.platform, passed: checks.length - failures.length, failed: failures.length, checks };
+try { verify('input evidence unchanged during verification', captureEvidence().digest === evidence.digest); }
+catch (error) { verify('input evidence unchanged during verification', false, { error: error.message }); }
+
+const report = { formatVersion: 1, source: 'Local configuration validation, CLI and loopback server checks; no external oracle claims.', started, finished: new Date().toISOString(), command: 'node tools/check-interfaces.mjs', evidence, node: process.version, platform: process.platform, passed: checks.length - failures.length, failed: failures.length, checks };
 await mkdir(join(root, 'reports'), { recursive: true });
 await writeFile(join(root, 'reports/interfaces.json'), `${JSON.stringify(report, null, 2)}\n`);
 console.log(JSON.stringify({ passed: report.passed, failed: report.failed, report: 'reports/interfaces.json', failures }));

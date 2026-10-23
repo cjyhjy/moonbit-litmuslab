@@ -1,0 +1,17 @@
+Test LL_g01_mixed_t2 Allowed
+States 7
+0:EAX=-2; 0:EBX=-2; 1:EAX=-2; [x]=2;
+0:EAX=-2; 0:EBX=-2; 1:EAX=2; [x]=2;
+0:EAX=-1; 0:EBX=-2; 1:EAX=-2; [x]=2;
+0:EAX=-1; 0:EBX=-2; 1:EAX=2; [x]=2;
+0:EAX=-1; 0:EBX=-1; 1:EAX=-2; [x]=-2;
+0:EAX=-1; 0:EBX=-1; 1:EAX=-2; [x]=2;
+0:EAX=-1; 0:EBX=-1; 1:EAX=2; [x]=2;
+No
+Witnesses
+Positive: 0 Negative: 7
+Condition exists ([x]=-1)
+Observation LL_g01_mixed_t2 Never 0 7
+Time LL_g01_mixed_t2 0.00
+Hash=5b25f0cf45eb9d3b29506ad6cc53b958
+

@@ -1,0 +1,11 @@
+Test LL_g24_all_empty_t1 Allowed
+States 1
+[x]=-1;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=-1)
+Observation LL_g24_all_empty_t1 Always 1 0
+Time LL_g24_all_empty_t1 0.00
+Hash=6e18926a56bf0d8c738152e7e6c58e6c
+

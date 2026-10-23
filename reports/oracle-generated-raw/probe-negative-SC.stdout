@@ -1,0 +1,11 @@
+Test LL_probe_negative Allowed
+States 1
+0:EAX=-1; 0:EBX=-3; [x]=-1; [y]=-3;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=-1)
+Observation LL_probe_negative Always 1 0
+Time LL_probe_negative 0.00
+Hash=8d978be298f32255a0aeb1080444c80f
+

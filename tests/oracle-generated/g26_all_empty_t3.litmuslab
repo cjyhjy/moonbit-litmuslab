@@ -1,0 +1,10 @@
+memory x=2
+
+thread P0
+end
+
+thread P1
+end
+
+thread P2
+end

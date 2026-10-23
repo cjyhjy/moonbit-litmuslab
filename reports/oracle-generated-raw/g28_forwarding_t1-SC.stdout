@@ -1,0 +1,11 @@
+Test LL_g28_forwarding_t1 Allowed
+States 1
+0:EAX=-1; 0:EBX=-2; [x]=1; [y]=0; [z]=-2;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=1)
+Observation LL_g28_forwarding_t1 Always 1 0
+Time LL_g28_forwarding_t1 0.00
+Hash=3cdff1afa1b3912796286f9ae4269b93
+

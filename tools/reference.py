@@ -233,9 +233,35 @@ def outcome_key(value: dict) -> str:
     return json.dumps({"memory": value["memory"], "registers": value["registers"]}, sort_keys=True, separators=(",", ":"))
 
 
-def snapshot(program: Program, state: State, step: int, action: str | None) -> dict:
+def action_effect(program: Program, state: State, model: str, action: str) -> dict:
+    """Independently explain an enabled action from its pre-transition state."""
+    index = int(action[1:])
+    thread = program.threads[index]
+    if action[0] == "f":
+        address, value = state.buffers[index][0]
+        return {"kind": "flush", "thread": thread.name, "address": program.addresses[address],
+                "value": value, "destination": "memory", "bufferIndex": 0}
+    instruction = thread.instructions[state.pcs[index]]
+    if instruction.op == "fence":
+        return {"kind": "fence", "thread": thread.name, "bufferEmpty": not state.buffers[index]}
+    base = {"kind": instruction.op, "thread": thread.name, "address": program.addresses[instruction.address]}
+    if instruction.op == "store":
+        return {**base, "value": instruction.value, "destination": "buffer" if model == "TSO" else "memory",
+                "bufferIndex": len(state.buffers[index]) if model == "TSO" else None}
+    value, source, buffer_index = state.memory[instruction.address], "memory", None
+    if model == "TSO":
+        for position in range(len(state.buffers[index]) - 1, -1, -1):
+            address, pending = state.buffers[index][position]
+            if address == instruction.address:
+                value, source, buffer_index = pending, "buffer", position
+                break
+    return {**base, "register": thread.registers[instruction.register], "value": value,
+            "source": source, "bufferIndex": buffer_index}
+
+
+def snapshot(program: Program, state: State, step: int, action: str | None, effect: dict | None = None) -> dict:
     return {
-        "step": step, "action": action, **outcome(program, state),
+        "step": step, "action": action, "effect": effect, **outcome(program, state),
         "pcs": dict(zip((thread.name for thread in program.threads), state.pcs)),
         "buffers": {thread.name: [{"address": program.addresses[address], "value": value}
                                    for address, value in buffer]
@@ -264,8 +290,9 @@ def replay(source: str | Program, model: str, witness: str) -> dict:
         available = dict(transitions(program, state, model))
         if token not in available:
             raise ReplayError(f"step {step}: action {token!r} is not enabled")
+        effect = action_effect(program, state, model, token)
         state = available[token]
-        trace.append(snapshot(program, state, step, token))
+        trace.append(snapshot(program, state, step, token, effect))
     if not terminal(program, state):
         raise ReplayError("witness does not reach a terminal state")
     return {"ok": True, "model": model, "outcome": outcome(program, state), "trace": trace}

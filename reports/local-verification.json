@@ -1,9 +1,36 @@
 {
-  "generatedAt": "2026-10-22T15:38:17.830318+00:00",
+  "generatedAt": "2026-10-23T15:35:10.295226+00:00",
   "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "sourceCommit": null,
   "status": "passed",
   "liveOracleRequested": true,
+  "checkDistRequested": true,
+  "oracleScope": "fresh execution requested",
   "checks": [
+    {
+      "name": "build-js",
+      "command": [
+        "sh",
+        "tools/build.sh"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.048,
+      "log": "verification-logs/build-js.txt",
+      "outputs": []
+    },
+    {
+      "name": "provided-js-consistency",
+      "passed": true,
+      "before": {
+        "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+        "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0"
+      },
+      "rebuilt": {
+        "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+        "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0"
+      }
+    },
     {
       "name": "moon-check-js",
       "command": [
@@ -14,8 +41,24 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.049,
-      "log": "reports/verification-logs/moon-check-js.txt"
+      "elapsedSeconds": 0.065,
+      "log": "verification-logs/moon-check-js.txt",
+      "outputs": []
+    },
+    {
+      "name": "moon-build-js",
+      "command": [
+        "./tools/moon",
+        "build",
+        "--target",
+        "js",
+        "--release"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.017,
+      "log": "verification-logs/moon-build-js.txt",
+      "outputs": []
     },
     {
       "name": "moon-test-js",
@@ -27,8 +70,39 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.162,
-      "log": "reports/verification-logs/moon-test-js.txt"
+      "elapsedSeconds": 0.059,
+      "log": "verification-logs/moon-test-js.txt",
+      "outputs": []
+    },
+    {
+      "name": "moon-check-native",
+      "command": [
+        "./tools/moon",
+        "check",
+        "--target",
+        "native"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.051,
+      "log": "verification-logs/moon-check-native.txt",
+      "outputs": []
+    },
+    {
+      "name": "moon-build-native-test-executable",
+      "command": [
+        "./tools/moon",
+        "test",
+        "--build-only",
+        "--target",
+        "native",
+        "--release"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 1.395,
+      "log": "verification-logs/moon-build-native-test-executable.txt",
+      "outputs": []
     },
     {
       "name": "moon-test-native",
@@ -40,8 +114,38 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.044,
-      "log": "reports/verification-logs/moon-test-native.txt"
+      "elapsedSeconds": 0.036,
+      "log": "verification-logs/moon-test-native.txt",
+      "outputs": []
+    },
+    {
+      "name": "moon-check-wasm-gc",
+      "command": [
+        "./tools/moon",
+        "check",
+        "--target",
+        "wasm-gc"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.051,
+      "log": "verification-logs/moon-check-wasm-gc.txt",
+      "outputs": []
+    },
+    {
+      "name": "moon-build-wasm-gc",
+      "command": [
+        "./tools/moon",
+        "build",
+        "--target",
+        "wasm-gc",
+        "--release"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.085,
+      "log": "verification-logs/moon-build-wasm-gc.txt",
+      "outputs": []
     },
     {
       "name": "moon-test-wasm-gc",
@@ -53,19 +157,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.038,
-      "log": "reports/verification-logs/moon-test-wasm-gc.txt"
-    },
-    {
-      "name": "build-js",
-      "command": [
-        "sh",
-        "tools/build.sh"
-      ],
-      "exitCode": 0,
-      "passed": true,
-      "elapsedSeconds": 0.03,
-      "log": "reports/verification-logs/build-js.txt"
+      "elapsedSeconds": 0.06,
+      "log": "verification-logs/moon-test-wasm-gc.txt",
+      "outputs": []
     },
     {
       "name": "reference-unit-tests",
@@ -77,13 +171,14 @@
         "-s",
         "tests",
         "-p",
-        "test_reference.py",
+        "test_*.py",
         "-v"
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.052,
-      "log": "reports/verification-logs/reference-unit-tests.txt"
+      "elapsedSeconds": 0.21,
+      "log": "verification-logs/reference-unit-tests.txt",
+      "outputs": []
     },
     {
       "name": "crosscheck",
@@ -93,8 +188,18 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 1.752,
-      "log": "reports/verification-logs/crosscheck.txt"
+      "elapsedSeconds": 1.486,
+      "log": "verification-logs/crosscheck.txt",
+      "outputs": [
+        {
+          "path": "crosscheck.json",
+          "sha256": "207ce6d1097a1f52e7926455459a8ef8225998cbf2708505685df660823cb465"
+        },
+        {
+          "path": "crosscheck.md",
+          "sha256": "ac9c9cfa5df04c7db9ff864330b81bb12b4db8788c3d8c9dac99096d0eda2480"
+        }
+      ]
     },
     {
       "name": "upper-state-budget",
@@ -104,8 +209,14 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.496,
-      "log": "reports/verification-logs/upper-state-budget.txt"
+      "elapsedSeconds": 0.33,
+      "log": "verification-logs/upper-state-budget.txt",
+      "outputs": [
+        {
+          "path": "resource-stress.json",
+          "sha256": "70cc826e1e2cfa5d50bdcf4d171f74fec4ac0ad14be64c71e1913c1d6e9e009d"
+        }
+      ]
     },
     {
       "name": "interfaces",
@@ -115,19 +226,14 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 1.998,
-      "log": "reports/verification-logs/interfaces.txt"
-    },
-    {
-      "name": "recorded-herd-comparison",
-      "command": [
-        "node",
-        "tools/oracle-compare.mjs"
-      ],
-      "exitCode": 0,
-      "passed": true,
-      "elapsedSeconds": 0.037,
-      "log": "reports/verification-logs/recorded-herd-comparison.txt"
+      "elapsedSeconds": 1.788,
+      "log": "verification-logs/interfaces.txt",
+      "outputs": [
+        {
+          "path": "interfaces.json",
+          "sha256": "91623f505bd0699e97e2e031e5bb1ed740d2f2bc74b1c89af12813392d17ba4a"
+        }
+      ]
     },
     {
       "name": "live-herd7",
@@ -137,8 +243,14 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.12,
-      "log": "reports/verification-logs/live-herd7.txt"
+      "elapsedSeconds": 0.136,
+      "log": "verification-logs/live-herd7.txt",
+      "outputs": [
+        {
+          "path": "oracle-herd7.json",
+          "sha256": "1bf8914c0c70ae7029b41036bd34fea11a662ec9395cfcc721426ae01594ef9b"
+        }
+      ]
     },
     {
       "name": "fresh-herd-comparison",
@@ -148,8 +260,31 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.038,
-      "log": "reports/verification-logs/fresh-herd-comparison.txt"
+      "elapsedSeconds": 0.087,
+      "log": "verification-logs/fresh-herd-comparison.txt",
+      "outputs": [
+        {
+          "path": "oracle-comparison.json",
+          "sha256": "deea5b41f24af166c8f40313a530fa32a19859cc1737341799a8915242b7b745"
+        }
+      ]
+    },
+    {
+      "name": "generated-herd-comparison",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "tools/oracle-generated.py"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 4.502,
+      "log": "verification-logs/generated-herd-comparison.txt",
+      "outputs": [
+        {
+          "path": "oracle-generated.json",
+          "sha256": "bb3a6151a69b7349bce64cfe7f081278b50d40adf978c38eb98168c7e6e1924f"
+        }
+      ]
     },
     {
       "name": "live-moonctl",
@@ -159,19 +294,193 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.204,
-      "log": "reports/verification-logs/live-moonctl.txt"
+      "elapsedSeconds": 0.226,
+      "log": "verification-logs/live-moonctl.txt",
+      "outputs": [
+        {
+          "path": "oracle-moonctl.json",
+          "sha256": "55fb489b7266c05bb916ea05f2a28d83a83643543904431c2256c8d731af6857"
+        }
+      ]
     }
   ],
+  "evidence": {
+    "schemaVersion": 1,
+    "profile": "local",
+    "algorithm": "sha256-path-nul-hash-newline-v1",
+    "digest": "54b70da5dec7e39887a5a2ae60f6039858e1d5ff6da1047cb950ed1f922e1519",
+    "files": {
+      ".github/workflows/ci.yml": "42ea2e2093e336fba79597fd425d9b387d341690b2cdc67472cba2c5df2476c1",
+      "bin/litmuslab.mjs": "66ab004bc6dc708506137ed1852706a85005d1e1f38b9b260a7c6e44386c4eed",
+      "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
+      "core/moon.pkg": "b32472696f96a51655b55cadd81b11d967370fa92aadd7e83207b90ebe04dc80",
+      "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
+      "core/pkg.generated.mbti": "ad31343121a21efb434d54822d666fe4cac0259be9c1bcb068dbd772784ab22c",
+      "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
+      "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+      "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
+      "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
+      "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243",
+      "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0",
+      "examples/fifo.litmus": "44d35f9c6f710d7ae5b4495402b7bfe895370c1b03faae7ab0173d95f69d462f",
+      "examples/forwarding.litmus": "742b80e12ba97a01848862219949bacb21039581054402da1d82b4504e07ff81",
+      "examples/load-buffering.litmus": "7d21f2e4b05eb41b97dd30c34747f60b6ef610034606853c3126590424c1d0c2",
+      "examples/manifest.json": "99b9a43252d073694c93dc8d88bb46398092a164f652e9444c0a847d7f14e2a2",
+      "examples/message-passing.litmus": "c6b8fbd81a9af265baca29f4960a0b3c847b42fe6daa688790a03311ffe15bf8",
+      "examples/store-buffering-fence.litmus": "a345ccd0307be76944d371d519bf63274a2637332960ff6ac49d7c53008f6642",
+      "examples/store-buffering.litmus": "1f483069366eb046a07a5033b596f2a5b7d55701f7556b676f985c89a2c93d66",
+      "moon.mod": "25227956d4644d8e347c16c50f982af8adf5c525611ce547fba0520ecaeefe38",
+      "package.json": "3f2f405a6a9836751afac4830ee38cd743fe339aaf468cedfe75ed033658a072",
+      "tests/oracle-generated/README.md": "763194f29c13b56d5a091f2db009c0648dcd80125121c03fbf1b75996b7928f2",
+      "tests/oracle-generated/cases.json": "c74a36e33ed27449587c4bccf3a9c7ed4c21f720ed2f283560575694609eb9a4",
+      "tests/oracle-generated/exploration/cases.json": "86cdb3bf96afb1636242a174940e51925314a7050e2ac1b53fd610c976c1aa8a",
+      "tests/oracle-generated/exploration/g32_int32_endpoints.litmus": "55755c2499fde050c80b073d4e59a4d36ec83b61eff914bb7aa4af27a82b924e",
+      "tests/oracle-generated/exploration/g32_int32_endpoints.litmuslab": "bc566c98b7f35082dbc521afad05f8651d4ac37c5908dcf966201c554ddcaaa4",
+      "tests/oracle-generated/exploration/g35_sixteen_instructions.litmus": "a4f109b89f1d7b67bb965d0f2e9aae603de64acbb55b2a9aa492eaa8a21bbd08",
+      "tests/oracle-generated/exploration/g35_sixteen_instructions.litmuslab": "0dcf1550eb86ccea39779b3a1fe20442e84b80d4f8153f0af476c98ce6b783c4",
+      "tests/oracle-generated/g00_mixed_t1.litmus": "43a31957e32d4d2fe902b0e12817ae1133f541acbc9a4fcd3bbfbcde8ddb492f",
+      "tests/oracle-generated/g00_mixed_t1.litmuslab": "9ee839de7ad239dfb5566b24e1d27581648d8850a51e6662e7f53a5a4f9bceca",
+      "tests/oracle-generated/g01_mixed_t2.litmus": "61931c8e73a0b9f5b4e8828d9b1e092f4ee05a53257c83710a315b471eb2158f",
+      "tests/oracle-generated/g01_mixed_t2.litmuslab": "ae44a7dd3d9e55702997567450089fabf47f77b92a15aa9668304630a9f7a9b0",
+      "tests/oracle-generated/g02_mixed_t3.litmus": "048d3e7e8736f286a31fc1faf2eefe0f1b38a613a944db5ed71e47733f678c77",
+      "tests/oracle-generated/g02_mixed_t3.litmuslab": "c3ebb10104978043145d33cc59d913a9f253c590e15cafe64ac13f0b38237158",
+      "tests/oracle-generated/g03_mixed_t4.litmus": "d6b57ff0d016c69af2139689ebc0ef4b63cf63ec0e1391dd5753dacc801049e5",
+      "tests/oracle-generated/g03_mixed_t4.litmuslab": "966321317622f8719615cba2286ee6bcdddcdd01d992ae7c242fe7af92e0eb77",
+      "tests/oracle-generated/g04_overwrite_t1.litmus": "bfcd51ba0b9ec6a75755ddfb9b46e52ef369bc83b96dc8d10c4a10978b491597",
+      "tests/oracle-generated/g04_overwrite_t1.litmuslab": "d7310251b420168cbe65b2bb6dc171861c5692713113080090f6e7bffda1af9b",
+      "tests/oracle-generated/g05_overwrite_t2.litmus": "40ce241c7324e62328c9b9466bed0a723cc53ba7219f236f9542eac0b6363a4f",
+      "tests/oracle-generated/g05_overwrite_t2.litmuslab": "81ff7d00d49b6d9a2fd6057e24d4a430f36541836eb3ab48460880238661017d",
+      "tests/oracle-generated/g06_overwrite_t3.litmus": "0a3bd063cfcc2dcff7fe0f2a16c067dea8787c1a0483f84fadcf05b98c8db58a",
+      "tests/oracle-generated/g06_overwrite_t3.litmuslab": "b4844ed63497b4f301aee8b2ff30e4fb4677040f04983725f0b2b7247200eaea",
+      "tests/oracle-generated/g07_overwrite_t4.litmus": "8c1b934c886837f2ac83af322c7ea6c3a3f3e2e159731e458731944728c54864",
+      "tests/oracle-generated/g07_overwrite_t4.litmuslab": "1e6294a8f136be5ef215d5585cc1596630462dc9b450f08187bdfda4af9682fe",
+      "tests/oracle-generated/g08_negative_t1.litmus": "24cebfd06194c82d51c0bd4f9916ec90f27da85d41d7390f2619710eea3f365d",
+      "tests/oracle-generated/g08_negative_t1.litmuslab": "6e67e5a1da91560ea0f6b721a49648435a621dbbf610645d01adb53a80af388a",
+      "tests/oracle-generated/g09_negative_t2.litmus": "f4dfe9dc07772d63500fa4efa278447a5971cd470cb019d06cea09ca9ec15e4d",
+      "tests/oracle-generated/g09_negative_t2.litmuslab": "078b517f58a2545249c99e2e0e64a55ecf533254fcf86e64e1fa6f6f21f877ac",
+      "tests/oracle-generated/g10_negative_t3.litmus": "833fa956570d175e5fa57652c33329dc52547eb267248356cec3803928345e4e",
+      "tests/oracle-generated/g10_negative_t3.litmuslab": "12cc7ebab22bc6dbe86cb848b2cc29c10b38802840e21c11e35e51fc24c7dc1c",
+      "tests/oracle-generated/g11_negative_t4.litmus": "405c25d2eab7671e5c0ef433542b8eb0ffce99076af19dee494f552408c3c6a4",
+      "tests/oracle-generated/g11_negative_t4.litmuslab": "43aaaa4192a0c74087d819c0a20d35a485ae62c978f67f989da52efdec426fd2",
+      "tests/oracle-generated/g12_same_address_t1.litmus": "7aab0be0bc16198850ed795b363fb4a81277fb6f2ac9ff421bf345011b63aea2",
+      "tests/oracle-generated/g12_same_address_t1.litmuslab": "ab17ad05616fdbf384d15aa30bcd7a653ef823c7d9c295300c050a3db45dcf9d",
+      "tests/oracle-generated/g13_same_address_t2.litmus": "219576e6713b395c2afec2ab4475932f4df0b05c5ed3dc3972059ed576f6f47e",
+      "tests/oracle-generated/g13_same_address_t2.litmuslab": "0536f011deffe6383ed2402635cededfc687404818582186ce1ec5f21dd1a133",
+      "tests/oracle-generated/g14_same_address_t3.litmus": "1e09eb901341048f92fbf3c00b9966e7637c23af59b0327e928eeb7bd00eb06e",
+      "tests/oracle-generated/g14_same_address_t3.litmuslab": "7c10f0ad5a3d72c48ed514cec163fa3d46fdee11a52c5487a98392e13c8e6d99",
+      "tests/oracle-generated/g15_same_address_t4.litmus": "c1967c973178bd73a36a0b3ba8bdd8c75a4438bb74afa35472eec2aa453dd2a3",
+      "tests/oracle-generated/g15_same_address_t4.litmuslab": "0668837d05983c9fc13d80f8a73d05853db12b2286adfa45b8852aee3ad41303",
+      "tests/oracle-generated/g16_fenced_t1.litmus": "e7f04e04581bf217700d43f7f80c77b09511c56ed5a592627bf62ba42c87b11f",
+      "tests/oracle-generated/g16_fenced_t1.litmuslab": "dc35d513279be4cd84d645bca968bf0186c7d3024ba185db4a1f2b8822fb2621",
+      "tests/oracle-generated/g17_fenced_t2.litmus": "6bf82386524e97b36ef2e33ae731d565e187c7b937d2a600091fde859a9afe0f",
+      "tests/oracle-generated/g17_fenced_t2.litmuslab": "bcf1e31b07366d0d930b7cca4f0518185cb6dbbebb83fe90b910e17616e18e21",
+      "tests/oracle-generated/g18_fenced_t3.litmus": "733012fe9cb043701d3a4132a4bfcf3abb9a956ca5080e95d5d20a765cef8835",
+      "tests/oracle-generated/g18_fenced_t3.litmuslab": "b97310d2b322bb0ba31b388065d02a3f385b920287a120833da60173386ff27c",
+      "tests/oracle-generated/g19_fenced_t4.litmus": "941b86f766b090a89f8fb6a3ee98779872514690f251b2318bdf03602540ba9d",
+      "tests/oracle-generated/g19_fenced_t4.litmuslab": "8ecb3e2e93526eba4c7a4599ed66e636d8a4cf09272d85b58d25a4c47d7801e0",
+      "tests/oracle-generated/g20_empty_thread_t1.litmus": "141ac9e988292b189b64f6239d25cbb152d58a546e181a02d23316273735917c",
+      "tests/oracle-generated/g20_empty_thread_t1.litmuslab": "b26f38fea95fa650e07146fd42045e5d8539d3b732d576ca02dfe2dfc12997ce",
+      "tests/oracle-generated/g21_empty_thread_t2.litmus": "7891e6c4d7c7f283f971ea460cdb10be44f2fd646461fada00d5cdb09969e9c9",
+      "tests/oracle-generated/g21_empty_thread_t2.litmuslab": "84b9e9698f76dd22c13580f9c1103691125a06802bd5399de77d3956e647cec6",
+      "tests/oracle-generated/g22_empty_thread_t3.litmus": "24db1a5f080bde569918a469593b454ba37fca58be6b24a4c7a4fa14aca93d69",
+      "tests/oracle-generated/g22_empty_thread_t3.litmuslab": "71204190dd6f008a29b1aef186a42a1c76797395fd27eaca2806eb7e57e21682",
+      "tests/oracle-generated/g23_empty_thread_t4.litmus": "2b6e7c584584ad62f5d807a80b7ba430c2662fac93dfb8da8a7c5eab0f65cbf5",
+      "tests/oracle-generated/g23_empty_thread_t4.litmuslab": "3ae40bcb7a8c5c0a591a27d002ab62b07e0e40b10d5b97708dc6110c45c7fb9c",
+      "tests/oracle-generated/g24_all_empty_t1.litmus": "f3c9d18c0cc3015c44e87c3ab361176947f6e7fd92b2e456abd780364fe39e13",
+      "tests/oracle-generated/g24_all_empty_t1.litmuslab": "39d97b35c3df3d384a6ff680264c82664186ffe39ec0255457b533ae93befb1a",
+      "tests/oracle-generated/g25_all_empty_t2.litmus": "709d18bd1fd5587ee2ca9c77326c70bff3d0c11747730ff59f4ca6e3356f83ee",
+      "tests/oracle-generated/g25_all_empty_t2.litmuslab": "2d166b16e043700bc5be313f734b4edb0db9eb2928846eb8f2bcdb11ec676254",
+      "tests/oracle-generated/g26_all_empty_t3.litmus": "b06c5f42c9aba9663a9bd5875e11aa9376f75cd88135f8b269a2944c72a54f4a",
+      "tests/oracle-generated/g26_all_empty_t3.litmuslab": "872c8ac8d31707a922ee60914455972dad19238d12331be3ffaff2348ee870c5",
+      "tests/oracle-generated/g27_all_empty_t4.litmus": "0f0dbe9d648bd1019a0f8c950f9a429f7820c53f0adfd9717932b25c99becf4e",
+      "tests/oracle-generated/g27_all_empty_t4.litmuslab": "70de9d1e5631f4a001e9427ddc8ad86d40e014e27c4fce42ba24f6433759ba4d",
+      "tests/oracle-generated/g28_forwarding_t1.litmus": "99117e88ba1bf7c2dfaf8b25d6fc985a66ef2fdf2caed40570a4c38ac4c3a7db",
+      "tests/oracle-generated/g28_forwarding_t1.litmuslab": "e9535eaa2cab0fb1e08f260d82bc3d1e3c282d28e9812622009846811f8a6a11",
+      "tests/oracle-generated/g29_forwarding_t2.litmus": "472e73b3b4134e84c1e43c7a202902813859c234155ee599eee5f3d97fce2c07",
+      "tests/oracle-generated/g29_forwarding_t2.litmuslab": "3a2d82a2ffce4c0af98fb9b5993391361d88aec3bf216eb6417aecd3dd33dd73",
+      "tests/oracle-generated/g30_forwarding_t3.litmus": "bb61875872fbe5695b2baf92786c433ac1420e197192e4635a89e3a98a1418a5",
+      "tests/oracle-generated/g30_forwarding_t3.litmuslab": "253b39581c87f1a638840a57308741df8136c11f5c7a64f528f450ba8b54d0da",
+      "tests/oracle-generated/g31_forwarding_t4.litmus": "e769768d367b300959d6e0cbc81e2799be38d23de7f23b33a3f06f9f963c3974",
+      "tests/oracle-generated/g31_forwarding_t4.litmuslab": "6ebde70ddc4b9335e42b8a2eef064b0dd4122d96b3a4d3d615082d2a2c23d4bd",
+      "tests/oracle-generated/g32_int16_endpoints.litmus": "896af8e8719d26f747b66ccf7859e684ce0c68eab1b9c28f3c649256adafbd0f",
+      "tests/oracle-generated/g32_int16_endpoints.litmuslab": "837de085ec1da31c93aa83dfef1057b99a2c016a667b00f756f1be5ee3857061",
+      "tests/oracle-generated/g33_eight_registers.litmus": "4da8be9f20f3dbefae5f5858fde6f0779198a0080edbabb393f43f46bcb68fe9",
+      "tests/oracle-generated/g33_eight_registers.litmuslab": "d200deeeb20f8ce32cd5c691cccf889297c9b0fca40e0e00cdaec4bad1603cba",
+      "tests/oracle-generated/g34_eight_memory_locations.litmus": "a3456c9c88d15c42446d2f756dde8319b3b7e1f8f922a3a4e7638d986db21b68",
+      "tests/oracle-generated/g34_eight_memory_locations.litmuslab": "96fe12ac7736a8cbc92fecb835c7699d0b6a036fae5c1e47b5698b639f94d462",
+      "tests/oracle-generated/g35_sixteen_instructions.litmus": "1b6a98d79081ac0153ac181aedfefb228aab16d92f1d3019c648458341f2cd64",
+      "tests/oracle-generated/g35_sixteen_instructions.litmuslab": "bad6adcb010f8ffb556a6e2a67d244d23a7d533e1d0b81ee66724aa7be63a9d0",
+      "tests/oracle-generated/probes/all_empty.litmus": "7594c72539c6e9ac61360fa1d000d29b06cfec92d555a67a212466cd83c99059",
+      "tests/oracle-generated/probes/empty_one_blank.litmus": "a0c46a02f74251158c10c4714cb906f92a7289b3bc2ce032a1c7e7fe94ee0151",
+      "tests/oracle-generated/probes/empty_one_nop.litmus": "7c01e9c4fcd797b1c58927f8a9c5c2330ebbdb2cf98a8818587a43d15bcc0e7f",
+      "tests/oracle-generated/probes/empty_two_blank.litmus": "addb87e5fe4b197c4825ee2bd8d875a10c41f45a6cf0fbd11f1d5c57eca8147f",
+      "tests/oracle-generated/probes/empty_two_nop.litmus": "0d72e713c13b0271acb4b79d345becf9a0a3273c11cc0cf36cfff1fb3be25b40",
+      "tests/oracle-generated/probes/fence_only.litmus": "c767f80c2e92e5d284bfdcec430806157f4bd903000a8706ea59fe37b7d8b7cc",
+      "tests/oracle-generated/probes/missing_empty_table_row.litmus": "b31733fddfe25d194348bb6b1cc3a142a0af6f1401130aaf4167d4e202100cd8",
+      "tests/oracle-generated/probes/negative.litmus": "9b391d7c02af124bdaa06bcddd0e97599874e8e00d0174dfdbf7cb5047b9973d",
+      "tests/oracle-generated/probes/one_empty.litmus": "be334fb358c74b8911efd34dfe1044bdbacfffdbd42017366dbda042e149665f",
+      "tests/oracle-generated/probes/overwrite.litmus": "9404d1f9e49a7c47aed852d45f34c8c0f59a90131b46b0562b49373c1d0fea1e",
+      "tests/oracle-generated/probes/unused_memory.litmus": "76bfee7435c4eee2c5bdba8f59db41c92adc7dfb3a28a5e4bae9c01a0151982e",
+      "tests/oracle-generated/probes/wide_signed.litmus": "056d795d5ac78e8548263f7c7640585fa7f9acbb3cff2fe007534e707a8c3fc2",
+      "tests/oracle/FIFO.litmus": "fcf9858066703adfa34736982414541e75d625c1474e2d2c7bc9f75987917816",
+      "tests/oracle/FIFO.litmuslab": "26d663163ccdc7642b9eea61ddd318e0d980be60198ab98718d1cdecd962a95d",
+      "tests/oracle/LB.litmus": "f4e5e26934e102337faae7899d8f10e649b956f8573751a241b8101e10d7e6ba",
+      "tests/oracle/LB.litmuslab": "a356cd90aa49ad30019350b9bcd10844750fa78cc8609f9aa411a44fcc16ceb4",
+      "tests/oracle/MP.litmus": "723a98158d73979d4e4e98c4c1de9384388f772a187da01d42eea85c99db7b3e",
+      "tests/oracle/MP.litmuslab": "2714c67447abace72b6f21c2a06fbf68e411f7425bacd6a1fc05e2fd5da13b99",
+      "tests/oracle/SB.litmus": "8c268dd69f243ca9ed954d45b010a5b86094c286d26c4c26bfed21835a8a15ac",
+      "tests/oracle/SB.litmuslab": "26a659d63c339edabfca5ca1b582dcf148652fd584d86f4ae7c51e304f3c02ce",
+      "tests/oracle/cases.json": "40b974d32490b155057a86c2a468cb440fdbaf6d1632d11cd486adcb8a579724",
+      "tests/oracle/fence.litmus": "303615b7577a9c87ed0ab2dbec3c993895167634f671e90cf82c6c18e0259b5b",
+      "tests/oracle/fence.litmuslab": "f09d285f4602ce4a605a464a183d945c7230f4b6caec010ff751084dd2f893c2",
+      "tests/oracle/forwarding.litmus": "a1c33920d21e1b9e1fccc39ddedec1d31e0afb3d0a66280c0209931a32f66247",
+      "tests/oracle/forwarding.litmuslab": "4636d571d9d61d391924646881d761f308aadd13ed9f00a65bf5fe29f06c7f0a",
+      "tests/performance-baseline/NOTICE.md": "1d10a3ccc943fcb98e7c40c95e00db918513c991b54b310224988d9c0960b1ad",
+      "tests/performance-baseline/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "tests/performance-baseline/engine.raw.mjs": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af",
+      "tests/test_evidence.py": "d5bf9af7a453063008821372024338ead49f6286d64a9ac31cdfe57160cb5812",
+      "tests/test_reference.py": "9735d04303eeead302e071a3bd150a8c1beeeef6c4b551031de7b8442db425ed",
+      "toolchain.lock.json": "472026cb4fbd405c9f6ad98bbb15a0fab9d4e7f1a576807ae39f96777c3312a0",
+      "tools/acceptance.py": "02ccd1c24ee4fc0d9adde08c9dba92a8f21cb964eaac7252b8c9c674918b8a89",
+      "tools/benchmark.py": "10d655b4466d0281250622b4f54df131b47650327afb0eeac3468078fd4fb1a1",
+      "tools/bootstrap.py": "8a7699d4090c168b975c9ce5590a1fb8a9e251dd023c0261745ec00499655e00",
+      "tools/browser-qa.mjs": "3cecadaa267d7118a1f79d901f72528d8af01dd703cc2cb5bb8211864d0db8ba",
+      "tools/build.sh": "96889b2ba8e53c27857f7abb15bae27c5566fe413cb92d55b9153db32fb154f8",
+      "tools/check-interfaces.mjs": "07c18586794bc37ed343144e5e1b085fa2c20624d955a23061771c7c5f09902d",
+      "tools/crosscheck.py": "00bd118540bf2645b7f982a3148fff02f828d9aeb929a3b4c7284026b8180db4",
+      "tools/engine-wrapper.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "tools/evidence.py": "3c66c600cd60e9e93ff94880a7619b55a4daff8cc445f0cb72000f0145666983",
+      "tools/moon": "36c3942b693e5d8ce1cfffd09d328eff14659646a84a24d74cbfc9a88b99eb3f",
+      "tools/oracle-bootstrap.sh": "54004925ab1b219efe4eaafc5ee421a4ee0df5946e7a5bb1d80ecdf58504f7ac",
+      "tools/oracle-compare.mjs": "815a8b280304443f8a5abf3b7998dda7b548a518453dc9278bff3ad3f85ceb6d",
+      "tools/oracle-generated-engine.mjs": "028568ab6968a834c9c950da8150481ba4461d3afe310b02c8d9f73af616a19d",
+      "tools/oracle-generated.py": "990f46188cfb3cc5f771da250ff97716875cb6e75e6a9c2acadf2cdaa89cb020",
+      "tools/oracle-moonctl.py": "c60fe2b683c3dc494e39d738c6207cd5a8617307280dcc423012350a61df3d22",
+      "tools/oracle-run.py": "b5a58b13ba547ca5860e1b844355895ab56716150281e3587ef4084a6517e2a2",
+      "tools/package.py": "7e7af54017e7359a39160aaa5b58122e8be48dbffb4d20604f61e2d9276a9b22",
+      "tools/reference.py": "6cf99f29b11854ad487af8ee103a7a584b833760f87eabaafebb75f2a66f2b91",
+      "tools/serve.mjs": "6f5ac5722a409acedcd795c80cebb626b60ef0cfb4b4f9a0426865bc5d236adf",
+      "tools/stress.mjs": "1c4fb6e76d53990ef06aa5477df20af03546ec1c3d2add5df177674373c59691",
+      "tools/summarize.py": "e600e3ce45131ddb949aa64afbe5922f8e421a6629b76752ab64462820a3db87",
+      "tools/verify.py": "b26389a0aabd889fabc0e41924120b4d6012c0635c9fcb2ac24176cbc30f1180",
+      "web/app.mjs": "977d208340ef75195cb7b65a83c6b5d645b7983504f26da93c1946d5cbdcd9df",
+      "web/engine-worker.mjs": "7be69e46cb15055c2e5846e6b5637b0566d6f85dcbded83208ea1a5a05fd9ce6",
+      "web/experiment.mjs": "1d7f9ab10d2021c8da2600b25ef97e8f65296628bae18133eb878bbd21fa05bf",
+      "web/index.html": "9d150df773d0507f67206bd7903c5bc01d229dcf1084d3e6f6410f4529148af9",
+      "web/style.css": "26a95144548ce35812a22321fcf52e121549d5394ce561a4f5b170f306bb109e"
+    }
+  },
   "hashes": {
-    "core/json.mbt": "e1f100770aa5737c43fbdba0acccd3e7eb26f8c0fd3225395c5eb6f6f209bbf3",
+    "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
     "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
-    "core/replay.mbt": "252f0941cadd1a3c0957770fd67f8aa62b0c22157002cef1e0bacaad23982534",
+    "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
     "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
-    "core/semantics.mbt": "a31feea1cee009db406796e13125a4e4fcdd7673154bff157aef66ca6b65cc67",
-    "core/semantics_wbtest.mbt": "ddfdf4465bdb610df3c716341a70a4d00e62bdc7b392f98324642eed5fc10993",
-    "core/types.mbt": "711567c2bb56cc84558e4cd1b229722190f1f22eef6c0f2a67ff7559654885e1",
+    "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
+    "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
+    "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243",
     "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
-    "dist/engine.raw.mjs": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af"
-  }
+    "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0"
+  },
+  "finishedAt": "2026-10-23T15:35:20.968652+00:00"
 }

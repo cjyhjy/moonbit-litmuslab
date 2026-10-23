@@ -1,0 +1,24 @@
+Test LL_g15_same_address_t4 Allowed
+States 14
+0:EAX=-2; 1:EAX=-2; 2:EAX=-2; 3:EAX=2; [x]=-2; [y]=1;
+0:EAX=-2; 1:EAX=-2; 2:EAX=-2; 3:EAX=2; [x]=-2; [y]=2;
+0:EAX=-2; 1:EAX=-2; 2:EAX=-1; 3:EAX=2; [x]=-2; [y]=1;
+0:EAX=-2; 1:EAX=-2; 2:EAX=-1; 3:EAX=2; [x]=-2; [y]=2;
+0:EAX=-2; 1:EAX=2; 2:EAX=-2; 3:EAX=1; [x]=-2; [y]=-2;
+0:EAX=-2; 1:EAX=2; 2:EAX=-2; 3:EAX=1; [x]=-2; [y]=2;
+0:EAX=-2; 1:EAX=2; 2:EAX=-2; 3:EAX=2; [x]=-2; [y]=-2;
+0:EAX=-2; 1:EAX=2; 2:EAX=-2; 3:EAX=2; [x]=-2; [y]=1;
+0:EAX=-2; 1:EAX=2; 2:EAX=-2; 3:EAX=2; [x]=-2; [y]=2;
+0:EAX=-2; 1:EAX=2; 2:EAX=-1; 3:EAX=1; [x]=-2; [y]=-2;
+0:EAX=-2; 1:EAX=2; 2:EAX=-1; 3:EAX=1; [x]=-2; [y]=2;
+0:EAX=-2; 1:EAX=2; 2:EAX=-1; 3:EAX=2; [x]=-2; [y]=-2;
+0:EAX=-2; 1:EAX=2; 2:EAX=-1; 3:EAX=2; [x]=-2; [y]=1;
+0:EAX=-2; 1:EAX=2; 2:EAX=-1; 3:EAX=2; [x]=-2; [y]=2;
+No
+Witnesses
+Positive: 0 Negative: 66
+Condition exists ([x]=-1)
+Observation LL_g15_same_address_t4 Never 0 66
+Time LL_g15_same_address_t4 0.05
+Hash=1a378fb5e86e87a14015ab9dfb1763c8
+

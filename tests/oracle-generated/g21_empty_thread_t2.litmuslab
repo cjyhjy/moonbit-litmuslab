@@ -1,0 +1,9 @@
+memory x=-2
+
+thread P0
+end
+
+thread P1
+store x 0
+load r0 x
+end

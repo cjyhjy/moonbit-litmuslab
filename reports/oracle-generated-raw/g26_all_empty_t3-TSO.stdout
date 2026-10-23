@@ -1,0 +1,11 @@
+Test LL_g26_all_empty_t3 Allowed
+States 1
+[x]=2;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=2)
+Observation LL_g26_all_empty_t3 Always 1 0
+Time LL_g26_all_empty_t3 0.00
+Hash=fa467aa4bf07fc39bd0ab888c37071ba
+

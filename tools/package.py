@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """Build a local, dependency-free runtime/source archive with a content manifest."""
 import hashlib
+import json
 from pathlib import Path
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-EXCLUDE = {'.tools', '_build', 'release', '.acceptance', '.git', 'node_modules', '__pycache__', '.DS_Store'}
-NAME = 'LitmusLab-0.1.0'
+EXCLUDE = {'.ci-evidence', '.tools', '_build', 'release', '.acceptance', '.git', 'node_modules', '__pycache__', '.DS_Store'}
+NAME = 'LitmusLab-' + json.loads((ROOT / 'package.json').read_text())['version']
 
 
 def files():
     for path in sorted(ROOT.rglob('*')):
         relative = path.relative_to(ROOT)
-        if any(part in EXCLUDE for part in relative.parts) or path.is_dir():
+        if relative.parts[:2] == ('reports', 'history') or any(part in EXCLUDE for part in relative.parts) or path.is_dir():
             continue
         if path.is_symlink():
             raise ValueError('Archive refuses symlink: ' + str(relative))

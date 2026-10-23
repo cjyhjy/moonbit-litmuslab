@@ -1,0 +1,11 @@
+Test LL_probe_unused_memory Allowed
+States 1
+0:EAX=-1; [x]=-1; [y]=3;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=-1)
+Observation LL_probe_unused_memory Always 1 0
+Time LL_probe_unused_memory 0.00
+Hash=f5bd78363f8ef5d7fffd7b79bb92246a
+

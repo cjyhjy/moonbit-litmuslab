@@ -1,0 +1,11 @@
+Test LL_probe_overwrite Allowed
+States 1
+0:EAX=2; [x]=2;
+No
+Witnesses
+Positive: 0 Negative: 1
+Condition exists ([x]=-1)
+Observation LL_probe_overwrite Never 0 1
+Time LL_probe_overwrite 0.00
+Hash=50cd099fe9378ee76b123e59c310dc03
+

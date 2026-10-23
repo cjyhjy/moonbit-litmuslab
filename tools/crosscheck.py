@@ -24,6 +24,7 @@ import sys
 import time
 
 import reference
+import evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -162,7 +163,7 @@ def corpus(random_cases):
 
 def normalized_trace(trace):
     """Translate only MoonBit's presentation schema, retaining all semantic state."""
-    return [{"step": item["step"], "action": item["action"], "memory": item["memory"],
+    return [{"step": item["step"], "action": item["action"], "effect": item["effect"], "memory": item["memory"],
              "registers": {thread["name"]: thread["registers"] for thread in item["threads"]},
              "pcs": {thread["name"]: thread["pc"] for thread in item["threads"]},
              "buffers": {thread["name"]: thread["buffer"] for thread in item["threads"]},
@@ -364,6 +365,7 @@ def main():
     parser.add_argument("--report", type=Path, default=ROOT / "reports" / "crosscheck.json")
     args = parser.parse_args()
     started = time.monotonic()
+    input_evidence = evidence.snapshot(ROOT, "crosscheck")
     engine = Engine(args.engine.resolve(), args.node)
     report = {"kind": "independent-implementation-crosscheck", "externalOracle": False,
               "generatedAt": datetime.now(timezone.utc).isoformat(), "seed": SEED,
@@ -371,6 +373,7 @@ def main():
               "engineSha256": hashlib.sha256(args.engine.read_bytes()).hexdigest(),
               "referenceSha256": hashlib.sha256(Path(reference.__file__).read_bytes()).hexdigest(),
               "harnessSha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+              "evidence": input_evidence,
               "corpus": [], "boundaries": [], "hostTypeChecks": [], "resourceChecks": [], "failures": []}
     source_digest = hashlib.sha256()
     report["moonbitSourceFiles"] = {}
@@ -411,6 +414,10 @@ def main():
             print(f"FAIL resources: {error}", file=sys.stderr, flush=True)
     finally:
         engine.close()
+    try:
+        evidence.verify_snapshot(ROOT, input_evidence, "crosscheck")
+    except evidence.EvidenceError as error:
+        report["failures"].append({"name": "input-evidence-changed", "error": str(error)})
     report["summary"] = {"status": "passed" if not report["failures"] else "failed",
                          "programs": len(report["corpus"]), "modelStrategyComparisons": len(report["corpus"]) * 4,
                          "distinctPrograms": len({item["sourceSha256"] for item in report["corpus"]}),
@@ -453,7 +460,7 @@ register reuse, negative values, all instruction/register/address limits, and IR
 All complete searches compare final memory plus every named local register,
 reachable-state counts, BFS/DFS consistency, and SC outcome inclusion in TSO.
 Every MoonBit witness is independently replayed; every step's memory, PCs,
-registers, buffers and terminal flag is compared with the MoonBit replay trace.
+registers, buffers, terminal flag and structured action effect is compared with the MoonBit replay trace.
 MoonBit also replays independently constructed Python witnesses.
 
 Reproduce from the project root:

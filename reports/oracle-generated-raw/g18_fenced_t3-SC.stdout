@@ -1,0 +1,23 @@
+Test LL_g18_fenced_t3 Allowed
+States 13
+0:EAX=-2; 1:EAX=-2; 2:EAX=-2; [x]=0; [y]=-2;
+0:EAX=-2; 1:EAX=-2; 2:EAX=-1; [x]=0; [y]=-2;
+0:EAX=-2; 1:EAX=-2; 2:EAX=-1; [x]=0; [y]=-1;
+0:EAX=-2; 1:EAX=-1; 2:EAX=-1; [x]=0; [y]=-1;
+0:EAX=0; 1:EAX=-2; 2:EAX=-2; [x]=0; [y]=-2;
+0:EAX=0; 1:EAX=-2; 2:EAX=-2; [x]=0; [y]=-1;
+0:EAX=0; 1:EAX=-2; 2:EAX=-1; [x]=0; [y]=-2;
+0:EAX=0; 1:EAX=-2; 2:EAX=-1; [x]=0; [y]=-1;
+0:EAX=0; 1:EAX=-2; 2:EAX=0; [x]=0; [y]=-2;
+0:EAX=0; 1:EAX=-2; 2:EAX=0; [x]=0; [y]=-1;
+0:EAX=0; 1:EAX=-1; 2:EAX=-2; [x]=0; [y]=-1;
+0:EAX=0; 1:EAX=-1; 2:EAX=-1; [x]=0; [y]=-1;
+0:EAX=0; 1:EAX=-1; 2:EAX=0; [x]=0; [y]=-1;
+No
+Witnesses
+Positive: 0 Negative: 13
+Condition exists ([x]=-2)
+Observation LL_g18_fenced_t3 Never 0 13
+Time LL_g18_fenced_t3 0.00
+Hash=667a3eefe4cb09af146f9e1d35723027
+

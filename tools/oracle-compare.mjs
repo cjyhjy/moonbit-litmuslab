@@ -4,10 +4,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {analyze} from '../dist/engine.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const evidence = JSON.parse(execFileSync('python3', [path.join(root, 'tools/evidence.py'), 'snapshot', 'oracle'], {encoding: 'utf8'}));
 const oraclePath = path.join(root, 'reports/oracle-herd7.json');
 const oracleBytes = fs.readFileSync(oraclePath);
 const oracle = JSON.parse(oracleBytes);
@@ -44,7 +46,8 @@ const runs = oracle.runs.map(external => {
   console.log(`${run.case.padEnd(12)} ${run.model}: ${matched ? 'PASS' : 'FAIL'} (herd=${expected.size}, engine=${actual.size}, ${result.status})`);
   return run;
 });
-const report = {schema_version: 1, kind: 'external-oracle-full-outcome-set-comparison',
+execFileSync('python3', [path.join(root, 'tools/evidence.py'), 'verify', 'oracle'], {input: JSON.stringify(evidence), encoding: 'utf8'});
+const report = {schema_version: 1, kind: 'external-oracle-full-outcome-set-comparison', evidence,
   run_at: new Date().toISOString(), oracle_version: oracle.version,
   oracle_report_sha256: digest(oracleBytes), engine_sha256: digest(fs.readFileSync(path.join(root, 'dist/engine.mjs'))),
   raw_engine_sha256: digest(fs.readFileSync(path.join(root, 'dist/engine.raw.mjs'))),

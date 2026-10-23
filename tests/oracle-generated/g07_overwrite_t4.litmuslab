@@ -1,0 +1,22 @@
+memory x=0 y=0
+
+thread P0
+load r0 y
+store y 1
+load r0 y
+end
+
+thread P1
+load r0 x
+store y 1
+end
+
+thread P2
+load r0 y
+store x 1
+end
+
+thread P3
+load r0 y
+store x 1
+end

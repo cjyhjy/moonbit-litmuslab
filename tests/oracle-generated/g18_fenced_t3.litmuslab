@@ -1,0 +1,18 @@
+memory x=-2 y=0
+
+thread P0
+store y -1
+fence
+load r0 x
+fence
+end
+
+thread P1
+store y -2
+load r0 y
+end
+
+thread P2
+store x 0
+load r0 y
+end

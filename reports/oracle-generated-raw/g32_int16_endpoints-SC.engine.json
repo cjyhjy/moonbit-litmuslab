@@ -1,0 +1,83 @@
+{
+  "status": "complete",
+  "exitCode": 0,
+  "model": "SC",
+  "strategy": "bfs",
+  "reason": null,
+  "program": {
+    "initialMemory": {
+      "x": -32768,
+      "y": 32767
+    },
+    "threads": [
+      {
+        "name": "P0",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 4,
+            "op": "load",
+            "address": "x",
+            "register": "r0"
+          },
+          {
+            "line": 5,
+            "op": "store",
+            "address": "y",
+            "value": -32768
+          },
+          {
+            "line": 6,
+            "op": "load",
+            "address": "y",
+            "register": "r0"
+          }
+        ]
+      },
+      {
+        "name": "P1",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 10,
+            "op": "store",
+            "address": "x",
+            "value": 32767
+          },
+          {
+            "line": 11,
+            "op": "load",
+            "address": "x",
+            "register": "r0"
+          }
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "visitedStates": 16,
+    "expandedStates": 16,
+    "transitions": 23,
+    "outcomes": 1
+  },
+  "outcomes": [
+    {
+      "memory": {
+        "x": 32767,
+        "y": -32768
+      },
+      "registers": {
+        "P0": {
+          "r0": -32768
+        },
+        "P1": {
+          "r0": 32767
+        }
+      }
+    }
+  ]
+}

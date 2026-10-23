@@ -1,0 +1,6 @@
+X86 LL_probe_empty_two_blank
+{x=-1;}
+P0 | P1;
+ | ;
+locations [x]
+exists (x=-1)

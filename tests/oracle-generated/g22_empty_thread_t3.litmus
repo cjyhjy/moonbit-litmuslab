@@ -1,0 +1,12 @@
+X86 LL_g22_empty_thread_t3
+{
+x=2;
+y=-1;
+1:EAX=0;
+2:EAX=0;
+}
+P0 | P1 | P2;
+ | MOV EAX,[x] | MOV EAX,[y];
+ | MOV [y],$-2 | MOV [x],$-2;
+locations [x; y; 1:EAX; 2:EAX]
+exists (x=2)

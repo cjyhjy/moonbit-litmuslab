@@ -1,15 +1,44 @@
 {
   "kind": "independent-implementation-crosscheck",
   "externalOracle": false,
-  "generatedAt": "2026-10-22T15:38:18.283167+00:00",
+  "generatedAt": "2026-10-23T15:35:12.462575+00:00",
   "seed": 20261022,
   "versions": {
     "python": "3.9.6",
     "node": "v26.7.0"
   },
   "engineSha256": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
-  "referenceSha256": "974ae8e97e941e2960b4fd70218252e4a54eb059fafa6328d3c2a6fc587bcde2",
-  "harnessSha256": "46df478ebfa2555afdd63a3e47cf45b82ca5a935064c96c1515062a6924e271d",
+  "referenceSha256": "6cf99f29b11854ad487af8ee103a7a584b833760f87eabaafebb75f2a66f2b91",
+  "harnessSha256": "00bd118540bf2645b7f982a3148fff02f828d9aeb929a3b4c7284026b8180db4",
+  "evidence": {
+    "schemaVersion": 1,
+    "profile": "crosscheck",
+    "algorithm": "sha256-path-nul-hash-newline-v1",
+    "digest": "c067a5a61bf9cd03cb0ee9332be0889680d6c2cfe2d101940ca6870431bff0c7",
+    "files": {
+      "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
+      "core/moon.pkg": "b32472696f96a51655b55cadd81b11d967370fa92aadd7e83207b90ebe04dc80",
+      "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
+      "core/pkg.generated.mbti": "ad31343121a21efb434d54822d666fe4cac0259be9c1bcb068dbd772784ab22c",
+      "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
+      "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+      "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
+      "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
+      "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243",
+      "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0",
+      "moon.mod": "25227956d4644d8e347c16c50f982af8adf5c525611ce547fba0520ecaeefe38",
+      "package.json": "3f2f405a6a9836751afac4830ee38cd743fe339aaf468cedfe75ed033658a072",
+      "tests/test_reference.py": "9735d04303eeead302e071a3bd150a8c1beeeef6c4b551031de7b8442db425ed",
+      "toolchain.lock.json": "472026cb4fbd405c9f6ad98bbb15a0fab9d4e7f1a576807ae39f96777c3312a0",
+      "tools/build.sh": "96889b2ba8e53c27857f7abb15bae27c5566fe413cb92d55b9153db32fb154f8",
+      "tools/crosscheck.py": "00bd118540bf2645b7f982a3148fff02f828d9aeb929a3b4c7284026b8180db4",
+      "tools/engine-wrapper.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "tools/evidence.py": "3c66c600cd60e9e93ff94880a7619b55a4daff8cc445f0cb72000f0145666983",
+      "tools/moon": "36c3942b693e5d8ce1cfffd09d328eff14659646a84a24d74cbfc9a88b99eb3f",
+      "tools/reference.py": "6cf99f29b11854ad487af8ee103a7a584b833760f87eabaafebb75f2a66f2b91"
+    }
+  },
   "corpus": [
     {
       "category": "named",
@@ -13609,7 +13638,7 @@
         "outcomes": 1
       },
       "status": "complete",
-      "elapsedSeconds": 0.19
+      "elapsedSeconds": 0.106
     },
     {
       "name": "incomplete-100000-states",
@@ -13621,21 +13650,21 @@
       },
       "status": "incomplete",
       "reason": "max_states",
-      "elapsedSeconds": 0.415
+      "elapsedSeconds": 0.264
     }
   ],
   "failures": [],
   "moonbitSourceFiles": {
-    "core/json.mbt": "e1f100770aa5737c43fbdba0acccd3e7eb26f8c0fd3225395c5eb6f6f209bbf3",
+    "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
     "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
-    "core/replay.mbt": "252f0941cadd1a3c0957770fd67f8aa62b0c22157002cef1e0bacaad23982534",
+    "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
     "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
-    "core/semantics.mbt": "a31feea1cee009db406796e13125a4e4fcdd7673154bff157aef66ca6b65cc67",
-    "core/semantics_wbtest.mbt": "ddfdf4465bdb610df3c716341a70a4d00e62bdc7b392f98324642eed5fc10993",
-    "core/types.mbt": "711567c2bb56cc84558e4cd1b229722190f1f22eef6c0f2a67ff7559654885e1"
+    "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
+    "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
+    "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243"
   },
-  "moonbitSourceSha256": "012fa4f58c2617f0a9f974a06cc1f5e5cc42e5e69d479f58ad551c77aefcd67a",
-  "rawEngineSha256": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af",
+  "moonbitSourceSha256": "46c2c318e4fb84febf5867e9f4e143e373413d1cf86f5eff116afede12ee853a",
+  "rawEngineSha256": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0",
   "summary": {
     "status": "passed",
     "programs": 584,
@@ -13648,6 +13677,6 @@
     "engineCalls": 9358,
     "hostTypeChecks": 74,
     "resourceChecks": 2,
-    "elapsedSeconds": 1.704
+    "elapsedSeconds": 1.445
   }
 }

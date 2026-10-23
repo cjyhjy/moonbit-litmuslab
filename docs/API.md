@@ -46,7 +46,7 @@ model 为 `SC` 或 `TSO`；strategy 为 `bfs` 或 `dfs`。成功或预算耗尽�
 
 见证用空白分隔 `t0`…`t3` 与 `f0`…`f3`；线程下标按声明顺序。重放必须走到真正终态。返回 `status: "ok"`、exitCode=0、model、program、outcome 和 `trace` 数组。
 
-`trace[0]` 是初态。每项有 step、action、description、memory、terminal 和 threads。线程项含 name、0-based pc、registers、队首在前的 buffer、下一条指令文本 next（结束时 null）。description 是说明文字，不作为解析协议。
+`trace[0]` 是初态（effect=null）。每项有 step、action、description、effect、memory、terminal 和 threads。线程项含 name、0-based pc、registers、队首在前的 buffer、下一条指令文本 next（结束时 null）。description 是说明文字，不作为解析协议。
 
 ## CLI
 
@@ -60,3 +60,16 @@ cat FILE | node bin/litmuslab.mjs analyze - --model TSO
 单模型直接输出引擎对象；`both` 返回 results.SC/results.TSO 和 comparison。`comparison.definitive` 只有两个模型都完整才为 true。最终退出码 0 完成、3 不完整、2 错误。stdout 为单个 JSON 对象；帮助命令例外。相同程序重复运行的结果顺序确定，但调用者应按集合比较。
 
 路径由 CLI 负责读取，引擎不访问文件或网络。CLI 原始输入字节上限 128 KiB，核心另设 32768 码点上限；两者含义不同。
+
+## 0.2.0 重放 effect
+
+这是兼容性新增字段，原有 analyze/replay 参数与结果集合没有改变。effect 中 thread 为 DSL 线程名，所有 bufferIndex 都相对**动作前**缓冲队首 0。
+
+| kind | 额外字段 |
+|---|---|
+| load | address、register、value、source (`memory` / `buffer`)、bufferIndex（共享内存来源为 null） |
+| store | address、value、destination (`memory` / `buffer`)、bufferIndex（入队位置，SC 为 null） |
+| flush | address、value、destination=`memory`、bufferIndex=0 |
+| fence | bufferEmpty=true |
+
+实验配置文件与结果下载属于浏览器界面格式，详见教学指南；导入配置会清除旧分析，必须重新计算，结果包不能当作配置导入。

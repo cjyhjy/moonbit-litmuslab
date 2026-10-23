@@ -1,4 +1,19 @@
-$ /Library/Developer/CommandLineTools/usr/bin/python3 -m unittest discover -s tests -p test_reference.py -v
+$ /Library/Developer/CommandLineTools/usr/bin/python3 -m unittest discover -s tests -p test_*.py -v
+test_archive_change_preserves_only_source_tree_proof (test_evidence.EvidenceTests) ... ok
+test_changed_inputs_invalidate_old_clean_pass (test_evidence.EvidenceTests) ... ok
+test_complete_bound_summary_does_not_attest_embedded_archive (test_evidence.EvidenceTests) ... ok
+test_crosscheck_cannot_reuse_old_reference_evidence (test_evidence.EvidenceTests) ... ok
+test_documentation_reports_archives_and_caches_do_not_self_invalidate (test_evidence.EvidenceTests) ... ok
+test_generated_oracle_evidence_covers_added_fixtures (test_evidence.EvidenceTests) ... ok
+test_interface_evidence_covers_cli (test_evidence.EvidenceTests) ... ok
+test_legacy_clean_pass_without_input_binding_is_rejected (test_evidence.EvidenceTests) ... ok
+test_manifest_requires_exact_coverage (test_evidence.EvidenceTests) ... ok
+test_new_and_deleted_inputs_are_detected (test_evidence.EvidenceTests) ... ok
+test_old_browser_pass_cannot_gain_new_web_hashes (test_evidence.EvidenceTests) ... ok
+test_oracle_evidence_covers_upstream_recorded_output (test_evidence.EvidenceTests) ... ok
+test_performance_must_use_current_candidate (test_evidence.EvidenceTests) ... ok
+test_public_wrapper_change_is_a_rebuild_failure_even_when_raw_matches (test_evidence.EvidenceTests) ... ok
+test_recorded_digest_and_profile_cannot_be_relabelled (test_evidence.EvidenceTests) ... ok
 test_invalid_search_options (test_reference.BudgetTests) ... ok
 test_outcome_budget_exact_boundary (test_reference.BudgetTests) ... ok
 test_state_budget_exact_boundary (test_reference.BudgetTests) ... ok
@@ -7,9 +22,11 @@ test_error_line (test_reference.ParserTests) ... ok
 test_invalid_programs (test_reference.ParserTests) ... ok
 test_limits_are_inclusive (test_reference.ParserTests) ... ok
 test_bad_witnesses_are_rejected (test_reference.ReplayTests) ... ok
+test_effect_uses_pre_transition_buffer_index_and_latest_match (test_reference.ReplayTests) ... ok
 test_empty_thread_empty_witness (test_reference.ReplayTests) ... ok
 test_ended_threads_still_need_flushes (test_reference.ReplayTests) ... ok
 test_fence_blocks_only_its_own_pending_writes (test_reference.ReplayTests) ... ok
+test_sc_effects_do_not_report_a_store_buffer (test_reference.ReplayTests) ... ok
 test_bfs_dfs_and_witnesses (test_reference.SemanticsTests) ... ok
 test_fences_remove_store_buffering_zero_zero (test_reference.SemanticsTests) ... ok
 test_final_memory_and_all_registers_are_observable (test_reference.SemanticsTests) ... ok
@@ -22,6 +39,6 @@ test_register_names_are_thread_local (test_reference.SemanticsTests) ... ok
 test_store_buffering (test_reference.SemanticsTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 21 tests in 0.007s
+Ran 38 tests in 0.160s
 
 OK

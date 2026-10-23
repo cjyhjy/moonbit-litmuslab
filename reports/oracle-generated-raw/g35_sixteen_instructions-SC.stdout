@@ -1,0 +1,11 @@
+Test LL_g35_sixteen_instructions Allowed
+States 1
+0:EAX=2; 0:EBX=2; [x]=2;
+No
+Witnesses
+Positive: 0 Negative: 1
+Condition exists ([x]=-1)
+Observation LL_g35_sixteen_instructions Never 0 1
+Time LL_g35_sixteen_instructions 0.02
+Hash=90dbf8d8d30f9fa3aef799441d85572d
+

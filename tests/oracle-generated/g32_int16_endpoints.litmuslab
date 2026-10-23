@@ -1,0 +1,12 @@
+memory x=-32768 y=32767
+
+thread P0
+load r0 x
+store y -32768
+load r0 y
+end
+
+thread P1
+store x 32767
+load r0 x
+end

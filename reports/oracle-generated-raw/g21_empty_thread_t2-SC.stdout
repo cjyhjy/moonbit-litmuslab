@@ -1,0 +1,11 @@
+Test LL_g21_empty_thread_t2 Allowed
+States 1
+1:EAX=0; [x]=0;
+No
+Witnesses
+Positive: 0 Negative: 1
+Condition exists ([x]=-2)
+Observation LL_g21_empty_thread_t2 Never 0 1
+Time LL_g21_empty_thread_t2 0.00
+Hash=c6540c765360845e47ae01c445e87d13
+

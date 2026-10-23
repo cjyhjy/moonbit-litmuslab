@@ -1,0 +1,8 @@
+X86 LL_g20_empty_thread_t1
+{
+x=-2;
+}
+P0;
+;
+locations [x]
+exists (x=-2)

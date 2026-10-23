@@ -1,0 +1,2 @@
+$ ./tools/moon build --target js --release
+Finished. moon: no work to do

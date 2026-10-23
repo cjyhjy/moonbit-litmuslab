@@ -1,2 +1,2 @@
 $ node tools/check-interfaces.mjs
-{"passed":70,"failed":0,"report":"reports/interfaces.json","failures":[]}
+{"passed":96,"failed":0,"report":"reports/interfaces.json","failures":[]}

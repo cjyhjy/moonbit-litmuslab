@@ -1,0 +1,117 @@
+{
+  "status": "complete",
+  "exitCode": 0,
+  "model": "TSO",
+  "strategy": "bfs",
+  "reason": null,
+  "program": {
+    "initialMemory": {
+      "m0": -4,
+      "m1": -3,
+      "m2": -2,
+      "m3": -1,
+      "m4": 0,
+      "m5": 1,
+      "m6": 2,
+      "m7": 3
+    },
+    "threads": [
+      {
+        "name": "P0",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 4,
+            "op": "store",
+            "address": "m0",
+            "value": 2
+          },
+          {
+            "line": 5,
+            "op": "load",
+            "address": "m1",
+            "register": "r0"
+          }
+        ]
+      },
+      {
+        "name": "P1",
+        "registers": [],
+        "instructions": []
+      },
+      {
+        "name": "P2",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 12,
+            "op": "load",
+            "address": "m0",
+            "register": "r0"
+          }
+        ]
+      },
+      {
+        "name": "P3",
+        "registers": [],
+        "instructions": []
+      }
+    ]
+  },
+  "stats": {
+    "visitedStates": 12,
+    "expandedStates": 12,
+    "transitions": 16,
+    "outcomes": 2
+  },
+  "outcomes": [
+    {
+      "memory": {
+        "m0": 2,
+        "m1": -3,
+        "m2": -2,
+        "m3": -1,
+        "m4": 0,
+        "m5": 1,
+        "m6": 2,
+        "m7": 3
+      },
+      "registers": {
+        "P0": {
+          "r0": -3
+        },
+        "P1": {},
+        "P2": {
+          "r0": 2
+        },
+        "P3": {}
+      }
+    },
+    {
+      "memory": {
+        "m0": 2,
+        "m1": -3,
+        "m2": -2,
+        "m3": -1,
+        "m4": 0,
+        "m5": 1,
+        "m6": 2,
+        "m7": 3
+      },
+      "registers": {
+        "P0": {
+          "r0": -3
+        },
+        "P1": {},
+        "P2": {
+          "r0": -4
+        },
+        "P3": {}
+      }
+    }
+  ]
+}

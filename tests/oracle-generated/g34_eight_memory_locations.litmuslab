@@ -1,0 +1,16 @@
+memory m0=-4 m1=-3 m2=-2 m3=-1 m4=0 m5=1 m6=2 m7=3
+
+thread P0
+store m0 2
+load r0 m1
+end
+
+thread P1
+end
+
+thread P2
+load r0 m0
+end
+
+thread P3
+end

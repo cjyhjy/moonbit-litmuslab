@@ -1,0 +1,15 @@
+Test LL_g13_same_address_t2 Allowed
+States 5
+0:EAX=-2; 1:EAX=-2; [x]=-1; [y]=2; [z]=-2;
+0:EAX=-2; 1:EAX=-1; [x]=-1; [y]=2; [z]=-2;
+0:EAX=-2; 1:EAX=0; [x]=-1; [y]=2; [z]=-2;
+0:EAX=-2; 1:EAX=0; [x]=-1; [y]=2; [z]=0;
+0:EAX=0; 1:EAX=0; [x]=-1; [y]=2; [z]=0;
+Ok
+Witnesses
+Positive: 7 Negative: 0
+Condition exists ([x]=-1)
+Observation LL_g13_same_address_t2 Always 7 0
+Time LL_g13_same_address_t2 0.00
+Hash=47de9917b9ba911bb405ead915054ec8
+

@@ -42,7 +42,7 @@ priv struct Write {
 }
 
 ///|
-/// Every successor owns its arrays; states retained by search are never mutated.
+/// States share untouched arrays. Every written array is copied first; retained states are never mutated.
 priv struct State {
   memory : Array[Int32]
   pcs : Array[Int32]

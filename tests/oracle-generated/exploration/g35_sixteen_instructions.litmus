@@ -1,0 +1,25 @@
+X86 LL_g35_sixteen_instructions
+{
+x=-1;
+0:EAX=0;
+0:EBX=0;
+}
+P0;
+MOV [x],$-2;
+MOV EAX,[x];
+MFENCE;
+MOV EBX,[x];
+MOV [x],$-1;
+MOV EAX,[x];
+MFENCE;
+MOV EBX,[x];
+MOV [x],$0;
+MOV EAX,[x];
+MFENCE;
+MOV EBX,[x];
+MOV [x],$1;
+MOV EAX,[x];
+MFENCE;
+MOV EBX,[x];
+locations [x; 0:EAX; 0:EBX]
+exists (x=-1)

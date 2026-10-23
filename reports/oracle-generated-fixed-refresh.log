@@ -1,0 +1,24 @@
+SB           SC : 3 complete projected outcomes
+SB           TSO: 4 complete projected outcomes
+LB           SC : 3 complete projected outcomes
+LB           TSO: 3 complete projected outcomes
+MP           SC : 3 complete projected outcomes
+MP           TSO: 3 complete projected outcomes
+fence        SC : 3 complete projected outcomes
+fence        TSO: 3 complete projected outcomes
+FIFO         SC : 6 complete projected outcomes
+FIFO         TSO: 6 complete projected outcomes
+forwarding   SC : 4 complete projected outcomes
+forwarding   TSO: 6 complete projected outcomes
+SB           SC: PASS (herd=3, engine=3, complete)
+SB           TSO: PASS (herd=4, engine=4, complete)
+LB           SC: PASS (herd=3, engine=3, complete)
+LB           TSO: PASS (herd=3, engine=3, complete)
+MP           SC: PASS (herd=3, engine=3, complete)
+MP           TSO: PASS (herd=3, engine=3, complete)
+fence        SC: PASS (herd=3, engine=3, complete)
+fence        TSO: PASS (herd=3, engine=3, complete)
+FIFO         SC: PASS (herd=6, engine=6, complete)
+FIFO         TSO: PASS (herd=6, engine=6, complete)
+forwarding   SC: PASS (herd=4, engine=4, complete)
+forwarding   TSO: PASS (herd=6, engine=6, complete)

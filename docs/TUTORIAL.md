@@ -115,6 +115,35 @@ node bin/litmuslab.mjs analyze examples/store-buffering.litmus --model TSO --max
 
 单模型 analyze 与 replay 直接返回核心 JSON。`--model both` 返回 `results.SC`、`results.TSO` 和 `comparison`。`comparison.common`、`scOnly`、`tsoOnly` 为已发现结果的 ID 集合；只有 `comparison.definitive=true`（两个搜索均完整）时，单边集合才可作为模型允许结果的确定差异。
 
-## 7. 页面中的证据边界
+## 7. 保存与恢复一次实验
+
+程序区的“下载配置”会将编辑器内容、模型、搜索顺序和两个预算保存为 `litmuslab-experiment.json`。它不包含结果。分享文件后，对方可在同一版本的本地界面点击“导入配置”，恢复实验并重新运行。
+
+配置格式版本 1：
+
+```json
+{
+  "kind": "litmuslab.experiment",
+  "version": 1,
+  "source": "memory x=0\nthread P0\nload r0 x\nend\n",
+  "options": {"model": "both", "strategy": "bfs", "maxStates": 20000, "maxOutcomes": 256}
+}
+```
+
+导入严格校验 UTF-8、JSON、字段、版本、类型、合法枚举与预算范围；配置文件最多 256 KiB，程序仍受 32,768 码点限制。额外字段、不支持的版本、错误预算、结果包都会被拒绝。结构合格的程序仍需运行后由 MoonBit 检查 DSL 语法与语义。
+
+有效导入会停止旧搜索、清空旧结果和重放见证，并等待你点击“运行分析”。导入失败时，当前编辑内容、配置与结果保持原样。编辑源程序或修改配置会立即使旧结果失效，结果下载随之禁用。
+
+搜索完成或达到预算后，可以点击“下载结果 JSON”，获得 `litmuslab-results.json`。该包包含 `kind: "litmuslab.results"`、`version: 1`、本次实际运行的 `source`、`options` 与原始 `results`，包括每个模型的 complete / incomplete、统计、最终结果和见证。结果包用于保存证据，不能作为配置导入，也不会被浏览器当成新的分析结论。
+
+下载结果中的 source 与 options 是执行开始时保存的快照。改变编辑器、预算、模型或案例后，需要重新运行，才能下载新结果。所有导入和导出均在本机完成，不上传文件。
+
+## 8. 看清每一步的读取来源
+
+重放中的黄色说明由 MoonBit 输出的 `effect` 字段驱动。读取步骤会明确显示是从共享内存取值，还是从本线程 FIFO 的哪一项转发；相应内存单元或缓冲项会高亮。FIFO 索引从队首 0 开始，指动作执行前的缓冲位置。
+
+例如 Forwarding 中，连续写入 `x=1`、`x=2` 后读取 x：若两项尚未排空，核心会记录从索引 1 读取 2。不能只看最终的 x 值推测读取来源；两条不同调度可能得到同一个最终结果，但读取来源不同。
+
+## 9. 页面中的证据边界
 
 界面不实现自己的模型解释器。分析和重放均调用编译后的 MoonBit 核心；每次选择结果都会重新调用 replay 校验见证。示例是教学小程序，并非真实硬件测量。外部 oracle、差分测试和局限说明参见项目其他文档与报告。

@@ -87,6 +87,23 @@ class SemanticsTests(unittest.TestCase):
 
 
 class ReplayTests(unittest.TestCase):
+    def test_effect_uses_pre_transition_buffer_index_and_latest_match(self):
+        source = program(["store x 1", "store y 3", "store x 2", "load r0 x", "fence", "load r1 x"])
+        trace = replay(source, "TSO", "t0 t0 t0 t0 f0 f0 f0 t0 t0")["trace"]
+        self.assertIsNone(trace[0]["effect"])
+        self.assertEqual([trace[i]["effect"]["bufferIndex"] for i in [1, 2, 3]], [0, 1, 2])
+        self.assertEqual(trace[4]["effect"], {"kind": "load", "thread": "P0", "address": "x", "register": "r0", "value": 2, "source": "buffer", "bufferIndex": 2})
+        self.assertEqual(trace[5]["effect"], {"kind": "flush", "thread": "P0", "address": "x", "value": 1, "destination": "memory", "bufferIndex": 0})
+        self.assertEqual(trace[8]["effect"], {"kind": "fence", "thread": "P0", "bufferEmpty": True})
+        self.assertEqual(trace[9]["effect"]["source"], "memory")
+        self.assertIsNone(trace[9]["effect"]["bufferIndex"])
+
+    def test_sc_effects_do_not_report_a_store_buffer(self):
+        trace = replay(program(["store x 2", "load r0 x"]), "SC", "t0 t0")["trace"]
+        self.assertEqual(trace[1]["effect"]["destination"], "memory")
+        self.assertIsNone(trace[1]["effect"]["bufferIndex"])
+        self.assertEqual(trace[2]["effect"]["source"], "memory")
+
     def test_fence_blocks_only_its_own_pending_writes(self):
         source = program(["store x 1", "fence"], ["fence"])
         state = dict(transitions(parse(source), initial_state(parse(source)), "TSO"))["t0"]

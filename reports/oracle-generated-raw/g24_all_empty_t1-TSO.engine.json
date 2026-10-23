@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "exitCode": 0,
+  "model": "TSO",
+  "strategy": "bfs",
+  "reason": null,
+  "program": {
+    "initialMemory": {
+      "x": -1
+    },
+    "threads": [
+      {
+        "name": "P0",
+        "registers": [],
+        "instructions": []
+      }
+    ]
+  },
+  "stats": {
+    "visitedStates": 1,
+    "expandedStates": 1,
+    "transitions": 0,
+    "outcomes": 1
+  },
+  "outcomes": [
+    {
+      "memory": {
+        "x": -1
+      },
+      "registers": {
+        "P0": {}
+      }
+    }
+  ]
+}

@@ -18,8 +18,8 @@
     "transitions": 367860,
     "outcomes": 6
   },
-  "elapsedMilliseconds": 459.161292,
-  "maxRssKiB": 248032,
+  "elapsedMilliseconds": 290.237875,
+  "maxRssKiB": 205104,
   "node": "v26.7.0",
   "platform": "darwin",
   "arch": "arm64",

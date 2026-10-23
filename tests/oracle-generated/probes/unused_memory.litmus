@@ -1,0 +1,10 @@
+X86 LL_probe_unused_memory
+{
+x=-1;
+y=3;
+0:EAX=0;
+}
+P0;
+MOV EAX,[x];
+locations [x; y; 0:EAX]
+exists (x=-1)

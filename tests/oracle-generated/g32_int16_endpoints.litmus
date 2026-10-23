@@ -1,0 +1,13 @@
+X86 LL_g32_int16_endpoints
+{
+x=-32768;
+y=32767;
+0:EAX=0;
+1:EAX=0;
+}
+P0 | P1;
+MOV EAX,[x] | MOV [x],$32767;
+MOV [y],$-32768 | MOV EAX,[x];
+MOV EAX,[y] | ;
+locations [x; y; 0:EAX; 1:EAX]
+exists (x=-32768)

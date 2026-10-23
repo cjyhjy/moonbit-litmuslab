@@ -1,0 +1,83 @@
+{
+  "status": "complete",
+  "exitCode": 0,
+  "model": "SC",
+  "strategy": "bfs",
+  "reason": null,
+  "program": {
+    "initialMemory": {
+      "x": 1
+    },
+    "threads": [
+      {
+        "name": "P0",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 4,
+            "op": "store",
+            "address": "x",
+            "value": -2
+          },
+          {
+            "line": 5,
+            "op": "fence"
+          },
+          {
+            "line": 6,
+            "op": "load",
+            "address": "x",
+            "register": "r0"
+          },
+          {
+            "line": 7,
+            "op": "fence"
+          }
+        ]
+      },
+      {
+        "name": "P1",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 11,
+            "op": "store",
+            "address": "x",
+            "value": -2
+          },
+          {
+            "line": 12,
+            "op": "load",
+            "address": "x",
+            "register": "r0"
+          }
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "visitedStates": 15,
+    "expandedStates": 15,
+    "transitions": 22,
+    "outcomes": 1
+  },
+  "outcomes": [
+    {
+      "memory": {
+        "x": -2
+      },
+      "registers": {
+        "P0": {
+          "r0": -2
+        },
+        "P1": {
+          "r0": -2
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "status": "complete",
+  "exitCode": 0,
+  "model": "TSO",
+  "strategy": "bfs",
+  "reason": null,
+  "program": {
+    "initialMemory": {
+      "x": -1,
+      "y": 2,
+      "z": 2
+    },
+    "threads": [
+      {
+        "name": "P0",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 4,
+            "op": "store",
+            "address": "z",
+            "value": -1
+          },
+          {
+            "line": 5,
+            "op": "store",
+            "address": "z",
+            "value": -2
+          },
+          {
+            "line": 6,
+            "op": "load",
+            "address": "z",
+            "register": "r0"
+          }
+        ]
+      },
+      {
+        "name": "P1",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 10,
+            "op": "store",
+            "address": "z",
+            "value": 0
+          },
+          {
+            "line": 11,
+            "op": "load",
+            "address": "z",
+            "register": "r0"
+          }
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "visitedStates": 64,
+    "expandedStates": 64,
+    "transitions": 122,
+    "outcomes": 5
+  },
+  "outcomes": [
+    {
+      "memory": {
+        "x": -1,
+        "y": 2,
+        "z": 0
+      },
+      "registers": {
+        "P0": {
+          "r0": -2
+        },
+        "P1": {
+          "r0": 0
+        }
+      }
+    },
+    {
+      "memory": {
+        "x": -1,
+        "y": 2,
+        "z": -2
+      },
+      "registers": {
+        "P0": {
+          "r0": -2
+        },
+        "P1": {
+          "r0": 0
+        }
+      }
+    },
+    {
+      "memory": {
+        "x": -1,
+        "y": 2,
+        "z": -2
+      },
+      "registers": {
+        "P0": {
+          "r0": -2
+        },
+        "P1": {
+          "r0": -2
+        }
+      }
+    },
+    {
+      "memory": {
+        "x": -1,
+        "y": 2,
+        "z": -2
+      },
+      "registers": {
+        "P0": {
+          "r0": -2
+        },
+        "P1": {
+          "r0": -1
+        }
+      }
+    },
+    {
+      "memory": {
+        "x": -1,
+        "y": 2,
+        "z": 0
+      },
+      "registers": {
+        "P0": {
+          "r0": 0
+        },
+        "P1": {
+          "r0": 0
+        }
+      }
+    }
+  ]
+}

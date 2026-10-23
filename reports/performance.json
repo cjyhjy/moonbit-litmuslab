@@ -1,0 +1,516 @@
+{
+  "kind": "synthetic-local-performance-comparison",
+  "generatedAt": "2026-10-22T16:19:56.051303+00:00",
+  "samplesPerVariant": 5,
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "node": "v26.7.0",
+  "scope": "Three fixed synthetic workloads on this machine; not a general speed guarantee. Fresh process per sample, 20 identical small warmups, GC before timing, variant order alternates.",
+  "engineHashes": {
+    "baseline": {
+      "engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "engine.raw.mjs": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af"
+    },
+    "candidate": {
+      "engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0"
+    }
+  },
+  "cases": [
+    {
+      "name": "fence-grid",
+      "source": "memory x=0 y=0\nthread P0\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nend\nthread P1\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nend\nthread P2\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nend\nthread P3\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nend",
+      "model": "SC",
+      "strategy": "bfs",
+      "sameSearchOutput": true,
+      "samples": {
+        "baseline": [
+          {
+            "elapsedMs": 192.820542,
+            "maxRssKiB": 198448,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 191.27337500000002,
+            "maxRssKiB": 196368,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 195.24716700000002,
+            "maxRssKiB": 198784,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 208.04829099999998,
+            "maxRssKiB": 192576,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 202.26529200000002,
+            "maxRssKiB": 194320,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          }
+        ],
+        "candidate": [
+          {
+            "elapsedMs": 120.95045900000001,
+            "maxRssKiB": 156784,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 121.042625,
+            "maxRssKiB": 156400,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 124.090834,
+            "maxRssKiB": 156192,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 121.94554200000002,
+            "maxRssKiB": 155712,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 123.208334,
+            "maxRssKiB": 156368,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          }
+        ]
+      },
+      "medians": {
+        "baseline": {
+          "elapsedMs": 195.24716700000002,
+          "maxRssKiB": 196368
+        },
+        "candidate": {
+          "elapsedMs": 121.94554200000002,
+          "maxRssKiB": 156368
+        }
+      },
+      "timeRatio": 0.6245700968352591,
+      "rssRatio": 0.7963008229446753
+    },
+    {
+      "name": "store-pressure",
+      "source": "memory x=0 y=0\nthread P0\nstore x 0\nstore y 1\nstore x 2\nstore y 3\nstore x 4\nstore y 5\nstore x 6\nstore y 7\nstore x 8\nstore y 9\nstore x 10\nstore y 11\nstore x 12\nstore y 13\nstore x 14\nstore y 15\nend\nthread P1\nstore x 16\nstore y 17\nstore x 18\nstore y 19\nstore x 20\nstore y 21\nstore x 22\nstore y 23\nstore x 24\nstore y 25\nstore x 26\nstore y 27\nstore x 28\nstore y 29\nstore x 30\nstore y 31\nend\nthread P2\nstore x 32\nstore y 33\nstore x 34\nstore y 35\nstore x 36\nstore y 37\nstore x 38\nstore y 39\nstore x 40\nstore y 41\nstore x 42\nstore y 43\nstore x 44\nstore y 45\nstore x 46\nstore y 47\nend\nthread P3\nstore x 48\nstore y 49\nstore x 50\nstore y 51\nstore x 52\nstore y 53\nstore x 54\nstore y 55\nstore x 56\nstore y 57\nstore x 58\nstore y 59\nstore x 60\nstore y 61\nstore x 62\nstore y 63\nend",
+      "model": "TSO",
+      "strategy": "dfs",
+      "sameSearchOutput": true,
+      "samples": {
+        "baseline": [
+          {
+            "elapsedMs": 446.68958399999997,
+            "maxRssKiB": 242192,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 480.440834,
+            "maxRssKiB": 240368,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 452.810375,
+            "maxRssKiB": 240688,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 445.047792,
+            "maxRssKiB": 240688,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 442.501875,
+            "maxRssKiB": 240768,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          }
+        ],
+        "candidate": [
+          {
+            "elapsedMs": 320.354208,
+            "maxRssKiB": 198752,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 335.59791700000005,
+            "maxRssKiB": 196976,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 341.794083,
+            "maxRssKiB": 198080,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 341.39462499999996,
+            "maxRssKiB": 196896,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 314.553167,
+            "maxRssKiB": 198048,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          }
+        ]
+      },
+      "medians": {
+        "baseline": {
+          "elapsedMs": 446.68958399999997,
+          "maxRssKiB": 240688
+        },
+        "candidate": {
+          "elapsedMs": 335.59791700000005,
+          "maxRssKiB": 198048
+        }
+      },
+      "timeRatio": 0.7513000728487998,
+      "rssRatio": 0.822841188592701
+    },
+    {
+      "name": "mixed-memory",
+      "source": "memory x=0 y=0\nthread P0\nstore x 1\nload r0 y\nfence\nstore y 1\nload r1 x\nload r0 y\nend\nthread P1\nstore x 2\nload r0 y\nfence\nstore y 2\nload r1 x\nload r0 y\nend\nthread P2\nstore x 3\nload r0 y\nfence\nstore y 3\nload r1 x\nload r0 y\nend\nthread P3\nstore x 4\nload r0 y\nfence\nstore y 4\nload r1 x\nload r0 y\nend",
+      "model": "TSO",
+      "strategy": "bfs",
+      "sameSearchOutput": true,
+      "samples": {
+        "baseline": [
+          {
+            "elapsedMs": 290.847625,
+            "maxRssKiB": 228112,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 276.998,
+            "maxRssKiB": 227664,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 266.77887499999997,
+            "maxRssKiB": 228704,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 299.509708,
+            "maxRssKiB": 228176,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 281.260041,
+            "maxRssKiB": 226256,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          }
+        ],
+        "candidate": [
+          {
+            "elapsedMs": 193.971375,
+            "maxRssKiB": 179712,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 188.375541,
+            "maxRssKiB": 180800,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 193.55741600000002,
+            "maxRssKiB": 180080,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 188.445084,
+            "maxRssKiB": 179664,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 189.130834,
+            "maxRssKiB": 180000,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          }
+        ]
+      },
+      "medians": {
+        "baseline": {
+          "elapsedMs": 281.260041,
+          "maxRssKiB": 228112
+        },
+        "candidate": {
+          "elapsedMs": 189.130834,
+          "maxRssKiB": 180000
+        }
+      },
+      "timeRatio": 0.6724411805088232,
+      "rssRatio": 0.7890860629866031
+    }
+  ],
+  "status": "passed",
+  "evidence": {
+    "schemaVersion": 1,
+    "profile": "performance",
+    "algorithm": "sha256-path-nul-hash-newline-v1",
+    "digest": "c0ed00510036a4b7edb6567d131e23c79a3bb1b510fef5d1849f5add57ff5180",
+    "files": {
+      "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
+      "core/moon.pkg": "b32472696f96a51655b55cadd81b11d967370fa92aadd7e83207b90ebe04dc80",
+      "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
+      "core/pkg.generated.mbti": "ad31343121a21efb434d54822d666fe4cac0259be9c1bcb068dbd772784ab22c",
+      "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
+      "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+      "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
+      "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
+      "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243",
+      "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0",
+      "moon.mod": "25227956d4644d8e347c16c50f982af8adf5c525611ce547fba0520ecaeefe38",
+      "package.json": "3f2f405a6a9836751afac4830ee38cd743fe339aaf468cedfe75ed033658a072",
+      "tests/performance-baseline/NOTICE.md": "1d10a3ccc943fcb98e7c40c95e00db918513c991b54b310224988d9c0960b1ad",
+      "tests/performance-baseline/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "tests/performance-baseline/engine.raw.mjs": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af",
+      "toolchain.lock.json": "472026cb4fbd405c9f6ad98bbb15a0fab9d4e7f1a576807ae39f96777c3312a0",
+      "tools/benchmark.py": "10d655b4466d0281250622b4f54df131b47650327afb0eeac3468078fd4fb1a1",
+      "tools/build.sh": "96889b2ba8e53c27857f7abb15bae27c5566fe413cb92d55b9153db32fb154f8",
+      "tools/engine-wrapper.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "tools/evidence.py": "3c66c600cd60e9e93ff94880a7619b55a4daff8cc445f0cb72000f0145666983",
+      "tools/moon": "36c3942b693e5d8ce1cfffd09d328eff14659646a84a24d74cbfc9a88b99eb3f"
+    }
+  }
+}

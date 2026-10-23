@@ -1,0 +1,11 @@
+X86 LL_probe_overwrite
+{
+x=-1;
+0:EAX=0;
+}
+P0;
+MOV EAX,[x];
+MOV [x],$2;
+MOV EAX,[x];
+locations [x; 0:EAX]
+exists (x=-1)

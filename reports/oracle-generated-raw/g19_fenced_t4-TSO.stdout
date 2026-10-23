@@ -1,0 +1,14 @@
+Test LL_g19_fenced_t4 Allowed
+States 4
+0:EAX=-2; 1:EAX=-2; 2:EAX=0; 3:EAX=0; [x]=-1; [y]=-2; [z]=0;
+0:EAX=-2; 1:EAX=0; 2:EAX=0; 3:EAX=0; [x]=-1; [y]=-2; [z]=0;
+0:EAX=-1; 1:EAX=-2; 2:EAX=0; 3:EAX=0; [x]=-1; [y]=-2; [z]=0;
+0:EAX=-1; 1:EAX=0; 2:EAX=0; 3:EAX=0; [x]=-1; [y]=-2; [z]=0;
+No
+Witnesses
+Positive: 0 Negative: 36
+Condition exists ([x]=-2)
+Observation LL_g19_fenced_t4 Never 0 36
+Time LL_g19_fenced_t4 0.01
+Hash=d76d332cc82d2edf587dc96f4a7c40df
+

@@ -1,0 +1,11 @@
+Test LL_probe_fence_only Allowed
+States 1
+[x]=-1;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=-1)
+Observation LL_probe_fence_only Always 1 0
+Time LL_probe_fence_only 0.00
+Hash=10cc9675804be08e2de697d702c5034f
+

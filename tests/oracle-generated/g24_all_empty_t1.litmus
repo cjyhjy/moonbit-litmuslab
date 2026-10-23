@@ -1,0 +1,8 @@
+X86 LL_g24_all_empty_t1
+{
+x=-1;
+}
+P0;
+;
+locations [x]
+exists (x=-1)

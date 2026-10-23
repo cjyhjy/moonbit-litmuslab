@@ -1,0 +1,11 @@
+Test LL_probe_one_empty Allowed
+States 1
+1:EAX=-1; [x]=-1;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=-1)
+Observation LL_probe_one_empty Always 1 0
+Time LL_probe_one_empty 0.00
+Hash=a733ab990cc9c1460e846d427f0754e7
+

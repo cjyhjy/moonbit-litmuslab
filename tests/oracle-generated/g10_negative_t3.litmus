@@ -1,0 +1,15 @@
+X86 LL_g10_negative_t3
+{
+x=-2;
+y=1;
+0:EAX=0;
+0:EBX=0;
+1:EAX=0;
+2:EAX=0;
+}
+P0 | P1 | P2;
+MOV EAX,[x] | MOV [y],$0 | MOV EAX,[y];
+MOV [x],$-3 | MOV EAX,[x] | MOV [y],$2;
+MOV EBX,[x] |  | ;
+locations [x; y; 0:EAX; 0:EBX; 1:EAX; 2:EAX]
+exists (x=-2)

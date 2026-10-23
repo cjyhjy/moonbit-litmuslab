@@ -1,0 +1,13 @@
+X86 LL_probe_negative
+{
+x=-1;
+y=-2;
+0:EAX=0;
+0:EBX=0;
+}
+P0;
+MOV EAX,[x];
+MOV [y],$-3;
+MOV EBX,[y];
+locations [x; y; 0:EAX; 0:EBX]
+exists (x=-1)

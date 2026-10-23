@@ -1,0 +1,11 @@
+X86 LL_g04_overwrite_t1
+{
+x=2;
+0:EAX=0;
+}
+P0;
+MOV EAX,[x];
+MOV [x],$2;
+MOV EAX,[x];
+locations [x; 0:EAX]
+exists (x=2)

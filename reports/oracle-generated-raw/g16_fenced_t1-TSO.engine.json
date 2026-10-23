@@ -1,0 +1,64 @@
+{
+  "status": "complete",
+  "exitCode": 0,
+  "model": "TSO",
+  "strategy": "bfs",
+  "reason": null,
+  "program": {
+    "initialMemory": {
+      "x": 2,
+      "y": 1,
+      "z": 1
+    },
+    "threads": [
+      {
+        "name": "P0",
+        "registers": [
+          "r0"
+        ],
+        "instructions": [
+          {
+            "line": 4,
+            "op": "store",
+            "address": "x",
+            "value": 1
+          },
+          {
+            "line": 5,
+            "op": "fence"
+          },
+          {
+            "line": 6,
+            "op": "load",
+            "address": "y",
+            "register": "r0"
+          },
+          {
+            "line": 7,
+            "op": "fence"
+          }
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "visitedStates": 6,
+    "expandedStates": 6,
+    "transitions": 5,
+    "outcomes": 1
+  },
+  "outcomes": [
+    {
+      "memory": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "registers": {
+        "P0": {
+          "r0": 1
+        }
+      }
+    }
+  ]
+}

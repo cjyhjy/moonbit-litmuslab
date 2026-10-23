@@ -1,0 +1,13 @@
+Test LL_g22_empty_thread_t3 Allowed
+States 3
+1:EAX=-2; 2:EAX=-1; [x]=-2; [y]=-2;
+1:EAX=2; 2:EAX=-2; [x]=-2; [y]=-2;
+1:EAX=2; 2:EAX=-1; [x]=-2; [y]=-2;
+No
+Witnesses
+Positive: 0 Negative: 3
+Condition exists ([x]=2)
+Observation LL_g22_empty_thread_t3 Never 0 3
+Time LL_g22_empty_thread_t3 0.00
+Hash=1e6b2c41dd02f75fbeba92439ec56e2a
+

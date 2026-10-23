@@ -1,0 +1,18 @@
+X86 LL_g34_eight_memory_locations
+{
+m0=-4;
+m1=-3;
+m2=-2;
+m3=-1;
+m4=0;
+m5=1;
+m6=2;
+m7=3;
+0:EAX=0;
+2:EAX=0;
+}
+P0 | P1 | P2 | P3;
+MOV [m0],$2 |  | MOV EAX,[m0] | ;
+MOV EAX,[m1] |  |  | ;
+locations [m0; m1; m2; m3; m4; m5; m6; m7; 0:EAX; 2:EAX]
+exists (m0=-4)

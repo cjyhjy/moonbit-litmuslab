@@ -1,0 +1,11 @@
+Test LL_g08_negative_t1 Allowed
+States 1
+0:EAX=-1; 0:EBX=-3; [x]=-3;
+No
+Witnesses
+Positive: 0 Negative: 1
+Condition exists ([x]=-1)
+Observation LL_g08_negative_t1 Never 0 1
+Time LL_g08_negative_t1 0.00
+Hash=68cd92779e96c4db1b7c9537f6c60f3a
+

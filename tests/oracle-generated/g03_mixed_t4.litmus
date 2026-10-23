@@ -1,0 +1,16 @@
+X86 LL_g03_mixed_t4
+{
+x=1;
+y=-2;
+0:EAX=0;
+0:EBX=0;
+1:EAX=0;
+2:EAX=0;
+3:EAX=0;
+}
+P0 | P1 | P2 | P3;
+MOV EAX,[y] | MOV EAX,[x] | MOV EAX,[y] | MOV EAX,[x];
+MOV EBX,[y] | MOV [y],$2 | MOV [x],$-2 | MOV [y],$1;
+MOV [x],$-2 |  |  | ;
+locations [x; y; 0:EAX; 0:EBX; 1:EAX; 2:EAX; 3:EAX]
+exists (x=1)

@@ -1,0 +1,11 @@
+Test LL_g16_fenced_t1 Allowed
+States 1
+0:EAX=1; [x]=1; [y]=1; [z]=1;
+No
+Witnesses
+Positive: 0 Negative: 1
+Condition exists ([x]=2)
+Observation LL_g16_fenced_t1 Never 0 1
+Time LL_g16_fenced_t1 0.00
+Hash=f171cb71681b03324d57474ddd01e760
+

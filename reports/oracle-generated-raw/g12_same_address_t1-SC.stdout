@@ -1,0 +1,11 @@
+Test LL_g12_same_address_t1 Allowed
+States 1
+0:EAX=-1; [x]=-1; [y]=2; [z]=-2;
+No
+Witnesses
+Positive: 0 Negative: 1
+Condition exists ([x]=2)
+Observation LL_g12_same_address_t1 Never 0 1
+Time LL_g12_same_address_t1 0.00
+Hash=0bc98e35cca15bcb2b0a9a48308a9543
+

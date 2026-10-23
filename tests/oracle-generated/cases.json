@@ -1,0 +1,1917 @@
+{
+  "schema_version": 1,
+  "seed": 20261022,
+  "python": "3.9.6",
+  "generator_sha256": "990f46188cfb3cc5f771da250ff97716875cb6e75e6a9c2acadf2cdaa89cb020",
+  "program_count": 36,
+  "cases": [
+    {
+      "name": "g00_mixed_t1",
+      "family": "mixed",
+      "memory": {
+        "x": 0,
+        "y": 2,
+        "z": 0
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r1",
+            "x"
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -1
+          ]
+        ]
+      ],
+      "source": "memory x=0 y=2 z=0\n\nthread P0\nload r1 x\nload r0 x\nstore x -1\nend\n",
+      "source_sha256": "9ee839de7ad239dfb5566b24e1d27581648d8850a51e6662e7f53a5a4f9bceca",
+      "litmus_sha256": "43a31957e32d4d2fe902b0e12817ae1133f541acbc9a4fcd3bbfbcde8ddb492f",
+      "register_map": [
+        {
+          "r1": "EAX",
+          "r0": "EBX"
+        }
+      ]
+    },
+    {
+      "name": "g01_mixed_t2",
+      "family": "mixed",
+      "memory": {
+        "x": -1
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r1",
+            "x"
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            2
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ]
+      ],
+      "source": "memory x=-1\n\nthread P0\nload r1 x\nload r0 x\nstore x 2\nend\n\nthread P1\nstore x -2\nload r0 x\nend\n",
+      "source_sha256": "ae44a7dd3d9e55702997567450089fabf47f77b92a15aa9668304630a9f7a9b0",
+      "litmus_sha256": "61931c8e73a0b9f5b4e8828d9b1e092f4ee05a53257c83710a315b471eb2158f",
+      "register_map": [
+        {
+          "r1": "EAX",
+          "r0": "EBX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g02_mixed_t3",
+      "family": "mixed",
+      "memory": {
+        "x": 0,
+        "y": 1,
+        "z": -2
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r1",
+            "x"
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "y",
+            -2
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "z",
+            2
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            1
+          ],
+          [
+            "load",
+            "r0",
+            "z"
+          ]
+        ]
+      ],
+      "source": "memory x=0 y=1 z=-2\n\nthread P0\nload r1 x\nload r0 x\nstore y -2\nend\n\nthread P1\nload r0 y\nstore z 2\nend\n\nthread P2\nstore x 1\nload r0 z\nend\n",
+      "source_sha256": "c3ebb10104978043145d33cc59d913a9f253c590e15cafe64ac13f0b38237158",
+      "litmus_sha256": "048d3e7e8736f286a31fc1faf2eefe0f1b38a613a944db5ed71e47733f678c77",
+      "register_map": [
+        {
+          "r1": "EAX",
+          "r0": "EBX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g03_mixed_t4",
+      "family": "mixed",
+      "memory": {
+        "x": 1,
+        "y": -2
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "load",
+            "r1",
+            "y"
+          ],
+          [
+            "store",
+            "x",
+            -2
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "y",
+            2
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "x",
+            -2
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "y",
+            1
+          ]
+        ]
+      ],
+      "source": "memory x=1 y=-2\n\nthread P0\nload r0 y\nload r1 y\nstore x -2\nend\n\nthread P1\nload r0 x\nstore y 2\nend\n\nthread P2\nload r0 y\nstore x -2\nend\n\nthread P3\nload r0 x\nstore y 1\nend\n",
+      "source_sha256": "966321317622f8719615cba2286ee6bcdddcdd01d992ae7c242fe7af92e0eb77",
+      "litmus_sha256": "d6b57ff0d016c69af2139689ebc0ef4b63cf63ec0e1391dd5753dacc801049e5",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g04_overwrite_t1",
+      "family": "overwrite",
+      "memory": {
+        "x": 2
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ]
+      ],
+      "source": "memory x=2\n\nthread P0\nload r0 x\nstore x 2\nload r0 x\nend\n",
+      "source_sha256": "d7310251b420168cbe65b2bb6dc171861c5692713113080090f6e7bffda1af9b",
+      "litmus_sha256": "bfcd51ba0b9ec6a75755ddfb9b46e52ef369bc83b96dc8d10c4a10978b491597",
+      "register_map": [
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g05_overwrite_t2",
+      "family": "overwrite",
+      "memory": {
+        "x": 2,
+        "y": 2
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "y",
+            1
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "y",
+            2
+          ]
+        ]
+      ],
+      "source": "memory x=2 y=2\n\nthread P0\nload r0 y\nstore y 1\nload r0 x\nend\n\nthread P1\nload r0 x\nstore y 2\nend\n",
+      "source_sha256": "81ff7d00d49b6d9a2fd6057e24d4a430f36541836eb3ab48460880238661017d",
+      "litmus_sha256": "40ce241c7324e62328c9b9466bed0a723cc53ba7219f236f9542eac0b6363a4f",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g06_overwrite_t3",
+      "family": "overwrite",
+      "memory": {
+        "x": 2,
+        "y": -2,
+        "z": 1
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "z"
+          ],
+          [
+            "store",
+            "z",
+            2
+          ],
+          [
+            "load",
+            "r0",
+            "y"
+          ]
+        ],
+        [
+          [
+            "store",
+            "z",
+            -1
+          ],
+          [
+            "load",
+            "r0",
+            "z"
+          ]
+        ],
+        [
+          [
+            "store",
+            "z",
+            2
+          ],
+          [
+            "load",
+            "r0",
+            "z"
+          ]
+        ]
+      ],
+      "source": "memory x=2 y=-2 z=1\n\nthread P0\nload r0 z\nstore z 2\nload r0 y\nend\n\nthread P1\nstore z -1\nload r0 z\nend\n\nthread P2\nstore z 2\nload r0 z\nend\n",
+      "source_sha256": "b4844ed63497b4f301aee8b2ff30e4fb4677040f04983725f0b2b7247200eaea",
+      "litmus_sha256": "0a3bd063cfcc2dcff7fe0f2a16c067dea8787c1a0483f84fadcf05b98c8db58a",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g07_overwrite_t4",
+      "family": "overwrite",
+      "memory": {
+        "x": 0,
+        "y": 0
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "y",
+            1
+          ],
+          [
+            "load",
+            "r0",
+            "y"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "y",
+            1
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "x",
+            1
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "x",
+            1
+          ]
+        ]
+      ],
+      "source": "memory x=0 y=0\n\nthread P0\nload r0 y\nstore y 1\nload r0 y\nend\n\nthread P1\nload r0 x\nstore y 1\nend\n\nthread P2\nload r0 y\nstore x 1\nend\n\nthread P3\nload r0 y\nstore x 1\nend\n",
+      "source_sha256": "1e6294a8f136be5ef215d5585cc1596630462dc9b450f08187bdfda4af9682fe",
+      "litmus_sha256": "8c1b934c886837f2ac83af322c7ea6c3a3f3e2e159731e458731944728c54864",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g08_negative_t1",
+      "family": "negative",
+      "memory": {
+        "x": -1
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -3
+          ],
+          [
+            "load",
+            "r1",
+            "x"
+          ]
+        ]
+      ],
+      "source": "memory x=-1\n\nthread P0\nload r0 x\nstore x -3\nload r1 x\nend\n",
+      "source_sha256": "6e67e5a1da91560ea0f6b721a49648435a621dbbf610645d01adb53a80af388a",
+      "litmus_sha256": "24cebfd06194c82d51c0bd4f9916ec90f27da85d41d7390f2619710eea3f365d",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        }
+      ]
+    },
+    {
+      "name": "g09_negative_t2",
+      "family": "negative",
+      "memory": {
+        "x": -2
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -3
+          ],
+          [
+            "load",
+            "r1",
+            "x"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            2
+          ]
+        ]
+      ],
+      "source": "memory x=-2\n\nthread P0\nload r0 x\nstore x -3\nload r1 x\nend\n\nthread P1\nload r0 x\nstore x 2\nend\n",
+      "source_sha256": "078b517f58a2545249c99e2e0e64a55ecf533254fcf86e64e1fa6f6f21f877ac",
+      "litmus_sha256": "f4dfe9dc07772d63500fa4efa278447a5971cd470cb019d06cea09ca9ec15e4d",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g10_negative_t3",
+      "family": "negative",
+      "memory": {
+        "x": -2,
+        "y": 1
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -3
+          ],
+          [
+            "load",
+            "r1",
+            "x"
+          ]
+        ],
+        [
+          [
+            "store",
+            "y",
+            0
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "y",
+            2
+          ]
+        ]
+      ],
+      "source": "memory x=-2 y=1\n\nthread P0\nload r0 x\nstore x -3\nload r1 x\nend\n\nthread P1\nstore y 0\nload r0 x\nend\n\nthread P2\nload r0 y\nstore y 2\nend\n",
+      "source_sha256": "12cc7ebab22bc6dbe86cb848b2cc29c10b38802840e21c11e35e51fc24c7dc1c",
+      "litmus_sha256": "833fa956570d175e5fa57652c33329dc52547eb267248356cec3803928345e4e",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g11_negative_t4",
+      "family": "negative",
+      "memory": {
+        "x": -1
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -3
+          ],
+          [
+            "load",
+            "r1",
+            "x"
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            1
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -2
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            1
+          ]
+        ]
+      ],
+      "source": "memory x=-1\n\nthread P0\nload r0 x\nstore x -3\nload r1 x\nend\n\nthread P1\nstore x 1\nload r0 x\nend\n\nthread P2\nload r0 x\nstore x -2\nend\n\nthread P3\nload r0 x\nstore x 1\nend\n",
+      "source_sha256": "43aaaa4192a0c74087d819c0a20d35a485ae62c978f67f989da52efdec426fd2",
+      "litmus_sha256": "405c25d2eab7671e5c0ef433542b8eb0ffce99076af19dee494f552408c3c6a4",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g12_same_address_t1",
+      "family": "same_address",
+      "memory": {
+        "x": 2,
+        "y": 2,
+        "z": -2
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "store",
+            "x",
+            -1
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ]
+      ],
+      "source": "memory x=2 y=2 z=-2\n\nthread P0\nstore x -2\nstore x -1\nload r0 x\nend\n",
+      "source_sha256": "ab17ad05616fdbf384d15aa30bcd7a653ef823c7d9c295300c050a3db45dcf9d",
+      "litmus_sha256": "7aab0be0bc16198850ed795b363fb4a81277fb6f2ac9ff421bf345011b63aea2",
+      "register_map": [
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g13_same_address_t2",
+      "family": "same_address",
+      "memory": {
+        "x": -1,
+        "y": 2,
+        "z": 2
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "z",
+            -1
+          ],
+          [
+            "store",
+            "z",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "z"
+          ]
+        ],
+        [
+          [
+            "store",
+            "z",
+            0
+          ],
+          [
+            "load",
+            "r0",
+            "z"
+          ]
+        ]
+      ],
+      "source": "memory x=-1 y=2 z=2\n\nthread P0\nstore z -1\nstore z -2\nload r0 z\nend\n\nthread P1\nstore z 0\nload r0 z\nend\n",
+      "source_sha256": "0536f011deffe6383ed2402635cededfc687404818582186ce1ec5f21dd1a133",
+      "litmus_sha256": "219576e6713b395c2afec2ab4475932f4df0b05c5ed3dc3972059ed576f6f47e",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g14_same_address_t3",
+      "family": "same_address",
+      "memory": {
+        "x": -2
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "x",
+            1
+          ],
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            -1
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            0
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ]
+      ],
+      "source": "memory x=-2\n\nthread P0\nstore x 1\nstore x -2\nload r0 x\nend\n\nthread P1\nstore x -1\nload r0 x\nend\n\nthread P2\nstore x 0\nload r0 x\nend\n",
+      "source_sha256": "7c10f0ad5a3d72c48ed514cec163fa3d46fdee11a52c5487a98392e13c8e6d99",
+      "litmus_sha256": "1e09eb901341048f92fbf3c00b9966e7637c23af59b0327e928eeb7bd00eb06e",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g15_same_address_t4",
+      "family": "same_address",
+      "memory": {
+        "x": -1,
+        "y": 2
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "x",
+            -1
+          ],
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "y",
+            1
+          ]
+        ],
+        [
+          [
+            "store",
+            "y",
+            2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "y",
+            -2
+          ]
+        ]
+      ],
+      "source": "memory x=-1 y=2\n\nthread P0\nstore x -1\nstore x -2\nload r0 x\nend\n\nthread P1\nload r0 y\nstore y 1\nend\n\nthread P2\nstore y 2\nload r0 x\nend\n\nthread P3\nload r0 y\nstore y -2\nend\n",
+      "source_sha256": "0668837d05983c9fc13d80f8a73d05853db12b2286adfa45b8852aee3ad41303",
+      "litmus_sha256": "c1967c973178bd73a36a0b3ba8bdd8c75a4438bb74afa35472eec2aa453dd2a3",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g16_fenced_t1",
+      "family": "fenced",
+      "memory": {
+        "x": 2,
+        "y": 1,
+        "z": 1
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "x",
+            1
+          ],
+          [
+            "fence"
+          ],
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "fence"
+          ]
+        ]
+      ],
+      "source": "memory x=2 y=1 z=1\n\nthread P0\nstore x 1\nfence\nload r0 y\nfence\nend\n",
+      "source_sha256": "dc35d513279be4cd84d645bca968bf0186c7d3024ba185db4a1f2b8822fb2621",
+      "litmus_sha256": "e7f04e04581bf217700d43f7f80c77b09511c56ed5a592627bf62ba42c87b11f",
+      "register_map": [
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g17_fenced_t2",
+      "family": "fenced",
+      "memory": {
+        "x": 1
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "fence"
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "fence"
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ]
+      ],
+      "source": "memory x=1\n\nthread P0\nstore x -2\nfence\nload r0 x\nfence\nend\n\nthread P1\nstore x -2\nload r0 x\nend\n",
+      "source_sha256": "bcf1e31b07366d0d930b7cca4f0518185cb6dbbebb83fe90b910e17616e18e21",
+      "litmus_sha256": "6bf82386524e97b36ef2e33ae731d565e187c7b937d2a600091fde859a9afe0f",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g18_fenced_t3",
+      "family": "fenced",
+      "memory": {
+        "x": -2,
+        "y": 0
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "y",
+            -1
+          ],
+          [
+            "fence"
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "fence"
+          ]
+        ],
+        [
+          [
+            "store",
+            "y",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "y"
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            0
+          ],
+          [
+            "load",
+            "r0",
+            "y"
+          ]
+        ]
+      ],
+      "source": "memory x=-2 y=0\n\nthread P0\nstore y -1\nfence\nload r0 x\nfence\nend\n\nthread P1\nstore y -2\nload r0 y\nend\n\nthread P2\nstore x 0\nload r0 y\nend\n",
+      "source_sha256": "b97310d2b322bb0ba31b388065d02a3f385b920287a120833da60173386ff27c",
+      "litmus_sha256": "733012fe9cb043701d3a4132a4bfcf3abb9a956ca5080e95d5d20a765cef8835",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g19_fenced_t4",
+      "family": "fenced",
+      "memory": {
+        "x": -2,
+        "y": 0,
+        "z": 0
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "y",
+            -2
+          ],
+          [
+            "fence"
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "fence"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "z",
+            0
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "z"
+          ],
+          [
+            "store",
+            "z",
+            0
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            -1
+          ],
+          [
+            "load",
+            "r0",
+            "z"
+          ]
+        ]
+      ],
+      "source": "memory x=-2 y=0 z=0\n\nthread P0\nstore y -2\nfence\nload r0 x\nfence\nend\n\nthread P1\nload r0 y\nstore z 0\nend\n\nthread P2\nload r0 z\nstore z 0\nend\n\nthread P3\nstore x -1\nload r0 z\nend\n",
+      "source_sha256": "8ecb3e2e93526eba4c7a4599ed66e636d8a4cf09272d85b58d25a4c47d7801e0",
+      "litmus_sha256": "941b86f766b090a89f8fb6a3ee98779872514690f251b2318bdf03602540ba9d",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g20_empty_thread_t1",
+      "family": "empty_thread",
+      "memory": {
+        "x": -2
+      },
+      "threads": [
+        []
+      ],
+      "source": "memory x=-2\n\nthread P0\nend\n",
+      "source_sha256": "b26f38fea95fa650e07146fd42045e5d8539d3b732d576ca02dfe2dfc12997ce",
+      "litmus_sha256": "141ac9e988292b189b64f6239d25cbb152d58a546e181a02d23316273735917c",
+      "register_map": [
+        {}
+      ]
+    },
+    {
+      "name": "g21_empty_thread_t2",
+      "family": "empty_thread",
+      "memory": {
+        "x": -2
+      },
+      "threads": [
+        [],
+        [
+          [
+            "store",
+            "x",
+            0
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ]
+      ],
+      "source": "memory x=-2\n\nthread P0\nend\n\nthread P1\nstore x 0\nload r0 x\nend\n",
+      "source_sha256": "84b9e9698f76dd22c13580f9c1103691125a06802bd5399de77d3956e647cec6",
+      "litmus_sha256": "7891e6c4d7c7f283f971ea460cdb10be44f2fd646461fada00d5cdb09969e9c9",
+      "register_map": [
+        {},
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g22_empty_thread_t3",
+      "family": "empty_thread",
+      "memory": {
+        "x": 2,
+        "y": -1
+      },
+      "threads": [
+        [],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "y",
+            -2
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "store",
+            "x",
+            -2
+          ]
+        ]
+      ],
+      "source": "memory x=2 y=-1\n\nthread P0\nend\n\nthread P1\nload r0 x\nstore y -2\nend\n\nthread P2\nload r0 y\nstore x -2\nend\n",
+      "source_sha256": "71204190dd6f008a29b1aef186a42a1c76797395fd27eaca2806eb7e57e21682",
+      "litmus_sha256": "24db1a5f080bde569918a469593b454ba37fca58be6b24a4c7a4fa14aca93d69",
+      "register_map": [
+        {},
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g23_empty_thread_t4",
+      "family": "empty_thread",
+      "memory": {
+        "x": -2
+      },
+      "threads": [
+        [],
+        [
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            1
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -1
+          ]
+        ]
+      ],
+      "source": "memory x=-2\n\nthread P0\nend\n\nthread P1\nstore x -2\nload r0 x\nend\n\nthread P2\nstore x 1\nload r0 x\nend\n\nthread P3\nload r0 x\nstore x -1\nend\n",
+      "source_sha256": "3ae40bcb7a8c5c0a591a27d002ab62b07e0e40b10d5b97708dc6110c45c7fb9c",
+      "litmus_sha256": "2b6e7c584584ad62f5d807a80b7ba430c2662fac93dfb8da8a7c5eab0f65cbf5",
+      "register_map": [
+        {},
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g24_all_empty_t1",
+      "family": "all_empty",
+      "memory": {
+        "x": -1
+      },
+      "threads": [
+        []
+      ],
+      "source": "memory x=-1\n\nthread P0\nend\n",
+      "source_sha256": "39d97b35c3df3d384a6ff680264c82664186ffe39ec0255457b533ae93befb1a",
+      "litmus_sha256": "f3c9d18c0cc3015c44e87c3ab361176947f6e7fd92b2e456abd780364fe39e13",
+      "register_map": [
+        {}
+      ]
+    },
+    {
+      "name": "g25_all_empty_t2",
+      "family": "all_empty",
+      "memory": {
+        "x": -2
+      },
+      "threads": [
+        [],
+        []
+      ],
+      "source": "memory x=-2\n\nthread P0\nend\n\nthread P1\nend\n",
+      "source_sha256": "2d166b16e043700bc5be313f734b4edb0db9eb2928846eb8f2bcdb11ec676254",
+      "litmus_sha256": "709d18bd1fd5587ee2ca9c77326c70bff3d0c11747730ff59f4ca6e3356f83ee",
+      "register_map": [
+        {},
+        {}
+      ]
+    },
+    {
+      "name": "g26_all_empty_t3",
+      "family": "all_empty",
+      "memory": {
+        "x": 2
+      },
+      "threads": [
+        [],
+        [],
+        []
+      ],
+      "source": "memory x=2\n\nthread P0\nend\n\nthread P1\nend\n\nthread P2\nend\n",
+      "source_sha256": "872c8ac8d31707a922ee60914455972dad19238d12331be3ffaff2348ee870c5",
+      "litmus_sha256": "b06c5f42c9aba9663a9bd5875e11aa9376f75cd88135f8b269a2944c72a54f4a",
+      "register_map": [
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "name": "g27_all_empty_t4",
+      "family": "all_empty",
+      "memory": {
+        "x": -2,
+        "y": 2,
+        "z": -2
+      },
+      "threads": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "source": "memory x=-2 y=2 z=-2\n\nthread P0\nend\n\nthread P1\nend\n\nthread P2\nend\n\nthread P3\nend\n",
+      "source_sha256": "70de9d1e5631f4a001e9427ddc8ad86d40e014e27c4fce42ba24f6433759ba4d",
+      "litmus_sha256": "0f0dbe9d648bd1019a0f8c950f9a429f7820c53f0adfd9717932b25c99becf4e",
+      "register_map": [
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    {
+      "name": "g28_forwarding_t1",
+      "family": "forwarding",
+      "memory": {
+        "x": 1,
+        "y": 0,
+        "z": 0
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "z",
+            -1
+          ],
+          [
+            "load",
+            "r0",
+            "z"
+          ],
+          [
+            "store",
+            "z",
+            -2
+          ],
+          [
+            "load",
+            "r1",
+            "z"
+          ]
+        ]
+      ],
+      "source": "memory x=1 y=0 z=0\n\nthread P0\nstore z -1\nload r0 z\nstore z -2\nload r1 z\nend\n",
+      "source_sha256": "e9535eaa2cab0fb1e08f260d82bc3d1e3c282d28e9812622009846811f8a6a11",
+      "litmus_sha256": "99117e88ba1bf7c2dfaf8b25d6fc985a66ef2fdf2caed40570a4c38ac4c3a7db",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        }
+      ]
+    },
+    {
+      "name": "g29_forwarding_t2",
+      "family": "forwarding",
+      "memory": {
+        "x": -1,
+        "y": 1,
+        "z": 1
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -1
+          ],
+          [
+            "load",
+            "r1",
+            "x"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "z"
+          ],
+          [
+            "store",
+            "y",
+            -2
+          ]
+        ]
+      ],
+      "source": "memory x=-1 y=1 z=1\n\nthread P0\nstore x -2\nload r0 x\nstore x -1\nload r1 x\nend\n\nthread P1\nload r0 z\nstore y -2\nend\n",
+      "source_sha256": "3a2d82a2ffce4c0af98fb9b5993391361d88aec3bf216eb6417aecd3dd33dd73",
+      "litmus_sha256": "472e73b3b4134e84c1e43c7a202902813859c234155ee599eee5f3d97fce2c07",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g30_forwarding_t3",
+      "family": "forwarding",
+      "memory": {
+        "x": -1
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "x",
+            1
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "load",
+            "r1",
+            "x"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            1
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            2
+          ]
+        ]
+      ],
+      "source": "memory x=-1\n\nthread P0\nstore x 1\nload r0 x\nstore x -2\nload r1 x\nend\n\nthread P1\nload r0 x\nstore x 1\nend\n\nthread P2\nload r0 x\nstore x 2\nend\n",
+      "source_sha256": "253b39581c87f1a638840a57308741df8136c11f5c7a64f528f450ba8b54d0da",
+      "litmus_sha256": "bb61875872fbe5695b2baf92786c433ac1420e197192e4635a89e3a98a1418a5",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g31_forwarding_t4",
+      "family": "forwarding",
+      "memory": {
+        "x": 0,
+        "y": 2,
+        "z": -1
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "z",
+            1
+          ],
+          [
+            "load",
+            "r0",
+            "z"
+          ],
+          [
+            "store",
+            "z",
+            -2
+          ],
+          [
+            "load",
+            "r1",
+            "z"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "y",
+            1
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            2
+          ],
+          [
+            "load",
+            "r0",
+            "z"
+          ]
+        ],
+        [
+          [
+            "load",
+            "r0",
+            "z"
+          ],
+          [
+            "store",
+            "y",
+            1
+          ]
+        ]
+      ],
+      "source": "memory x=0 y=2 z=-1\n\nthread P0\nstore z 1\nload r0 z\nstore z -2\nload r1 z\nend\n\nthread P1\nload r0 x\nstore y 1\nend\n\nthread P2\nstore x 2\nload r0 z\nend\n\nthread P3\nload r0 z\nstore y 1\nend\n",
+      "source_sha256": "6ebde70ddc4b9335e42b8a2eef064b0dd4122d96b3a4d3d615082d2a2c23d4bd",
+      "litmus_sha256": "e769768d367b300959d6e0cbc81e2799be38d23de7f23b33a3f06f9f963c3974",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g32_int16_endpoints",
+      "family": "boundary",
+      "memory": {
+        "x": -32768,
+        "y": 32767
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "store",
+            "y",
+            -32768
+          ],
+          [
+            "load",
+            "r0",
+            "y"
+          ]
+        ],
+        [
+          [
+            "store",
+            "x",
+            32767
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ]
+      ],
+      "source": "memory x=-32768 y=32767\n\nthread P0\nload r0 x\nstore y -32768\nload r0 y\nend\n\nthread P1\nstore x 32767\nload r0 x\nend\n",
+      "source_sha256": "837de085ec1da31c93aa83dfef1057b99a2c016a667b00f756f1be5ee3857061",
+      "litmus_sha256": "896af8e8719d26f747b66ccf7859e684ce0c68eab1b9c28f3c649256adafbd0f",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {
+          "r0": "EAX"
+        }
+      ]
+    },
+    {
+      "name": "g33_eight_registers",
+      "family": "boundary",
+      "memory": {
+        "x": -1,
+        "y": 2
+      },
+      "threads": [
+        [
+          [
+            "load",
+            "r0",
+            "y"
+          ],
+          [
+            "load",
+            "r1",
+            "x"
+          ],
+          [
+            "load",
+            "r2",
+            "y"
+          ],
+          [
+            "load",
+            "r3",
+            "x"
+          ],
+          [
+            "load",
+            "r4",
+            "y"
+          ],
+          [
+            "load",
+            "r5",
+            "x"
+          ],
+          [
+            "load",
+            "r6",
+            "y"
+          ],
+          [
+            "load",
+            "r7",
+            "x"
+          ],
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ]
+        ]
+      ],
+      "source": "memory x=-1 y=2\n\nthread P0\nload r0 y\nload r1 x\nload r2 y\nload r3 x\nload r4 y\nload r5 x\nload r6 y\nload r7 x\nstore x -2\nload r0 x\nend\n",
+      "source_sha256": "d200deeeb20f8ce32cd5c691cccf889297c9b0fca40e0e00cdaec4bad1603cba",
+      "litmus_sha256": "4da8be9f20f3dbefae5f5858fde6f0779198a0080edbabb393f43f46bcb68fe9",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX",
+          "r2": "ECX",
+          "r3": "EDX",
+          "r4": "ESI",
+          "r5": "EDI",
+          "r6": "EBP",
+          "r7": "ESP"
+        }
+      ]
+    },
+    {
+      "name": "g34_eight_memory_locations",
+      "family": "boundary",
+      "memory": {
+        "m0": -4,
+        "m1": -3,
+        "m2": -2,
+        "m3": -1,
+        "m4": 0,
+        "m5": 1,
+        "m6": 2,
+        "m7": 3
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "m0",
+            2
+          ],
+          [
+            "load",
+            "r0",
+            "m1"
+          ]
+        ],
+        [],
+        [
+          [
+            "load",
+            "r0",
+            "m0"
+          ]
+        ],
+        []
+      ],
+      "source": "memory m0=-4 m1=-3 m2=-2 m3=-1 m4=0 m5=1 m6=2 m7=3\n\nthread P0\nstore m0 2\nload r0 m1\nend\n\nthread P1\nend\n\nthread P2\nload r0 m0\nend\n\nthread P3\nend\n",
+      "source_sha256": "96fe12ac7736a8cbc92fecb835c7699d0b6a036fae5c1e47b5698b639f94d462",
+      "litmus_sha256": "a3456c9c88d15c42446d2f756dde8319b3b7e1f8f922a3a4e7638d986db21b68",
+      "register_map": [
+        {
+          "r0": "EAX"
+        },
+        {},
+        {
+          "r0": "EAX"
+        },
+        {}
+      ]
+    },
+    {
+      "name": "g35_sixteen_instructions",
+      "family": "boundary",
+      "memory": {
+        "x": -1
+      },
+      "threads": [
+        [
+          [
+            "store",
+            "x",
+            -2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "fence"
+          ],
+          [
+            "load",
+            "r1",
+            "x"
+          ],
+          [
+            "fence"
+          ],
+          [
+            "fence"
+          ],
+          [
+            "fence"
+          ],
+          [
+            "fence"
+          ],
+          [
+            "store",
+            "x",
+            2
+          ],
+          [
+            "load",
+            "r0",
+            "x"
+          ],
+          [
+            "fence"
+          ],
+          [
+            "load",
+            "r1",
+            "x"
+          ],
+          [
+            "fence"
+          ],
+          [
+            "fence"
+          ],
+          [
+            "fence"
+          ],
+          [
+            "fence"
+          ]
+        ]
+      ],
+      "source": "memory x=-1\n\nthread P0\nstore x -2\nload r0 x\nfence\nload r1 x\nfence\nfence\nfence\nfence\nstore x 2\nload r0 x\nfence\nload r1 x\nfence\nfence\nfence\nfence\nend\n",
+      "source_sha256": "bad6adcb010f8ffb556a6e2a67d244d23a7d533e1d0b81ee66724aa7be63a9d0",
+      "litmus_sha256": "1b6a98d79081ac0153ac181aedfefb228aab16d92f1d3019c648458341f2cd64",
+      "register_map": [
+        {
+          "r0": "EAX",
+          "r1": "EBX"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+memory x=2 y=-1
+
+thread P0
+end
+
+thread P1
+load r0 x
+store y -2
+end
+
+thread P2
+load r0 y
+store x -2
+end

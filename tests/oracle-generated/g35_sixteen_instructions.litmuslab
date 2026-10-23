@@ -1,0 +1,20 @@
+memory x=-1
+
+thread P0
+store x -2
+load r0 x
+fence
+load r1 x
+fence
+fence
+fence
+fence
+store x 2
+load r0 x
+fence
+load r1 x
+fence
+fence
+fence
+fence
+end

@@ -1,0 +1,15 @@
+X86 LL_g11_negative_t4
+{
+x=-1;
+0:EAX=0;
+0:EBX=0;
+1:EAX=0;
+2:EAX=0;
+3:EAX=0;
+}
+P0 | P1 | P2 | P3;
+MOV EAX,[x] | MOV [x],$1 | MOV EAX,[x] | MOV EAX,[x];
+MOV [x],$-3 | MOV EAX,[x] | MOV [x],$-2 | MOV [x],$1;
+MOV EBX,[x] |  |  | ;
+locations [x; 0:EAX; 0:EBX; 1:EAX; 2:EAX; 3:EAX]
+exists (x=-1)

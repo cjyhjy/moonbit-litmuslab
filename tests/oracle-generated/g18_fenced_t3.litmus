@@ -1,0 +1,15 @@
+X86 LL_g18_fenced_t3
+{
+x=-2;
+y=0;
+0:EAX=0;
+1:EAX=0;
+2:EAX=0;
+}
+P0 | P1 | P2;
+MOV [y],$-1 | MOV [y],$-2 | MOV [x],$0;
+MFENCE | MOV EAX,[y] | MOV EAX,[y];
+MOV EAX,[x] |  | ;
+MFENCE |  | ;
+locations [x; y; 0:EAX; 1:EAX; 2:EAX]
+exists (x=-2)

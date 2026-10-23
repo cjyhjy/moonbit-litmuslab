@@ -1,0 +1,10 @@
+{
+  "status": "error",
+  "exitCode": 2,
+  "error": {
+    "code": "InvalidInteger",
+    "message": "Integer must be in -32768..32767",
+    "line": 1,
+    "column": 10
+  }
+}

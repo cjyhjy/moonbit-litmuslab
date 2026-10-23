@@ -1,73 +1,82 @@
-# LitmusLab 0.1.0 交付与验证记录
+# LitmusLab 0.2.0 本地交付
 
-> 下表及 `reports/verification.json` 保留 2026-10-22 的本地验收快照；独立仓库的后续 Linux CI 以 [GitHub Actions](https://github.com/cjyhjy/moonbit-litmuslab/actions/workflows/ci.yml) 每次运行与下载证据为准，详情见 [公开仓库说明](docs/PUBLICATION.md)。
+交付日期：2026-10-23。有限 SC/TSO 并发内存模型实验室；解析、状态转移、搜索与见证由 MoonBit 实现，CLI 和浏览器共用同一编译引擎。
 
-交付日期：2026-10-22（用户时区 America/New_York）。这是有限 SC/TSO 并发内存模型实验室的完整本地版本。所有解析、状态转移、搜索、结果与见证语义由 MoonBit 实现，CLI 和浏览器使用同一编译核心。
+## 本轮改进
+
+- 状态按动作复制、未改变数组只读共享，状态键减少临时分配。三个本机固定合成负载的五次中位数：耗时减少 24.9%–37.5%，进程峰值 RSS 减少 17.7%–21.1%；分析结果 JSON 与旧版完全相同。此数字不是所有程序的普遍性能保证。
+- 重放显示读值来自共享内存还是 FIFO 中的哪一笔待写，独立解释器逐步核对 effect。
+- 浏览器可导入/导出实验配置、下载结果，拒绝无效配置并防止导出过期结果。
+- 增加 72 组真实 herd7 对照；报告绑定运行时输入，拒绝过期证据。解包重建同时比对公共 wrapper 与编译模块。
+- 合并 Native 构建与独立 CI 日志修复。live 外部验证直接运行新对照，避免先后两次报告同名覆盖导致证据哈希失配。
+
+详见 [优化记录](docs/OPTIMIZATION.md)。旧版报告和归档保留在本地历史目录，没有覆盖。
 
 ## 直接运行
 
-在仓库根目录执行：
-
 ```sh
+cd '/Users/cjy/Documents/ChatGPT/黑客松新项目/projects/litmuslab'
 node bin/litmuslab.mjs analyze examples/store-buffering.litmus --model both
 node tools/serve.mjs
 ```
 
-浏览器打开终端打印的本地 URL（默认 `http://127.0.0.1:4173/`）。ZIP 内含 `dist/engine.mjs` 与 `dist/engine.raw.mjs`，只需 Node.js 20+，无 npm 安装、账户或 API Key。复制到其他目录后，改为在解包目录执行后两条命令。
+打开终端打印的本地 URL（默认 `http://127.0.0.1:4173/`）。ZIP 内含两个 `dist/` 模块，只需 Node.js 20+，无 npm 安装、账户或 API Key。解包后在解包目录执行后两条命令即可。
 
-Store Buffering 实际结果：SC **3** 种，TSO **4** 种；TSO 多出双读零。点击结果按钮，可查看真实引擎生成的逐步见证。预算不足返回 `incomplete`，CLI 退出码 3，不会宣称程序安全或结果完整。
+Store Buffering 完整结果为 SC 3 种、TSO 4 种；TSO 多出双读零。预算不足明确返回 `incomplete`，CLI 退出码 3；缺少结果不能解释为不可能。
 
-## 验证结果
+## 当前验证
 
-| 验证 | 历史本地验收结果 | 可重跑命令 / 证据 |
-|---|---|---|
-| MoonBit 核心 | JS、Native、Wasm-GC 各 12/12 | `./tools/moon test --target js`（另外两个 target 同名） |
-| Python 独立参考单测 | 21/21 | `python3 -m unittest discover -s tests -p 'test_reference.py' -v` |
-| 独立交叉检查 | 584 用例（578 不同源码）；2336 组模型/策略；3418 见证逐步一致 | `python3 tools/crosscheck.py` |
-| 边界与资源 | 89 边界、74 宿主类型、2 大状态用例；最大 128 步见证 | `reports/crosscheck.json` |
-| 上限压力 | 100000 状态后明确 incomplete；保留见证可重放 | `node tools/stress.mjs` |
-| 外部 herd7 | 6 案例 × 2 模型，12/12 完整结果集合匹配 | `python3 tools/oracle-run.py`；`node tools/oracle-compare.mjs` |
-| 近邻 MoonCTL | 上游 29/29，错误、修复、预算示例实际运行 | `python3 tools/oracle-moonctl.py` |
-| CLI / 本地 HTTP | 70/70 | `node tools/check-interfaces.mjs` |
-| 真实浏览器 | 18/18；320/390/768/1248 宽度 | `reports/browser.json`、`reports/screenshots/` |
-| 全新 ZIP 解包 | 11/11；重建 JavaScript 逐字节相同 | `python3 tools/acceptance.py`；`release/acceptance.json` |
+| 检查 | 结果 / 证据 |
+|---|---|
+| MoonBit 核心 | JS、Native、Wasm-GC 各 15/15；三后端 check/build/test |
+| Python | 23 项独立参考 + 15 项证据链回归，共 38/38 |
+| 独立交叉检查 | 584 用例、2,336 组模型/策略、3,418 条逐步见证；含每步 effect |
+| 边界与资源 | 89 边界、74 宿主类型、2 大状态用例；100,000 状态上限与 128 步见证 |
+| 真实外部 herd7 | 固定 12/12 + 新增 72/72；全部共同子集完整结果集合一致 |
+| MoonCTL 近邻 | 上游 29/29 与三个示例；它不是内存模型 oracle |
+| CLI / loopback HTTP | 96/96；`reports/interfaces.json` |
+| 真实浏览器 | 28/28；`reports/browser-optimization.json`，含配置往返、竞态及 4 种宽度 |
+| 固定负载性能 | 各 5 次；完整分析输出相同，见 `reports/performance.json` |
+| 干净解包 | 14/14；ZIP 外 `release/acceptance.json`，含 wrapper/raw 与重建后公共 API |
 
-统一重跑：
+当前统一汇总为 `reports/verification.json`，命令、退出码及日志为 `reports/local-verification.json`。报告的输入快照需要与当前文件一致；修改后必须重跑对应生产脚本，不能简单替换哈希。浏览器、性能、外部工具是各自独立的实际验收记录。
 
 ```sh
-python3 tools/bootstrap.py          # 如需源码构建，项目内安装锁定 MoonBit
-python3 tools/verify.py             # 本地核心、独立对照、CLI、已记录外部集合
-# 需要重跑外部工具时，先在项目内安装；这是额外依赖，不是产品运行前提
+python3 tools/bootstrap.py
+python3 tools/verify.py --check-dist
+# 可选外部工具；不是运行产品的依赖
 sh tools/oracle-bootstrap.sh
-python3 tools/verify.py --live-oracle
+python3 tools/verify.py --check-dist --live-oracle
+# CI 风格输出目录；默认只重比对保存的 herd7 结果
+python3 tools/verify.py --check-dist --output-dir .ci-evidence
 ```
 
-`verify.py` 的默认外部集合检查明确使用已保存的 herd7 输出；`--live-oracle` 才实际再次运行 herd7 和 MoonCTL。上述历史本地最终统一验证使用了 `--live-oracle`；GitHub Actions 默认不安装或再次运行外部工具。在 Codex 的受限执行环境中，临时 loopback 测试服务需要执行权限，最终验证已获工具批准完成；普通本机 Node 不涉及公开监听。
+本次实际平台为 Apple Silicon macOS、Node 26.7.0、Python 3.9.6，固定 MoonBit 编译器 `0.10.15+943464bfa`。Native 使用 release 模式构建测试可执行文件，并完整执行 Native 测试；固定工具链的 foreign_library 不能作为 Native 动态库产品构建。JS/Wasm-GC 正常 release build。
 
-上述历史验收的实际平台为 Apple Silicon macOS、Node 26.7.0、Python 3.9.6，MoonBit 编译器 `0.10.15+943464bfa`。工具版本、命令、退出码和源码/产物哈希在 `reports/verification.json`。**当前没有未解决的失败项。** 过程中发现并修复了 JS 非整数预算绕过、FIFO 文件输入阻塞、窄屏溢出和 herd7 构建元数据误取祖先 Git revision；原始失败日志与修复记录保留，不把早期失败结果当最终结果。
+## 归档与证据
 
-## 关键文件与归档
+- `release/LitmusLab-0.2.0.zip`：运行产物、源码、文档、测试与证据。
+- `release/SHA256SUMS`：当前 ZIP 校验和；ZIP 内 `MANIFEST.sha256` 覆盖每个文件。
+- `release/acceptance.json`：最终精确 ZIP 的独立验收，核对其 `archiveSha256` 与 ZIP。
+- `reports/verification.json`：当前源码树的汇总；不声称包内汇总能自证所在 ZIP 哈希。
+- `docs/SEMANTICS.md`、`docs/API.md`、`docs/TUTORIAL.md`：模型与使用说明。
+- `research/COMPARISON.md`、`docs/DEVELOPMENT.md`、`THIRD_PARTY_NOTICES.md`：外部工具、AI 辅助与许可范围。
 
-- `core/`：实质 MoonBit 核心；`core/pkg.generated.mbti`：公开函数签名。
-- `docs/SEMANTICS.md`、`docs/API.md`、`docs/TUTORIAL.md`：模型范围、协议与中文教学。
-- `research/COMPARISON.md`：Mooncakes/GitHub 近邻、三项差异案例、固定来源和真实外部验证。
-- `reports/verification.json`：历史本地汇总；`reports/crosscheck.json`、`reports/oracle-comparison.json`：详细证据。
-- `docs/DEVELOPMENT.md`、`LICENSE`、`THIRD_PARTY_NOTICES.md`：开发/AI 与许可说明。
-- `.github/workflows/ci.yml`：独立仓库 Linux CI，执行三个后端、编译产物一致性、独立参考、见证、CLI/HTTP 与已记录 herd7 集合重比对。CI 证据单独上传为 artifact。
+工具链、第三方安装目录、构建缓存、Git、CI 临时输出和历史整包不在新 ZIP 内。`tests/performance-baseline/` 则有意携带旧版的两个编译模块，用于复现同负载性能比较。
 
-历史 ZIP 位于原本地交付目录，未作为本次 GitHub Release 发布。以下命令可在当前仓库生成新的 `release/LitmusLab-0.1.0.zip`；它不会被声称为原来验收的同一个归档。
-
-本地打包后的 SHA-256 位于同目录 `SHA256SUMS`；精确归档的解包验收与哈希位于同目录 `acceptance.json`。包内 `MANIFEST.sha256` 逐文件列出校验和。工具链、第三方安装目录、构建缓存与 Git 元数据不在包内。
+制作归档先运行所有必要验收并汇总，再执行下列步骤；第一次干净源码验收后更新汇总、重打包并再次验收，以使包内汇总和包外精确 ZIP 证明都完整：
 
 ```sh
+python3 tools/summarize.py
+python3 tools/package.py
+python3 tools/acceptance.py
+python3 tools/summarize.py
 python3 tools/package.py
 python3 tools/acceptance.py
 ```
 
-解包验收在全新目录运行 CLI、独立解释器、已记录 oracle 对照，再使用固定的外部编译器重建包内源码，要求生成 JavaScript 与包内产物逐字节相同。编译器是明确的构建依赖，不是打包缓存。最终验收证明放在 ZIP 外，以绑定精确的 ZIP SHA-256，避免归档自引用。
+## 发布与适用范围
 
-## 边界与未执行事项
+0.1.0 基线已由总控发布到独立 GitHub 仓库，旧 Linux CI 已通过。本轮 0.2.0 优化尚未推送或运行远端 CI；旧绿灯不代表新改动通过。发布 commit、运行链接及同步范围见 [PUBLICATION.md](docs/PUBLICATION.md)。项目执行聊天没有操作共享 Git 或独立发布仓库。
 
-这些是有限程序模拟与软件对照，不是 CPU 硬件实测或所有程序的形式证明。不覆盖完整 x86/ARM/RISC-V/C++、循环、分支、指针或原子 RMW。原本地快照未覆盖 Linux/Windows；Linux 及 GitHub Actions 的后续状态见公开工作流，Windows 尚未验证。
-
-独立 GitHub 源码仓库公开并保留实际本地开发历史；不能据此声称开发当时已公开。Mooncakes/npm 发布、网站托管和正式参赛提交尚未执行。正式规则存在日期冲突，且申报书要求本人撰写；本包仅提供实现与事实证据，不代填身份、诚信或原创性声明。项目执行聊天未操作共享 Git，也未改动全局工具链或其他候选项目。
+以上是有限程序的模拟与软件对照，不是 CPU 硬件实测或所有程序的证明。不覆盖完整 x86/ARM/RISC-V/C++、循环、分支、指针或原子 RMW。此版本尚未在 Linux/Windows 实际运行；包发布、网站托管及正式参赛尚未执行。

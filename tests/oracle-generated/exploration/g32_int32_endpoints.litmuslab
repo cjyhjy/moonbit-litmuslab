@@ -1,0 +1,12 @@
+memory x=-2147483648 y=2147483647
+
+thread P0
+load r0 x
+store y -2147483648
+load r0 y
+end
+
+thread P1
+store x 2147483647
+load r0 x
+end

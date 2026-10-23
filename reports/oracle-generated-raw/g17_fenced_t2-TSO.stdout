@@ -1,0 +1,11 @@
+Test LL_g17_fenced_t2 Allowed
+States 1
+0:EAX=-2; 1:EAX=-2; [x]=-2;
+No
+Witnesses
+Positive: 0 Negative: 4
+Condition exists ([x]=1)
+Observation LL_g17_fenced_t2 Never 0 4
+Time LL_g17_fenced_t2 0.00
+Hash=47614cc435700367329bc78cc4cfe5c5
+

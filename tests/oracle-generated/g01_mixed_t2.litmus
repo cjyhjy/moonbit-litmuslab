@@ -1,0 +1,13 @@
+X86 LL_g01_mixed_t2
+{
+x=-1;
+0:EAX=0;
+0:EBX=0;
+1:EAX=0;
+}
+P0 | P1;
+MOV EAX,[x] | MOV [x],$-2;
+MOV EBX,[x] | MOV EAX,[x];
+MOV [x],$2 | ;
+locations [x; 0:EAX; 0:EBX; 1:EAX]
+exists (x=-1)

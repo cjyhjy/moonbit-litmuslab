@@ -1,0 +1,330 @@
+{
+  "kind": "synthetic-local-performance-comparison",
+  "generatedAt": "2026-10-22T16:15:23.325171+00:00",
+  "samplesPerVariant": 3,
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "node": "v26.7.0",
+  "scope": "Three fixed synthetic workloads on this machine; not a general speed guarantee. Fresh process per sample, 20 identical small warmups, GC before timing, variant order alternates.",
+  "engineHashes": {
+    "baseline": {
+      "engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "engine.raw.mjs": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af"
+    },
+    "candidate": {
+      "engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "engine.raw.mjs": "d1e01e9f6d635b8db92c4823d373ad5c2680153eec15af0c94f729359f185009"
+    }
+  },
+  "cases": [
+    {
+      "name": "fence-grid",
+      "source": "memory x=0 y=0\nthread P0\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nend\nthread P1\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nend\nthread P2\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nend\nthread P3\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nfence\nend",
+      "model": "SC",
+      "strategy": "bfs",
+      "sameSearchOutput": true,
+      "samples": {
+        "baseline": [
+          {
+            "elapsedMs": 227.665625,
+            "maxRssKiB": 197760,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 201.797041,
+            "maxRssKiB": 193264,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 203.510667,
+            "maxRssKiB": 198240,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          }
+        ],
+        "candidate": [
+          {
+            "elapsedMs": 127.113958,
+            "maxRssKiB": 156672,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 126.11600000000001,
+            "maxRssKiB": 154016,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          },
+          {
+            "elapsedMs": 120.69029099999999,
+            "maxRssKiB": 156224,
+            "status": "complete",
+            "reason": null,
+            "stats": {
+              "visitedStates": 83521,
+              "expandedStates": 83521,
+              "transitions": 314432,
+              "outcomes": 1
+            },
+            "resultSha256": "a15a3cc7010003c03567653391a05747d9c9a64177e79ec19e732871829095d4"
+          }
+        ]
+      },
+      "medians": {
+        "baseline": {
+          "elapsedMs": 203.510667,
+          "maxRssKiB": 197760
+        },
+        "candidate": {
+          "elapsedMs": 126.11600000000001,
+          "maxRssKiB": 156224
+        }
+      },
+      "timeRatio": 0.6197021603786499,
+      "rssRatio": 0.7899676375404531
+    },
+    {
+      "name": "store-pressure",
+      "source": "memory x=0 y=0\nthread P0\nstore x 0\nstore y 1\nstore x 2\nstore y 3\nstore x 4\nstore y 5\nstore x 6\nstore y 7\nstore x 8\nstore y 9\nstore x 10\nstore y 11\nstore x 12\nstore y 13\nstore x 14\nstore y 15\nend\nthread P1\nstore x 16\nstore y 17\nstore x 18\nstore y 19\nstore x 20\nstore y 21\nstore x 22\nstore y 23\nstore x 24\nstore y 25\nstore x 26\nstore y 27\nstore x 28\nstore y 29\nstore x 30\nstore y 31\nend\nthread P2\nstore x 32\nstore y 33\nstore x 34\nstore y 35\nstore x 36\nstore y 37\nstore x 38\nstore y 39\nstore x 40\nstore y 41\nstore x 42\nstore y 43\nstore x 44\nstore y 45\nstore x 46\nstore y 47\nend\nthread P3\nstore x 48\nstore y 49\nstore x 50\nstore y 51\nstore x 52\nstore y 53\nstore x 54\nstore y 55\nstore x 56\nstore y 57\nstore x 58\nstore y 59\nstore x 60\nstore y 61\nstore x 62\nstore y 63\nend",
+      "model": "TSO",
+      "strategy": "dfs",
+      "sameSearchOutput": true,
+      "samples": {
+        "baseline": [
+          {
+            "elapsedMs": 442.193166,
+            "maxRssKiB": 241136,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 444.920667,
+            "maxRssKiB": 241456,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 434.799625,
+            "maxRssKiB": 240496,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          }
+        ],
+        "candidate": [
+          {
+            "elapsedMs": 317.292542,
+            "maxRssKiB": 198176,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 332.78008300000005,
+            "maxRssKiB": 198192,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          },
+          {
+            "elapsedMs": 315.525917,
+            "maxRssKiB": 197024,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 99786,
+              "transitions": 367860,
+              "outcomes": 6
+            },
+            "resultSha256": "4873b94c6ea7431074918336f9047baf609c0e55c361ba6d9f6812482ed9d525"
+          }
+        ]
+      },
+      "medians": {
+        "baseline": {
+          "elapsedMs": 442.193166,
+          "maxRssKiB": 241136
+        },
+        "candidate": {
+          "elapsedMs": 317.292542,
+          "maxRssKiB": 198176
+        }
+      },
+      "timeRatio": 0.717542844160554,
+      "rssRatio": 0.8218432751642227
+    },
+    {
+      "name": "mixed-memory",
+      "source": "memory x=0 y=0\nthread P0\nstore x 1\nload r0 y\nfence\nstore y 1\nload r1 x\nload r0 y\nend\nthread P1\nstore x 2\nload r0 y\nfence\nstore y 2\nload r1 x\nload r0 y\nend\nthread P2\nstore x 3\nload r0 y\nfence\nstore y 3\nload r1 x\nload r0 y\nend\nthread P3\nstore x 4\nload r0 y\nfence\nstore y 4\nload r1 x\nload r0 y\nend",
+      "model": "TSO",
+      "strategy": "bfs",
+      "sameSearchOutput": true,
+      "samples": {
+        "baseline": [
+          {
+            "elapsedMs": 274.634,
+            "maxRssKiB": 227920,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 273.277084,
+            "maxRssKiB": 227856,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 263.74716700000005,
+            "maxRssKiB": 228176,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          }
+        ],
+        "candidate": [
+          {
+            "elapsedMs": 181.437125,
+            "maxRssKiB": 179568,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 181.106375,
+            "maxRssKiB": 179952,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          },
+          {
+            "elapsedMs": 182.734917,
+            "maxRssKiB": 180640,
+            "status": "incomplete",
+            "reason": "max_states",
+            "stats": {
+              "visitedStates": 100000,
+              "expandedStates": 61484,
+              "transitions": 283194,
+              "outcomes": 0
+            },
+            "resultSha256": "f96aa750b02f9b176c1504a2a0115a82f638a8b2d576e3693d8e4cca5b7b64bd"
+          }
+        ]
+      },
+      "medians": {
+        "baseline": {
+          "elapsedMs": 273.277084,
+          "maxRssKiB": 227920
+        },
+        "candidate": {
+          "elapsedMs": 181.437125,
+          "maxRssKiB": 179952
+        }
+      },
+      "timeRatio": 0.663930990276521,
+      "rssRatio": 0.7895401895401896
+    }
+  ],
+  "status": "passed"
+}

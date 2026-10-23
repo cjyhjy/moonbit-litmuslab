@@ -1,0 +1,16 @@
+Test LL_g06_overwrite_t3 Allowed
+States 6
+0:EAX=-2; 1:EAX=-1; 2:EAX=-1; [x]=2; [y]=-2; [z]=-1;
+0:EAX=-2; 1:EAX=-1; 2:EAX=-1; [x]=2; [y]=-2; [z]=2;
+0:EAX=-2; 1:EAX=-1; 2:EAX=2; [x]=2; [y]=-2; [z]=-1;
+0:EAX=-2; 1:EAX=-1; 2:EAX=2; [x]=2; [y]=-2; [z]=2;
+0:EAX=-2; 1:EAX=2; 2:EAX=-1; [x]=2; [y]=-2; [z]=2;
+0:EAX=-2; 1:EAX=2; 2:EAX=2; [x]=2; [y]=-2; [z]=2;
+Ok
+Witnesses
+Positive: 52 Negative: 0
+Condition exists ([x]=2)
+Observation LL_g06_overwrite_t3 Always 52 0
+Time LL_g06_overwrite_t3 0.01
+Hash=d897db0fe843f7a892f7ee95056f787f
+

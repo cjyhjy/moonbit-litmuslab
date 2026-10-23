@@ -1,0 +1,11 @@
+Test LL_probe_wide_signed Allowed
+States 1
+0:EAX=-2147483648; 0:EBX=-2147483648; 0:ECX=2147483647; [x]=-2147483648; [y]=2147483647;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=-2147483648)
+Observation LL_probe_wide_signed Always 1 0
+Time LL_probe_wide_signed 0.00
+Hash=60eeb1bf2c29771ebdef75bb60b211d6
+

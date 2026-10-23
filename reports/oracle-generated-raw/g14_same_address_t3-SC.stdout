@@ -1,0 +1,45 @@
+Test LL_g14_same_address_t3 Allowed
+States 35
+0:EAX=-2; 1:EAX=-2; 2:EAX=-2; [x]=-2;
+0:EAX=-2; 1:EAX=-2; 2:EAX=-1; [x]=-2;
+0:EAX=-2; 1:EAX=-2; 2:EAX=0; [x]=-2;
+0:EAX=-2; 1:EAX=-2; 2:EAX=0; [x]=0;
+0:EAX=-2; 1:EAX=-2; 2:EAX=1; [x]=-2;
+0:EAX=-2; 1:EAX=-1; 2:EAX=-2; [x]=-2;
+0:EAX=-2; 1:EAX=-1; 2:EAX=-2; [x]=-1;
+0:EAX=-2; 1:EAX=-1; 2:EAX=-1; [x]=-2;
+0:EAX=-2; 1:EAX=-1; 2:EAX=-1; [x]=-1;
+0:EAX=-2; 1:EAX=-1; 2:EAX=0; [x]=-2;
+0:EAX=-2; 1:EAX=-1; 2:EAX=0; [x]=-1;
+0:EAX=-2; 1:EAX=-1; 2:EAX=0; [x]=0;
+0:EAX=-2; 1:EAX=-1; 2:EAX=1; [x]=-2;
+0:EAX=-2; 1:EAX=-1; 2:EAX=1; [x]=-1;
+0:EAX=-2; 1:EAX=0; 2:EAX=-2; [x]=-2;
+0:EAX=-2; 1:EAX=0; 2:EAX=0; [x]=-2;
+0:EAX=-2; 1:EAX=0; 2:EAX=0; [x]=0;
+0:EAX=-2; 1:EAX=0; 2:EAX=1; [x]=-2;
+0:EAX=-2; 1:EAX=1; 2:EAX=-2; [x]=-2;
+0:EAX=-2; 1:EAX=1; 2:EAX=-1; [x]=-2;
+0:EAX=-2; 1:EAX=1; 2:EAX=0; [x]=-2;
+0:EAX=-2; 1:EAX=1; 2:EAX=0; [x]=0;
+0:EAX=-2; 1:EAX=1; 2:EAX=1; [x]=-2;
+0:EAX=-1; 1:EAX=-1; 2:EAX=-2; [x]=-1;
+0:EAX=-1; 1:EAX=-1; 2:EAX=-1; [x]=-1;
+0:EAX=-1; 1:EAX=-1; 2:EAX=0; [x]=-1;
+0:EAX=-1; 1:EAX=-1; 2:EAX=0; [x]=0;
+0:EAX=-1; 1:EAX=-1; 2:EAX=1; [x]=-1;
+0:EAX=-1; 1:EAX=0; 2:EAX=0; [x]=0;
+0:EAX=0; 1:EAX=-2; 2:EAX=0; [x]=0;
+0:EAX=0; 1:EAX=-1; 2:EAX=-1; [x]=-1;
+0:EAX=0; 1:EAX=-1; 2:EAX=0; [x]=-1;
+0:EAX=0; 1:EAX=-1; 2:EAX=0; [x]=0;
+0:EAX=0; 1:EAX=0; 2:EAX=0; [x]=0;
+0:EAX=0; 1:EAX=1; 2:EAX=0; [x]=0;
+Ok
+Witnesses
+Positive: 52 Negative: 40
+Condition exists ([x]=-2)
+Observation LL_g14_same_address_t3 Sometimes 52 40
+Time LL_g14_same_address_t3 0.06
+Hash=4d2744a493d44c6586c895259381a8b3
+

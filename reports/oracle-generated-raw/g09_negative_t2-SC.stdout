@@ -1,0 +1,16 @@
+Test LL_g09_negative_t2 Allowed
+States 6
+0:EAX=-2; 0:EBX=-3; 1:EAX=-3; [x]=2;
+0:EAX=-2; 0:EBX=-3; 1:EAX=-2; [x]=-3;
+0:EAX=-2; 0:EBX=-3; 1:EAX=-2; [x]=2;
+0:EAX=-2; 0:EBX=2; 1:EAX=-3; [x]=2;
+0:EAX=-2; 0:EBX=2; 1:EAX=-2; [x]=2;
+0:EAX=2; 0:EBX=-3; 1:EAX=-2; [x]=-3;
+No
+Witnesses
+Positive: 0 Negative: 6
+Condition exists ([x]=-2)
+Observation LL_g09_negative_t2 Never 0 6
+Time LL_g09_negative_t2 0.00
+Hash=771980616e5dfc6785a3b274041baf78
+

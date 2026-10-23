@@ -1,0 +1,13 @@
+memory x=1
+
+thread P0
+store x -2
+fence
+load r0 x
+fence
+end
+
+thread P1
+store x -2
+load r0 x
+end

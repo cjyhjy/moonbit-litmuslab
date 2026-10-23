@@ -1,0 +1,15 @@
+X86 LL_g15_same_address_t4
+{
+x=-1;
+y=2;
+0:EAX=0;
+1:EAX=0;
+2:EAX=0;
+3:EAX=0;
+}
+P0 | P1 | P2 | P3;
+MOV [x],$-1 | MOV EAX,[y] | MOV [y],$2 | MOV EAX,[y];
+MOV [x],$-2 | MOV [y],$1 | MOV EAX,[x] | MOV [y],$-2;
+MOV EAX,[x] |  |  | ;
+locations [x; y; 0:EAX; 1:EAX; 2:EAX; 3:EAX]
+exists (x=-1)

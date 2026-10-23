@@ -1,0 +1,8 @@
+X86 LL_probe_fence_only
+{
+x=-1;
+}
+P0;
+MFENCE;
+locations [x]
+exists (x=-1)

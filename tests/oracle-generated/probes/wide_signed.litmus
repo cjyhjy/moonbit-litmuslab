@@ -1,0 +1,15 @@
+X86 LL_probe_wide_signed
+{
+x=-2147483648;
+y=2147483647;
+0:EAX=0;
+0:EBX=0;
+0:ECX=0;
+}
+P0;
+MOV EAX,[x];
+MOV [x],$-2147483648;
+MOV EBX,[x];
+MOV ECX,[y];
+locations [x; y; 0:EAX; 0:EBX; 0:ECX]
+exists (x=-2147483648)

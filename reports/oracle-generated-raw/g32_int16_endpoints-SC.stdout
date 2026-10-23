@@ -1,0 +1,11 @@
+Test LL_g32_int16_endpoints Allowed
+States 1
+0:EAX=-32768; 1:EAX=32767; [x]=32767; [y]=-32768;
+No
+Witnesses
+Positive: 0 Negative: 2
+Condition exists ([x]=-32768)
+Observation LL_g32_int16_endpoints Never 0 2
+Time LL_g32_int16_endpoints 0.00
+Hash=0f1e585fd0e1bc58bc5a537ef164dbf5
+

@@ -1,6 +1,7 @@
+import { createExperiment, createResultBundle, parseExperiment, MAX_CONFIG_BYTES, MAX_SOURCE_POINTS } from './experiment.mjs';
+
 const $ = (id) => document.getElementById(id);
-const state = { worker: null, requestId: 0, exampleId: 0, pending: null, examples: [], results: {}, source: '', selected: null, replay: null, step: 0, started: 0, ready: false };
-const MAX_SOURCE_POINTS = 32768;
+const state = { worker: null, requestId: 0, exampleId: 0, importId: 0, pending: null, examples: [], results: {}, experiment: null, source: '', selected: null, replay: null, step: 0, started: 0, ready: false };
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -22,17 +23,20 @@ function setBusy(busy) {
   $('source').readOnly = busy;
   for (const id of ['model', 'strategy', 'max-states', 'max-outcomes']) $(id).disabled = busy;
   $('outcomes').querySelectorAll('button').forEach((button) => { button.disabled = busy; });
+  $('export-results').disabled = busy || !state.experiment || !Object.keys(state.results).length;
 }
 
-function startWorker() {
+function startWorker(announce = false) {
   state.ready = false;
-  state.worker = new Worker(new URL('./engine-worker.mjs', import.meta.url), { type: 'module' });
+  const worker = new Worker(new URL('./engine-worker.mjs', import.meta.url), { type: 'module' });
+  state.worker = worker;
   setBusy(false);
-  state.worker.addEventListener('message', ({ data }) => {
+  worker.addEventListener('message', ({ data }) => {
+    if (worker !== state.worker) return;
     if (data.ready) {
       state.ready = true;
       setBusy(Boolean(state.pending));
-      if (!state.pending && !Object.keys(state.results).length) status('引擎已就绪。运行分析，比较结果并重放每一种调度见证。');
+      if (announce && !state.pending && !Object.keys(state.results).length) status('引擎已就绪。运行分析，比较结果并重放每一种调度见证。');
       return;
     }
     if (!state.pending || data.id !== state.pending.id) return;
@@ -43,7 +47,8 @@ function startWorker() {
     if (data.command === 'analyze') showResults(data.results);
     else showReplay(data.result, pending.selection);
   });
-  state.worker.addEventListener('error', (event) => {
+  worker.addEventListener('error', (event) => {
+    if (worker !== state.worker) return;
     state.pending = null;
     state.ready = false;
     setBusy(false);
@@ -81,6 +86,8 @@ function updateLineCount() {
 
 function invalidate(message = '程序或配置已修改。请重新运行分析。') {
   state.results = {};
+  state.experiment = null;
+  $('export-results').disabled = true;
   $('metrics').replaceChildren();
   $('outcomes').replaceChildren(element('div', 'trace-empty', message));
   $('results-badge').textContent = '待重新运行';
@@ -89,8 +96,66 @@ function invalidate(message = '程序或配置已修改。请重新运行分析�
   status(message);
 }
 
+function currentExperiment() {
+  return createExperiment($('source').value, { model: $('model').value, strategy: $('strategy').value, maxStates: Number($('max-states').value), maxOutcomes: Number($('max-outcomes').value) });
+}
+
+function fileStatus(message, error = false) {
+  $('file-status').textContent = message;
+  $('file-status').classList.toggle('error', error);
+}
+
+function downloadJSON(value, filename) {
+  const blob = new Blob([`${JSON.stringify(value, null, 2)}\n`], { type: 'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function stopCurrentWorker() {
+  state.worker?.terminate();
+  state.worker = null;
+  state.pending = null;
+  state.requestId += 1;
+}
+
+async function importConfiguration(file) {
+  const request = ++state.importId;
+  if (!file) return;
+  try {
+    if (file.size > MAX_CONFIG_BYTES) throw new Error('配置文件不能超过 256 KiB。');
+    const configuration = parseExperiment(new Uint8Array(await file.arrayBuffer()));
+    if (request !== state.importId) return;
+    stopCurrentWorker();
+    state.exampleId += 1;
+    $('source').value = configuration.source;
+    $('model').value = configuration.options.model;
+    $('strategy').value = configuration.options.strategy;
+    $('max-states').value = configuration.options.maxStates;
+    $('max-outcomes').value = configuration.options.maxOutcomes;
+    $('example').value = '';
+    $('example-title').textContent = '已导入实验配置';
+    $('example-description').textContent = '已恢复源程序、模型、搜索顺序和预算。点击运行分析，重新生成可验证结果。';
+    $('example-focus').textContent = '配置版本 1 · 结果需重新计算';
+    updateLineCount();
+    invalidate('配置已导入；旧搜索、结果与见证已清空。请运行分析。');
+    startWorker();
+    fileStatus(`已导入 ${file.name}；尚未运行。`);
+  } catch (error) {
+    if (request === state.importId) fileStatus(`导入失败：${error.message} 当前实验保持原样。`, true);
+  } finally {
+    $('config-file').value = '';
+  }
+}
+
 async function loadExample(id) {
   const request = ++state.exampleId;
+  state.importId += 1;
   const example = state.examples.find((item) => item.id === id);
   if (!example) return;
   const response = await fetch(`/examples/${example.file}`);
@@ -107,11 +172,17 @@ async function loadExample(id) {
 
 function analyzeProgram() {
   if (state.pending || !state.ready) return;
+  state.exampleId += 1;
+  state.importId += 1;
   const source = $('source').value;
   if ([...source].length > MAX_SOURCE_POINTS) return showError({ code: 'SOURCE_TOO_LARGE', message: `程序不能超过 ${MAX_SOURCE_POINTS.toLocaleString()} 个 Unicode 码点。` });
   for (const id of ['max-states', 'max-outcomes']) if (!$(id).reportValidity()) return;
-  const models = $('model').value === 'both' ? ['SC', 'TSO'] : [$('model').value];
+  let experiment;
+  try { experiment = currentExperiment(); }
+  catch (error) { return showError({ code: 'CONFIG_ERROR', message: error.message }); }
+  const models = experiment.options.model === 'both' ? ['SC', 'TSO'] : [experiment.options.model];
   state.source = source;
+  state.experiment = experiment;
   state.results = {};
   clearTrace();
   $('metrics').replaceChildren();
@@ -135,6 +206,7 @@ function showResults(results) {
   const error = Object.values(results).find((result) => result.status === 'error');
   if (error) { $('outcomes').replaceChildren(); return showError(error.error); }
   state.results = results;
+  $('export-results').disabled = false;
   const models = Object.keys(results);
   const complete = Object.values(results).every((result) => result.status === 'complete');
   const elapsed = Math.round(performance.now() - state.started);
@@ -211,6 +283,7 @@ function showResults(results) {
 
 function requestReplay(model, outcome) {
   if (state.pending) return;
+  state.exampleId += 1;
   const id = ++state.requestId;
   const selection = { model, outcome };
   state.pending = { id, command: 'replay', selection };
@@ -252,6 +325,22 @@ function renderStep() {
   $('first-step').disabled = $('prev-step').disabled = state.step === 0;
   $('last-step').disabled = $('next-step').disabled = state.step === trace.length - 1;
   $('step-description').textContent = state.step === 0 ? '初始状态 · 还没有执行任何操作' : `${String(state.step).padStart(2, '0')} · ${current.action} · ${current.description}${current.terminal ? ' · 最终状态' : ''}`;
+  const effect = current.effect;
+  $('step-effect').hidden = !effect;
+  if (effect) {
+    let description = '';
+    if (effect.kind === 'load') description = effect.source === 'buffer'
+      ? `缓冲转发：从 ${effect.thread} 的 FIFO 第 ${effect.bufferIndex + 1} 项读取 ${effect.address}=${effect.value} → ${effect.register}。动作前队首索引为 0，本项索引为 ${effect.bufferIndex}。`
+      : `共享内存读取：${effect.address}=${effect.value} → ${effect.thread}.${effect.register}。`;
+    else if (effect.kind === 'store') description = effect.destination === 'buffer'
+      ? `缓冲写入：${effect.thread} 将 ${effect.address}=${effect.value} 加入 FIFO 队尾（索引 ${effect.bufferIndex}）。`
+      : `立即写入：${effect.thread} 将 ${effect.address}=${effect.value} 写入共享内存。`;
+    else if (effect.kind === 'flush') description = `缓冲排空：${effect.thread} 的 FIFO 队头 ${effect.address}=${effect.value} 写入共享内存。`;
+    else if (effect.kind === 'fence') description = `屏障通过：${effect.thread} 的写缓冲已为空。`;
+    $('step-effect').textContent = description;
+    $('step-effect').dataset.kind = effect.kind;
+    $('step-effect').dataset.source = effect.source || effect.destination || '';
+  }
   $('thread-states').replaceChildren();
   for (const [index, thread] of current.threads.entries()) {
     const active = current.action === `t${index}` || current.action === `f${index}`;
@@ -265,27 +354,31 @@ function renderStep() {
     card.append(element('div', `register-list${registers ? '' : ' empty-registers'}`, registers || '— 无寄存器'));
     const label = element('div', 'state-label', 'FIFO 写缓冲'); label.append(element('span', '', '队头 → 队尾')); card.append(label);
     const buffer = element('div', 'buffer-list');
-    if (thread.buffer.length) thread.buffer.forEach((entry, position) => buffer.append(element('span', `buffer-item${position === 0 ? ' buffer-head' : ''}`, `${entry.address}=${entry.value}`)));
+    if (thread.buffer.length) thread.buffer.forEach((entry, position) => {
+      const readSource = effect?.kind === 'load' && effect.source === 'buffer' && effect.thread === thread.name && effect.bufferIndex === position;
+      buffer.append(element('span', `buffer-item${position === 0 ? ' buffer-head' : ''}${readSource ? ' read-source' : ''}`, `${entry.address}=${entry.value}`));
+    });
     else buffer.append(element('span', 'buffer-empty', state.selected.model === 'SC' ? 'SC 无写缓冲' : '空'));
     card.append(buffer); $('thread-states').append(card);
   }
   $('memory-state').replaceChildren();
   for (const [name, value] of Object.entries(current.memory)) {
     const changed = previous && previous.memory[name] !== value;
-    $('memory-state').append(element('span', `memory-cell${changed ? ' changed' : ''}`, `${name} = ${value}`));
+    const readSource = effect?.kind === 'load' && effect.source === 'memory' && effect.address === name;
+    $('memory-state').append(element('span', `memory-cell${changed ? ' changed' : ''}${readSource ? ' read-source' : ''}`, `${name} = ${value}`));
   }
 }
 
 $('run').addEventListener('click', analyzeProgram);
 $('cancel').addEventListener('click', () => {
-  state.worker.terminate();
-  state.pending = null;
+  stopCurrentWorker();
   invalidate('分析已取消；未生成完整性结论。');
   startWorker();
 });
 $('example').addEventListener('change', () => loadExample($('example').value).catch((error) => showError({ code: 'EXAMPLE_ERROR', message: error.message })));
 $('source').addEventListener('input', () => {
   state.exampleId += 1;
+  state.importId += 1;
   updateLineCount();
   $('example').value = '';
   $('example-title').textContent = '自定义程序';
@@ -293,7 +386,20 @@ $('source').addEventListener('input', () => {
   $('example-focus').textContent = '重新运行以检查修改后的程序';
   invalidate();
 });
-for (const id of ['model', 'strategy', 'max-states', 'max-outcomes']) $(id).addEventListener('change', () => invalidate('分析配置已修改。请重新运行分析。'));
+for (const id of ['model', 'strategy', 'max-states', 'max-outcomes']) $(id).addEventListener('input', () => {
+  state.importId += 1;
+  invalidate('分析配置已修改。请重新运行分析。');
+});
+$('export-config').addEventListener('click', () => {
+  try { downloadJSON(currentExperiment(), 'litmuslab-experiment.json'); fileStatus('已请求下载实验配置；文件包含源程序和分析选项。'); }
+  catch (error) { fileStatus(`无法下载：${error.message}`, true); }
+});
+$('import-config').addEventListener('click', () => $('config-file').click());
+$('config-file').addEventListener('change', () => importConfiguration($('config-file').files[0]));
+$('export-results').addEventListener('click', () => {
+  try { downloadJSON(createResultBundle(state.experiment, state.results), 'litmuslab-results.json'); fileStatus('已请求下载结果 JSON；complete / incomplete 状态已保留。'); }
+  catch (error) { fileStatus(`无法下载：${error.message}`, true); }
+});
 document.addEventListener('keydown', (event) => {
   if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') { event.preventDefault(); analyzeProgram(); }
 });
@@ -304,7 +410,8 @@ $('copy-witness').addEventListener('click', async () => {
   catch { $('witness-text').focus(); $('witness-text').select(); $('copy-status').textContent = '请使用系统复制快捷键'; }
 });
 
-startWorker();
+startWorker(true);
+const initialExampleId = state.exampleId;
 try {
   const response = await fetch('/examples/manifest.json');
   if (!response.ok) throw new Error('无法读取案例列表');
@@ -312,6 +419,8 @@ try {
   $('example').replaceChildren();
   const custom = element('option', '', '自定义程序'); custom.value = ''; $('example').append(custom);
   for (const example of state.examples) { const option = element('option', '', example.label); option.value = example.id; $('example').append(option); }
-  $('example').value = 'store-buffering';
-  await loadExample('store-buffering');
+  if (state.exampleId === initialExampleId) {
+    $('example').value = 'store-buffering';
+    await loadExample('store-buffering');
+  }
 } catch (error) { showError({ code: 'EXAMPLE_ERROR', message: error.message }); }

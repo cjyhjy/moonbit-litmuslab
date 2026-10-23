@@ -1,0 +1,13 @@
+X86 LL_g17_fenced_t2
+{
+x=1;
+0:EAX=0;
+1:EAX=0;
+}
+P0 | P1;
+MOV [x],$-2 | MOV [x],$-2;
+MFENCE | MOV EAX,[x];
+MOV EAX,[x] | ;
+MFENCE | ;
+locations [x; 0:EAX; 1:EAX]
+exists (x=1)

@@ -1,0 +1,26 @@
+X86 LL_g33_eight_registers
+{
+x=-1;
+y=2;
+0:EAX=0;
+0:EBX=0;
+0:ECX=0;
+0:EDX=0;
+0:ESI=0;
+0:EDI=0;
+0:EBP=0;
+0:ESP=0;
+}
+P0;
+MOV EAX,[y];
+MOV EBX,[x];
+MOV ECX,[y];
+MOV EDX,[x];
+MOV ESI,[y];
+MOV EDI,[x];
+MOV EBP,[y];
+MOV ESP,[x];
+MOV [x],$-2;
+MOV EAX,[x];
+locations [x; y; 0:EAX; 0:EBX; 0:ECX; 0:EDX; 0:ESI; 0:EDI; 0:EBP; 0:ESP]
+exists (x=-1)

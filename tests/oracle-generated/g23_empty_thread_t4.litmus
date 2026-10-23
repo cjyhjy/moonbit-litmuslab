@@ -1,0 +1,12 @@
+X86 LL_g23_empty_thread_t4
+{
+x=-2;
+1:EAX=0;
+2:EAX=0;
+3:EAX=0;
+}
+P0 | P1 | P2 | P3;
+ | MOV [x],$-2 | MOV [x],$1 | MOV EAX,[x];
+ | MOV EAX,[x] | MOV EAX,[x] | MOV [x],$-1;
+locations [x; 1:EAX; 2:EAX; 3:EAX]
+exists (x=-2)

@@ -1,0 +1,11 @@
+Test LL_g04_overwrite_t1 Allowed
+States 1
+0:EAX=2; [x]=2;
+Ok
+Witnesses
+Positive: 1 Negative: 0
+Condition exists ([x]=2)
+Observation LL_g04_overwrite_t1 Always 1 0
+Time LL_g04_overwrite_t1 0.00
+Hash=6c7b35340e4bfe581bce08656e2c5ba7
+

@@ -1,14 +1,155 @@
 {
   "formatVersion": 1,
-  "source": "Local CLI and loopback server checks; no external oracle claims.",
-  "started": "2026-10-22T15:38:20.497Z",
-  "finished": "2026-10-22T15:38:22.457Z",
+  "source": "Local configuration validation, CLI and loopback server checks; no external oracle claims.",
+  "started": "2026-10-23T15:35:14.252Z",
+  "finished": "2026-10-23T15:35:16.004Z",
   "command": "node tools/check-interfaces.mjs",
+  "evidence": {
+    "algorithm": "sha256-path-nul-hash-newline-v1",
+    "digest": "d9fc56634fe888f8b6093fb26543f4d4c0637586800557135da275315e09436f",
+    "files": {
+      "bin/litmuslab.mjs": "66ab004bc6dc708506137ed1852706a85005d1e1f38b9b260a7c6e44386c4eed",
+      "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
+      "core/moon.pkg": "b32472696f96a51655b55cadd81b11d967370fa92aadd7e83207b90ebe04dc80",
+      "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
+      "core/pkg.generated.mbti": "ad31343121a21efb434d54822d666fe4cac0259be9c1bcb068dbd772784ab22c",
+      "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
+      "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+      "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
+      "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
+      "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243",
+      "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0",
+      "examples/fifo.litmus": "44d35f9c6f710d7ae5b4495402b7bfe895370c1b03faae7ab0173d95f69d462f",
+      "examples/forwarding.litmus": "742b80e12ba97a01848862219949bacb21039581054402da1d82b4504e07ff81",
+      "examples/load-buffering.litmus": "7d21f2e4b05eb41b97dd30c34747f60b6ef610034606853c3126590424c1d0c2",
+      "examples/manifest.json": "99b9a43252d073694c93dc8d88bb46398092a164f652e9444c0a847d7f14e2a2",
+      "examples/message-passing.litmus": "c6b8fbd81a9af265baca29f4960a0b3c847b42fe6daa688790a03311ffe15bf8",
+      "examples/store-buffering-fence.litmus": "a345ccd0307be76944d371d519bf63274a2637332960ff6ac49d7c53008f6642",
+      "examples/store-buffering.litmus": "1f483069366eb046a07a5033b596f2a5b7d55701f7556b676f985c89a2c93d66",
+      "moon.mod": "25227956d4644d8e347c16c50f982af8adf5c525611ce547fba0520ecaeefe38",
+      "package.json": "3f2f405a6a9836751afac4830ee38cd743fe339aaf468cedfe75ed033658a072",
+      "toolchain.lock.json": "472026cb4fbd405c9f6ad98bbb15a0fab9d4e7f1a576807ae39f96777c3312a0",
+      "tools/build.sh": "96889b2ba8e53c27857f7abb15bae27c5566fe413cb92d55b9153db32fb154f8",
+      "tools/check-interfaces.mjs": "07c18586794bc37ed343144e5e1b085fa2c20624d955a23061771c7c5f09902d",
+      "tools/engine-wrapper.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+      "tools/evidence.py": "3c66c600cd60e9e93ff94880a7619b55a4daff8cc445f0cb72000f0145666983",
+      "tools/moon": "36c3942b693e5d8ce1cfffd09d328eff14659646a84a24d74cbfc9a88b99eb3f",
+      "tools/serve.mjs": "6f5ac5722a409acedcd795c80cebb626b60ef0cfb4b4f9a0426865bc5d236adf",
+      "web/app.mjs": "977d208340ef75195cb7b65a83c6b5d645b7983504f26da93c1946d5cbdcd9df",
+      "web/engine-worker.mjs": "7be69e46cb15055c2e5846e6b5637b0566d6f85dcbded83208ea1a5a05fd9ce6",
+      "web/experiment.mjs": "1d7f9ab10d2021c8da2600b25ef97e8f65296628bae18133eb878bbd21fa05bf",
+      "web/index.html": "9d150df773d0507f67206bd7903c5bc01d229dcf1084d3e6f6410f4529148af9",
+      "web/style.css": "26a95144548ce35812a22321fcf52e121549d5394ce561a4f5b170f306bb109e"
+    },
+    "profile": "interfaces",
+    "schemaVersion": 1
+  },
   "node": "v26.7.0",
   "platform": "darwin",
-  "passed": 70,
+  "passed": 96,
   "failed": 0,
   "checks": [
+    {
+      "name": "experiment configuration round trip",
+      "passed": true
+    },
+    {
+      "name": "config rejects unknown root field",
+      "passed": true
+    },
+    {
+      "name": "config rejects result bundle import",
+      "passed": true
+    },
+    {
+      "name": "config rejects unsupported version",
+      "passed": true
+    },
+    {
+      "name": "config rejects string version",
+      "passed": true
+    },
+    {
+      "name": "config rejects source type",
+      "passed": true
+    },
+    {
+      "name": "config rejects oversized source",
+      "passed": true
+    },
+    {
+      "name": "config rejects lone surrogate",
+      "passed": true
+    },
+    {
+      "name": "config rejects missing options field",
+      "passed": true
+    },
+    {
+      "name": "config rejects unknown option field",
+      "passed": true
+    },
+    {
+      "name": "config rejects unknown model",
+      "passed": true
+    },
+    {
+      "name": "config rejects unknown strategy",
+      "passed": true
+    },
+    {
+      "name": "config rejects fraction budget",
+      "passed": true
+    },
+    {
+      "name": "config rejects string budget",
+      "passed": true
+    },
+    {
+      "name": "config rejects null budget",
+      "passed": true
+    },
+    {
+      "name": "config rejects zero budget",
+      "passed": true
+    },
+    {
+      "name": "config rejects state upper bound",
+      "passed": true
+    },
+    {
+      "name": "config rejects outcome upper bound",
+      "passed": true
+    },
+    {
+      "name": "config rejects array root",
+      "passed": true
+    },
+    {
+      "name": "config rejects null root",
+      "passed": true
+    },
+    {
+      "name": "config rejects invalid UTF8",
+      "passed": true
+    },
+    {
+      "name": "config rejects invalid JSON",
+      "passed": true
+    },
+    {
+      "name": "config rejects byte limit",
+      "passed": true
+    },
+    {
+      "name": "config accepts Unicode codepoint and budget upper boundaries",
+      "passed": true
+    },
+    {
+      "name": "result export rejects missing actual results",
+      "passed": true
+    },
     {
       "name": "store-buffering: complete",
       "passed": true,
@@ -327,7 +468,7 @@
       "path": "/",
       "method": "GET",
       "status": 200,
-      "bytes": 7947,
+      "bytes": 8707,
       "contentType": "text/html; charset=utf-8"
     },
     {
@@ -345,7 +486,7 @@
       "path": "/dist/engine.raw.mjs",
       "method": "GET",
       "status": 200,
-      "bytes": 114689,
+      "bytes": 117446,
       "contentType": "text/javascript; charset=utf-8"
     },
     {
@@ -363,7 +504,7 @@
       "path": "/docs/TUTORIAL.md",
       "method": "GET",
       "status": 200,
-      "bytes": 6169,
+      "bytes": 8500,
       "contentType": "text/plain; charset=utf-8"
     },
     {
@@ -428,6 +569,10 @@
       "status": 405,
       "bytes": 18,
       "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "name": "input evidence unchanged during verification",
+      "passed": true
     }
   ]
 }

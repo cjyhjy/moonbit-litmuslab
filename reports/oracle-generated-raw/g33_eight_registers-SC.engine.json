@@ -1,0 +1,116 @@
+{
+  "status": "complete",
+  "exitCode": 0,
+  "model": "SC",
+  "strategy": "bfs",
+  "reason": null,
+  "program": {
+    "initialMemory": {
+      "x": -1,
+      "y": 2
+    },
+    "threads": [
+      {
+        "name": "P0",
+        "registers": [
+          "r0",
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5",
+          "r6",
+          "r7"
+        ],
+        "instructions": [
+          {
+            "line": 4,
+            "op": "load",
+            "address": "y",
+            "register": "r0"
+          },
+          {
+            "line": 5,
+            "op": "load",
+            "address": "x",
+            "register": "r1"
+          },
+          {
+            "line": 6,
+            "op": "load",
+            "address": "y",
+            "register": "r2"
+          },
+          {
+            "line": 7,
+            "op": "load",
+            "address": "x",
+            "register": "r3"
+          },
+          {
+            "line": 8,
+            "op": "load",
+            "address": "y",
+            "register": "r4"
+          },
+          {
+            "line": 9,
+            "op": "load",
+            "address": "x",
+            "register": "r5"
+          },
+          {
+            "line": 10,
+            "op": "load",
+            "address": "y",
+            "register": "r6"
+          },
+          {
+            "line": 11,
+            "op": "load",
+            "address": "x",
+            "register": "r7"
+          },
+          {
+            "line": 12,
+            "op": "store",
+            "address": "x",
+            "value": -2
+          },
+          {
+            "line": 13,
+            "op": "load",
+            "address": "x",
+            "register": "r0"
+          }
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "visitedStates": 11,
+    "expandedStates": 11,
+    "transitions": 10,
+    "outcomes": 1
+  },
+  "outcomes": [
+    {
+      "memory": {
+        "x": -2,
+        "y": 2
+      },
+      "registers": {
+        "P0": {
+          "r0": -2,
+          "r1": -1,
+          "r2": 2,
+          "r3": -1,
+          "r4": 2,
+          "r5": -1,
+          "r6": 2,
+          "r7": -1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "kind": "pre-final-exploration-not-passing-evidence",
+  "preliminary_matched": 68,
+  "preliminary_total": 72,
+  "seed": 20261022,
+  "run_at": "2026-10-22T16:17:15.425594+00:00",
+  "description": "Int32 endpoints exceed the DSL signed 16-bit domain. The dense 16-instruction case exceeded the external oracle 30-second deadline for each model. Neither category is counted as a pass.",
+  "runs": [
+    {
+      "case": "g32_int32_endpoints",
+      "model": "SC",
+      "command": [
+        "herd7",
+        "-model",
+        "sc.cat",
+        "-show",
+        "none",
+        "tests/oracle-generated/g32_int32_endpoints.litmus"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "03f08b53de0d86ae1b9631c70463aea4c99d5cfa58ec6020dc9a11a159b6387c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout": "reports/oracle-generated-raw/exploration-g32_int32_endpoints-SC.stdout",
+      "raw_stderr": "reports/oracle-generated-raw/exploration-g32_int32_endpoints-SC.stderr",
+      "classification": "complete",
+      "complete": true,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 2147483647,
+            "y": -2147483648
+          },
+          "registers": {
+            "P0": {
+              "r0": -2147483648
+            },
+            "P1": {
+              "r0": 2147483647
+            }
+          }
+        }
+      ],
+      "outcome_count": 1,
+      "source_sha256": "bc566c98b7f35082dbc521afad05f8651d4ac37c5908dcf966201c554ddcaaa4",
+      "litmus_sha256": "55755c2499fde050c80b073d4e59a4d36ec83b61eff914bb7aa4af27a82b924e",
+      "engine_status": "error",
+      "engine_output_sha256": "d31eac7843eafd79cf697b4f8095664f29e4f76780f37374bba77c59db2222ed",
+      "engine_output": "reports/oracle-generated-raw/exploration-g32_int32_endpoints-SC.engine.json",
+      "engine_outcome_count": 0,
+      "missing": [
+        {
+          "memory": {
+            "x": 2147483647,
+            "y": -2147483648
+          },
+          "registers": {
+            "P0": {
+              "r0": -2147483648
+            },
+            "P1": {
+              "r0": 2147483647
+            }
+          }
+        }
+      ],
+      "unexpected": [],
+      "matched": false,
+      "comparison_classification": "engine_error"
+    },
+    {
+      "case": "g32_int32_endpoints",
+      "model": "TSO",
+      "command": [
+        "herd7",
+        "-model",
+        "x86tso.cat",
+        "-show",
+        "none",
+        "tests/oracle-generated/g32_int32_endpoints.litmus"
+      ],
+      "returncode": 0,
+      "stdout_sha256": "03f08b53de0d86ae1b9631c70463aea4c99d5cfa58ec6020dc9a11a159b6387c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout": "reports/oracle-generated-raw/exploration-g32_int32_endpoints-TSO.stdout",
+      "raw_stderr": "reports/oracle-generated-raw/exploration-g32_int32_endpoints-TSO.stderr",
+      "classification": "complete",
+      "complete": true,
+      "outcomes": [
+        {
+          "memory": {
+            "x": 2147483647,
+            "y": -2147483648
+          },
+          "registers": {
+            "P0": {
+              "r0": -2147483648
+            },
+            "P1": {
+              "r0": 2147483647
+            }
+          }
+        }
+      ],
+      "outcome_count": 1,
+      "source_sha256": "bc566c98b7f35082dbc521afad05f8651d4ac37c5908dcf966201c554ddcaaa4",
+      "litmus_sha256": "55755c2499fde050c80b073d4e59a4d36ec83b61eff914bb7aa4af27a82b924e",
+      "engine_status": "error",
+      "engine_output_sha256": "d31eac7843eafd79cf697b4f8095664f29e4f76780f37374bba77c59db2222ed",
+      "engine_output": "reports/oracle-generated-raw/exploration-g32_int32_endpoints-TSO.engine.json",
+      "engine_outcome_count": 0,
+      "missing": [
+        {
+          "memory": {
+            "x": 2147483647,
+            "y": -2147483648
+          },
+          "registers": {
+            "P0": {
+              "r0": -2147483648
+            },
+            "P1": {
+              "r0": 2147483647
+            }
+          }
+        }
+      ],
+      "unexpected": [],
+      "matched": false,
+      "comparison_classification": "engine_error"
+    },
+    {
+      "case": "g35_sixteen_instructions",
+      "model": "SC",
+      "command": [
+        "herd7",
+        "-model",
+        "sc.cat",
+        "-show",
+        "none",
+        "tests/oracle-generated/g35_sixteen_instructions.litmus"
+      ],
+      "returncode": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout": "reports/oracle-generated-raw/exploration-g35_sixteen_instructions-SC.stdout",
+      "raw_stderr": "reports/oracle-generated-raw/exploration-g35_sixteen_instructions-SC.stderr",
+      "classification": "oracle_timeout",
+      "complete": false,
+      "source_sha256": "0dcf1550eb86ccea39779b3a1fe20442e84b80d4f8153f0af476c98ce6b783c4",
+      "litmus_sha256": "a4f109b89f1d7b67bb965d0f2e9aae603de64acbb55b2a9aa492eaa8a21bbd08",
+      "engine_status": "complete",
+      "engine_output_sha256": "89742fe365b5f4b67ea3a211c807e8c3351b6ba1f0c418073122fb02b1207053",
+      "engine_output": "reports/oracle-generated-raw/exploration-g35_sixteen_instructions-SC.engine.json",
+      "engine_outcome_count": 1,
+      "missing": [],
+      "unexpected": [
+        {
+          "memory": {
+            "x": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1,
+              "r1": 1
+            }
+          }
+        }
+      ],
+      "matched": false,
+      "comparison_classification": "oracle_unavailable"
+    },
+    {
+      "case": "g35_sixteen_instructions",
+      "model": "TSO",
+      "command": [
+        "herd7",
+        "-model",
+        "x86tso.cat",
+        "-show",
+        "none",
+        "tests/oracle-generated/g35_sixteen_instructions.litmus"
+      ],
+      "returncode": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout": "reports/oracle-generated-raw/exploration-g35_sixteen_instructions-TSO.stdout",
+      "raw_stderr": "reports/oracle-generated-raw/exploration-g35_sixteen_instructions-TSO.stderr",
+      "classification": "oracle_timeout",
+      "complete": false,
+      "source_sha256": "0dcf1550eb86ccea39779b3a1fe20442e84b80d4f8153f0af476c98ce6b783c4",
+      "litmus_sha256": "a4f109b89f1d7b67bb965d0f2e9aae603de64acbb55b2a9aa492eaa8a21bbd08",
+      "engine_status": "complete",
+      "engine_output_sha256": "c8941b6e6b0690b74de22cc789ef49ad42973acbae0ff6b973cb8f172ca2f992",
+      "engine_output": "reports/oracle-generated-raw/exploration-g35_sixteen_instructions-TSO.engine.json",
+      "engine_outcome_count": 1,
+      "missing": [],
+      "unexpected": [
+        {
+          "memory": {
+            "x": 1
+          },
+          "registers": {
+            "P0": {
+              "r0": 1,
+              "r1": 1
+            }
+          }
+        }
+      ],
+      "matched": false,
+      "comparison_classification": "oracle_unavailable"
+    }
+  ]
+}
