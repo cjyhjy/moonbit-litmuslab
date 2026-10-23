@@ -93,6 +93,7 @@ def main():
         limited = run('packaged-cli-incomplete', ['node', 'bin/litmuslab.mjs', 'analyze', 'examples/store-buffering.litmus', '--max-states', '1'], expected=3, json_output=True)
         assert limited['status'] == 'incomplete' and limited['comparison']['definitive'] is False
         run('packaged-independent-unittests', ['python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py'])
+        run('packaged-target-and-fence-experiments', ['node', 'tools/check-experiments.mjs'])
         run('packaged-crosscheck', ['python3', 'tools/crosscheck.py'])
         run('packaged-recorded-oracle-comparison', ['node', 'tools/oracle-compare.mjs'])
         before = engine_hashes(copy)
@@ -111,6 +112,7 @@ def main():
         after = engine_hashes(copy)
         verify_rebuild(before, after)
         rows.append({'name': 'reproducible-public-wrapper-and-MoonBit-JS', 'passed': True, 'hashes': after})
+        run('rebuilt-target-and-fence-experiments', ['node', 'tools/check-experiments.mjs'])
         run('rebuilt-public-API-crosscheck', ['python3', 'tools/crosscheck.py'])
         rebuilt = run('rebuilt-public-CLI', ['node', 'bin/litmuslab.mjs', 'analyze', 'examples/store-buffering.litmus', '--model', 'both'], json_output=True)
         assert rebuilt['results']['SC']['stats']['outcomes'] == 3

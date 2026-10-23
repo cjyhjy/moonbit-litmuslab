@@ -33,8 +33,11 @@ def assemble(root=ROOT):
                'interfaces': ('reports/interfaces.json', 'interfaces'),
                'browser': (browser_name, 'browser'),
                'performance': ('reports/performance.json', 'performance')}
+    has_experiments = tuple(map(int, version.split('-')[0].split('.'))) >= (0, 3, 0)
+    if has_experiments:
+        sources['experiments'] = ('reports/experiments.json', 'experiments')
     data = {key: bound_report(root, name, profile) for key, (name, profile) in sources.items()}
-    local, cross, oracle, generated, interfaces, browser, performance = (data[key] for key in sources)
+    local, cross, oracle, generated, interfaces, browser, performance = (data[key] for key in ['local', 'cross', 'oracle', 'generated', 'interfaces', 'browser', 'performance'])
     moonctl = read(root, 'reports/oracle-moonctl.json')
     for name, key, oracle_key in [('engine.mjs', 'engineSha256', 'engine_sha256'), ('engine.raw.mjs', 'rawEngineSha256', 'raw_engine_sha256')]:
         current = sha256(root / 'dist' / name)
@@ -50,6 +53,8 @@ def assemble(root=ROOT):
              interfaces['failed'] == 0, browser['failed'] == 0,
              all(item['matched'] for item in moonctl['runs']),
              performance['status'] == 'passed' and all(item['sameSearchOutput'] for item in performance['cases'])]
+    if has_experiments:
+        flags.append(data['experiments']['status'] == 'passed' and data['experiments']['failed'] == 0)
     core_counts = {}
     for backend in ['js', 'native', 'wasm-gc']:
         log = (root / f'reports/verification-logs/moon-test-{backend}.txt').read_text()
@@ -89,29 +94,34 @@ def assemble(root=ROOT):
         'inputEvidence': local['evidence'],
         'hashes': {path.relative_to(root).as_posix(): sha256(path) for path in sorted(list((root / 'core').glob('*.mbt')) + list((root / 'dist').glob('*.mjs')))},
         'reportHashes': {name: sha256(root / name) for name, _ in sources.values()},
+        'experiments': ({'passed': data['experiments']['passed'], 'failed': data['experiments']['failed'],
+                         'evidence': 'reports/experiments.json'} if has_experiments else None),
         'changesInThisVersion': ['Action-specific persistent state copies and allocation reduction in state keys',
                                 'Structured replay effects independently checked against pre-transition states',
                                 'Generated external-oracle cases and fixed-workload performance measurements',
-                                'Stale evidence rejected; clean-copy acceptance compares both engine modules'],
+                                'Stale evidence rejected; clean-copy acceptance compares both engine modules'] + (
+                                ['MoonBit target reachability queries with three-valued verdicts',
+                                 'Fence insertion comparison with separate set and single-witness conclusions'] if has_experiments else []),
         'notTested': ['This version: Linux and Windows execution', 'This version: GitHub-hosted CI execution', 'Real CPU hardware outcomes',
                       'Full x86, ARM, RISC-V, C/C++ memory models', 'Formal proof for every supported program'],
-        'publication': {'currentVersionScope': version, 'currentVersionGithubPushed': False,
+        'publication': {'currentVersionScope': version, 'recordedBeforePublication': True, 'currentVersionGithubPushed': False,
                         'mooncakesPublished': False, 'hostedWebsite': False, 'contestSubmitted': False, 'identityDeclarationMade': False,
-                        'priorPublishedBaseline': {'version': '0.1.0', 'commit': '05dac2b5ce0c1e230e8859aeb9765f0f3b7a943e',
+                        'priorPublishedBaseline': {'version': '0.2.0', 'commit': '61f55b866a19854a0c074e13945dfc7bfdc6b4d0',
                                                    'repository': 'https://github.com/cjyhjy/moonbit-litmuslab',
-                                                   'linuxCIRun': 'https://github.com/cjyhjy/moonbit-litmuslab/actions/runs/39812566452',
-                                                   'source': 'coordinator supplied publication-05dac2b',
+                                                   'linuxCIRun': 'https://github.com/cjyhjy/moonbit-litmuslab/actions/runs/39980173271',
+                                                   'source': 'GitHub API verified during 0.3.0 development',
                                                    'verifiesCurrentVersion': False}},
         'archive': {'path': f'release/LitmusLab-{version}.zip', 'checksums': 'release/SHA256SUMS',
                     'excludes': ['.tools', '_build', '.acceptance', '.ci-evidence', 'node_modules', 'release', '.git', 'reports/history']},
     }
 
 
-def main():
-    report = assemble()
-    (ROOT / 'reports/verification.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+def main(root=ROOT):
+    report = assemble(root)
+    (Path(root) / 'reports/verification.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({'status': report['status'], 'path': 'reports/verification.json'}))
+    return 0 if report['status'] in {'passed', 'awaiting-clean-copy'} else 1
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

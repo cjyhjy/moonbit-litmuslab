@@ -40,6 +40,9 @@ store x 1   # 写入常量
 load r0 y   # 读取到寄存器
 fence       # 等待本线程缓冲排空
 end</pre><p>名称、大小和预算均由核心校验。程序没有循环、跳转或动态线程；观察结果包含最终内存与最终寄存器。</p></details>
+        <div class="experiment-mode"><label class="field-label" for="mode">实验模式</label><select id="mode"><option value="analyze">枚举所有结果</option><option value="query">查询指定结果</option><option value="compare-fences">屏障前后对照</option></select><p id="mode-help" class="field-help">枚举模型允许的最终结果，并选择一条见证重放。</p></div>
+        <div id="target-fields" class="target-fields" hidden><label class="field-label" for="target">目标条件</label><input id="target" type="text" value="reg.P0.r0=0 &amp;&amp; reg.P1.r1=0" spellcheck="false" aria-describedby="target-help"><p id="target-help" class="field-help">使用 reg.线程.寄存器=值 或 mem.地址=值；多个条件以 &amp;&amp; 连接。</p></div>
+        <div id="fence-fields" class="target-fields" hidden><label class="field-label" for="fences">屏障插入位置</label><input id="fences" type="text" value="P0:1,P1:1" spellcheck="false" aria-describedby="fence-help"><p id="fence-help" class="field-help">原程序 0-based 指令边界：P0:1 表示在 P0 的第一条指令后插入。多个位置以逗号分隔。</p></div>
         <div class="settings"><div><label for="model">分析模型</label><select id="model"><option value="both">SC + TSO 对比</option><option value="SC">仅 SC</option><option value="TSO">仅 TSO</option></select></div><div><label for="strategy">搜索顺序</label><select id="strategy"><option value="bfs">BFS · 广度优先</option><option value="dfs">DFS · 深度优先</option></select></div><div><label for="max-states">最多状态数</label><input id="max-states" required type="number" inputmode="numeric" value="20000" min="1" max="100000" step="1"></div><div><label for="max-outcomes">最多结果数</label><input id="max-outcomes" required type="number" inputmode="numeric" value="256" min="1" max="1024" step="1"></div></div>
         <div class="run-row"><button id="run" class="primary-button" type="button"><span aria-hidden="true">▶</span> 运行分析</button><button id="cancel" class="text-button" type="button" hidden>取消</button><span id="run-note">计算在本机浏览器中完成</span></div>
       </section>
@@ -49,6 +52,7 @@ end</pre><p>名称、大小和预算均由核心校验。程序没有循环、�
           <div class="panel-heading"><h2 id="results-title"><span class="section-number">02</span> 比较结果</h2><span id="results-badge" class="pill">等待运行</span></div>
           <div id="status" class="status-box" role="status" aria-live="polite">正在载入本地引擎。运行后，选择一个结果查看它的执行见证。</div>
           <div id="metrics" class="metrics"></div>
+          <div id="target-results" class="target-results" hidden></div>
           <div id="outcomes" class="outcomes"><div class="empty-state"><span class="empty-glyph" aria-hidden="true">{ · }</span><strong>一个程序，两种可见性。</strong><p>从 Store Buffering 开始，<br>观察写缓冲如何改变允许的结果。</p></div></div>
           <p class="result-note" id="result-note">“未发现”只有在搜索完整时才表示这个模型不允许该结果。</p>
           <div class="result-actions"><button id="export-results" class="text-button" type="button" disabled>↓ 下载结果 JSON</button><span>含源程序、运行配置和实际结果</span></div>

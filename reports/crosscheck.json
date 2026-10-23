@@ -1,40 +1,42 @@
 {
   "kind": "independent-implementation-crosscheck",
   "externalOracle": false,
-  "generatedAt": "2026-10-23T15:35:12.462575+00:00",
+  "generatedAt": "2026-10-23T15:49:54.456249+00:00",
   "seed": 20261022,
   "versions": {
     "python": "3.9.6",
     "node": "v26.7.0"
   },
-  "engineSha256": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
+  "engineSha256": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
   "referenceSha256": "6cf99f29b11854ad487af8ee103a7a584b833760f87eabaafebb75f2a66f2b91",
   "harnessSha256": "00bd118540bf2645b7f982a3148fff02f828d9aeb929a3b4c7284026b8180db4",
   "evidence": {
     "schemaVersion": 1,
     "profile": "crosscheck",
     "algorithm": "sha256-path-nul-hash-newline-v1",
-    "digest": "c067a5a61bf9cd03cb0ee9332be0889680d6c2cfe2d101940ca6870431bff0c7",
+    "digest": "ff34e1b1d249c09ea3752ef875ebb9b3d0670be7a0119b162ebf241491937201",
     "files": {
+      "core/experiments.mbt": "45d5f827a68e57629abbe7fb572fcccfe40902a01059b3f5f8421bdfc3ffc06a",
+      "core/experiments_wbtest.mbt": "e90041c5d93b7afa53d38d84778c60dcbae1f46ca44f11c2db0a5d34328894aa",
       "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
       "core/moon.pkg": "b32472696f96a51655b55cadd81b11d967370fa92aadd7e83207b90ebe04dc80",
       "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
-      "core/pkg.generated.mbti": "ad31343121a21efb434d54822d666fe4cac0259be9c1bcb068dbd772784ab22c",
+      "core/pkg.generated.mbti": "33685dfb4e1ea61dd2e66f6fe95b7f9e00b28725d2df771cd9cb3169241f3920",
       "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
-      "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+      "core/search.mbt": "bfea916b0378c2456cfc00d49c770bda4cbffb42d8ed079a48afdc8c72a0d8b3",
       "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
       "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
       "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243",
-      "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
-      "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0",
-      "moon.mod": "25227956d4644d8e347c16c50f982af8adf5c525611ce547fba0520ecaeefe38",
-      "package.json": "3f2f405a6a9836751afac4830ee38cd743fe339aaf468cedfe75ed033658a072",
+      "dist/engine.mjs": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
+      "dist/engine.raw.mjs": "f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1",
+      "moon.mod": "9bed3fa3653d81e98fd99d731bd87cf65597ca48e59d69af4b3196f955f38f7b",
+      "package.json": "c6911584eb03c590de41964b9230e3a6331530f5347b32f04c5e03f8e4fe02ab",
       "tests/test_reference.py": "9735d04303eeead302e071a3bd150a8c1beeeef6c4b551031de7b8442db425ed",
       "toolchain.lock.json": "472026cb4fbd405c9f6ad98bbb15a0fab9d4e7f1a576807ae39f96777c3312a0",
       "tools/build.sh": "96889b2ba8e53c27857f7abb15bae27c5566fe413cb92d55b9153db32fb154f8",
       "tools/crosscheck.py": "00bd118540bf2645b7f982a3148fff02f828d9aeb929a3b4c7284026b8180db4",
-      "tools/engine-wrapper.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
-      "tools/evidence.py": "3c66c600cd60e9e93ff94880a7619b55a4daff8cc445f0cb72000f0145666983",
+      "tools/engine-wrapper.mjs": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
+      "tools/evidence.py": "d6ebea48705c526572a0b076a8a1262d8875776c164a17aa6801d06400b9a273",
       "tools/moon": "36c3942b693e5d8ce1cfffd09d328eff14659646a84a24d74cbfc9a88b99eb3f",
       "tools/reference.py": "6cf99f29b11854ad487af8ee103a7a584b833760f87eabaafebb75f2a66f2b91"
     }
@@ -13638,7 +13640,7 @@
         "outcomes": 1
       },
       "status": "complete",
-      "elapsedSeconds": 0.106
+      "elapsedSeconds": 0.121
     },
     {
       "name": "incomplete-100000-states",
@@ -13650,21 +13652,23 @@
       },
       "status": "incomplete",
       "reason": "max_states",
-      "elapsedSeconds": 0.264
+      "elapsedSeconds": 0.274
     }
   ],
   "failures": [],
   "moonbitSourceFiles": {
+    "core/experiments.mbt": "45d5f827a68e57629abbe7fb572fcccfe40902a01059b3f5f8421bdfc3ffc06a",
+    "core/experiments_wbtest.mbt": "e90041c5d93b7afa53d38d84778c60dcbae1f46ca44f11c2db0a5d34328894aa",
     "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
     "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
     "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
-    "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+    "core/search.mbt": "bfea916b0378c2456cfc00d49c770bda4cbffb42d8ed079a48afdc8c72a0d8b3",
     "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
     "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
     "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243"
   },
-  "moonbitSourceSha256": "46c2c318e4fb84febf5867e9f4e143e373413d1cf86f5eff116afede12ee853a",
-  "rawEngineSha256": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0",
+  "moonbitSourceSha256": "7e8cc20f2f97c7c51a098be9a94ab80ce17d199b50d43e75e0d91a5971b4245d",
+  "rawEngineSha256": "f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1",
   "summary": {
     "status": "passed",
     "programs": 584,
@@ -13677,6 +13681,6 @@
     "engineCalls": 9358,
     "hostTypeChecks": 74,
     "resourceChecks": 2,
-    "elapsedSeconds": 1.445
+    "elapsedSeconds": 1.492
   }
 }

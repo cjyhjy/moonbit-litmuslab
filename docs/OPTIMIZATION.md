@@ -14,7 +14,7 @@
 | store-pressure：100,000 状态，达到预算 | 446.69 / 335.60 ms | 24.9% | 240,688 / 198,048 KiB | 17.7% |
 | mixed-memory：100,000 状态，达到预算 | 281.26 / 189.13 ms | 32.8% | 228,112 / 180,000 KiB | 21.1% |
 
-每次均要求完整分析 JSON 的 SHA-256 与旧版相同，包含状态计数、截断原因和见证，避免靠少做搜索得到提速。原始样本、输入、引擎哈希与环境见 `reports/performance.json`；复现用 `python3 tools/benchmark.py`。这些测量仅适用于这三个本机负载，不能推出所有程序或其他硬件上的同等收益。
+每次均要求完整分析 JSON 的 SHA-256 与旧版相同，包含状态计数、截断原因和见证，避免靠少做搜索得到提速。原始样本、输入、引擎哈希与环境见 `research/baselines/performance-0.2.0.json`；当前版本复测用 `python3 tools/benchmark.py`（输出当前源码对应的 `reports/performance.json`）。这些测量仅适用于这三个本机负载，不能推出所有程序或其他硬件上的同等收益。
 
 ## 可解释与可保存的实验
 
@@ -32,4 +32,4 @@
 
 以前的汇总流程可能把旧通过报告附上新文件哈希；现在每个专项报告在执行前记录输入快照、执行后检查未变，汇总再次验证快照。更改输入会拒绝旧报告。干净解包验收覆盖公共 wrapper 和编译模块，重建后再次执行公共 API 交叉检查。包内汇总只声明源码树验收，包外 `release/acceptance.json` 才绑定最终 ZIP，避免归档自引用。
 
-详细当前结果以 `reports/verification.json` 为准。新版本尚未推送；既有 0.1.0 Linux CI 和本轮本地结果分别记录，见 `PUBLICATION.md`。
+详细当前结果以 `reports/verification.json` 为准。0.2.0 已完整验收并推送；当前 0.3.0 与历史版本的发布和 CI 分别记录，见 `PUBLICATION.md`。

@@ -23,7 +23,7 @@ ALGORITHM = "sha256-path-nul-hash-newline-v1"
 INPUT_DIRECTORIES = ("bin", "core", "dist", "examples", "tests", "tools", "web", ".github")
 INPUT_ROOT_FILES = ("package.json", "moon.mod", "moon.mod.json", "moon.pkg", "moon.pkg.json", "toolchain.lock.json")
 EXCLUDED = {".git", ".tools", "_build", ".acceptance", "node_modules", "__pycache__", ".DS_Store"}
-PROFILES = ("local", "crosscheck", "oracle", "oracle-generated", "interfaces", "browser", "performance")
+PROFILES = ("local", "crosscheck", "oracle", "oracle-generated", "interfaces", "browser", "performance", "experiments")
 
 
 class EvidenceError(ValueError):
@@ -76,6 +76,9 @@ def profile_files(root: Path, profile: str) -> list[Path]:
             patterns += ["bin/**/*", "web/**/*", "examples/**/*", "tools/serve.mjs", "tools/check-interfaces.mjs"]
         elif profile == "browser":
             patterns += ["bin/**/*", "web/**/*", "examples/**/*", "tools/serve.mjs", "tools/*browser*", "tests/*browser*"]
+        elif profile == "experiments":
+            patterns += ["bin/**/*", "tools/check-experiments.mjs", "tests/experiments/**/*", "tools/reference.py",
+                         "tests/oracle/SB.litmuslab", "tests/oracle/fence.litmuslab", "reports/oracle-herd7.json"]
         elif profile == "performance":
             patterns += ["tools/benchmark.py", "tests/performance-baseline/**/*"]
     selected = _selected(root, patterns)

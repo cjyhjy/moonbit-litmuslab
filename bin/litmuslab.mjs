@@ -10,12 +10,19 @@ Usage:
   node bin/litmuslab.mjs analyze FILE [--model SC|TSO|both] [--strategy bfs|dfs]
       [--max-states N] [--max-outcomes N]
   node bin/litmuslab.mjs replay FILE --model SC|TSO --witness 't0 f0 ...'
+  node bin/litmuslab.mjs query FILE --target 'reg.P0.r0=0 && reg.P1.r1=0'
+      [--model SC|TSO|both] [--strategy bfs|dfs] [--max-states N] [--max-outcomes N]
+  node bin/litmuslab.mjs compare-fences FILE --target 'reg.P0.r0=0 && reg.P1.r1=0'
+      --fences 'P0:1,P1:1' [--model SC|TSO|both] [--strategy bfs|dfs]
+      [--max-states N] [--max-outcomes N]
 
 FILE may be - to read UTF-8 source from stdin. Defaults: both, bfs, 20000, 256.
 Limits: 128 KiB input bytes; the core also limits source to 32768 Unicode points.
 Budgets: max-states 1..100000, max-outcomes 1..1024, separately for each model.
 stdout is one JSON value except --help. Exit codes: 0 complete/ok, 2 error,
-3 incomplete. An incomplete search cannot establish that an outcome is forbidden.
+3 incomplete/unknown. Query can establish reachability with a found witness even
+when enumeration is incomplete. Absence needs complete enumeration. Fence positions
+are original zero-based instruction boundaries (1 = after the first instruction).
 `;
 
 function fail(code, message) {
@@ -30,9 +37,9 @@ function output(value) {
 function parseArgs(argv) {
   if (argv.length === 1 && (argv[0] === '--help' || argv[0] === '-h')) return { help: true };
   const [command, file, ...options] = argv;
-  if (!['analyze', 'replay'].includes(command) || !file || file.startsWith('--')) throw new Error('Expected analyze FILE or replay FILE. Use --help for usage.');
-  const allowed = command === 'analyze' ? ['--model', '--strategy', '--max-states', '--max-outcomes'] : ['--model', '--witness'];
-  const parsed = { command, file, model: command === 'analyze' ? 'both' : 'SC', strategy: 'bfs', maxStates: 20000, maxOutcomes: 256 };
+  if (!['analyze', 'replay', 'query', 'compare-fences'].includes(command) || !file || file.startsWith('--')) throw new Error('Expected analyze, replay, query or compare-fences followed by FILE. Use --help.');
+  const allowed = command === 'replay' ? ['--model', '--witness'] : ['--model', '--strategy', '--max-states', '--max-outcomes', ...(command === 'analyze' ? [] : ['--target']), ...(command === 'compare-fences' ? ['--fences'] : [])];
+  const parsed = { command, file, model: command === 'replay' ? 'SC' : 'both', strategy: 'bfs', maxStates: 20000, maxOutcomes: 256 };
   const seen = new Set();
   for (let index = 0; index < options.length; index += 2) {
     const flag = options[index];
@@ -41,10 +48,10 @@ function parseArgs(argv) {
     seen.add(flag);
     const value = options[index + 1];
     if (value === undefined || value.startsWith('--')) throw new Error(`Missing value for ${flag}`);
-    const key = { '--model': 'model', '--strategy': 'strategy', '--max-states': 'maxStates', '--max-outcomes': 'maxOutcomes', '--witness': 'witness' }[flag];
+    const key = { '--model': 'model', '--strategy': 'strategy', '--max-states': 'maxStates', '--max-outcomes': 'maxOutcomes', '--witness': 'witness', '--target': 'target', '--fences': 'fences' }[flag];
     parsed[key] = value;
   }
-  if (!(command === 'analyze' ? ['SC', 'TSO', 'both'] : ['SC', 'TSO']).includes(parsed.model)) throw new Error(`Invalid model: ${parsed.model}`);
+  if (!(command === 'replay' ? ['SC', 'TSO'] : ['SC', 'TSO', 'both']).includes(parsed.model)) throw new Error(`Invalid model: ${parsed.model}`);
   if (!['bfs', 'dfs'].includes(parsed.strategy)) throw new Error(`Invalid strategy: ${parsed.strategy}`);
   for (const [key, maximum] of [['maxStates', 100000], ['maxOutcomes', 1024]]) {
     if (!/^[0-9]+$/.test(String(parsed[key])) || Number(parsed[key]) < 1 || Number(parsed[key]) > maximum) throw new Error(`${key} must be an integer in 1..${maximum}`);
@@ -52,6 +59,10 @@ function parseArgs(argv) {
   }
   if (command === 'replay' && (!seen.has('--model') || !seen.has('--witness'))) throw new Error('replay requires --model and --witness (an empty witness is allowed).');
   if (command === 'replay' && Buffer.byteLength(parsed.witness, 'utf8') > MAX_INPUT_BYTES) throw new Error('Witness exceeds the 128 KiB byte limit.');
+  for (const flag of command === 'compare-fences' ? ['--target', '--fences'] : command === 'query' ? ['--target'] : []) {
+    if (!seen.has(flag)) throw new Error(`${command} requires ${flag}.`);
+    if (Buffer.byteLength(parsed[flag.slice(2)], 'utf8') > MAX_INPUT_BYTES) throw new Error(`${flag} exceeds the input byte limit.`);
+  }
   return parsed;
 }
 
@@ -96,6 +107,18 @@ async function main() {
   catch { return output(fail('ENGINE_UNAVAILABLE', 'Build the MoonBit engine first: npm run build')); }
   try {
     if (options.command === 'replay') return output(JSON.parse(engine.replay(source, options.model, options.witness)));
+    if (['query', 'compare-fences'].includes(options.command)) {
+      const models = options.model === 'both' ? ['SC', 'TSO'] : [options.model];
+      const results = {};
+      for (const model of models) {
+        const args = [source, model, options.strategy, options.maxStates, options.maxOutcomes, options.target];
+        results[model] = JSON.parse(options.command === 'query' ? engine.query(...args) : engine.compareFences(...args, options.fences));
+        if (results[model].status === 'error') return output(results[model]);
+      }
+      if (models.length === 1) return output(results[models[0]]);
+      const exitCode = Object.values(results).some(result => result.exitCode === 3) ? 3 : 0;
+      return output({status: exitCode === 3 ? 'incomplete' : 'ok', exitCode, command: options.command, model: 'both', target: options.target, results});
+    }
     if (options.model !== 'both') return output(JSON.parse(engine.analyze(source, options.model, options.strategy, options.maxStates, options.maxOutcomes)));
     const results = {};
     for (const model of ['SC', 'TSO']) {

@@ -16,5 +16,5 @@ checked 500 programs; failures=0
   "engineCalls": 9358,
   "hostTypeChecks": 74,
   "resourceChecks": 2,
-  "elapsedSeconds": 1.445
+  "elapsedSeconds": 1.492
 }

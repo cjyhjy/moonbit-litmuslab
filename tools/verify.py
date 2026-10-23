@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DIST = ('dist/engine.mjs', 'dist/engine.raw.mjs')
 GENERATED = {
     'crosscheck': ['crosscheck.json', 'crosscheck.md'],
+    'experiments': ['experiments.json'],
     'upper-state-budget': ['resource-stress.json'],
     'interfaces': ['interfaces.json'],
     'recorded-herd-comparison': ['oracle-comparison.json'],
@@ -75,6 +76,7 @@ def main():
                      ('live-moonctl', [sys.executable, 'tools/oracle-moonctl.py'])]
     else:
         commands.append(('recorded-herd-comparison', ['node', 'tools/oracle-compare.mjs']))
+    commands.append(('experiments', ['node', 'tools/check-experiments.mjs']))
     result = {'generatedAt': datetime.now(timezone.utc).isoformat(), 'platform': platform.platform(),
               'sourceCommit': source_commit(), 'status': 'running',
               'liveOracleRequested': args.live_oracle, 'checkDistRequested': args.check_dist,

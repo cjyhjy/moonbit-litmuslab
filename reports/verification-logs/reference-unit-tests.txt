@@ -4,6 +4,8 @@ test_changed_inputs_invalidate_old_clean_pass (test_evidence.EvidenceTests) ... 
 test_complete_bound_summary_does_not_attest_embedded_archive (test_evidence.EvidenceTests) ... ok
 test_crosscheck_cannot_reuse_old_reference_evidence (test_evidence.EvidenceTests) ... ok
 test_documentation_reports_archives_and_caches_do_not_self_invalidate (test_evidence.EvidenceTests) ... ok
+test_experiment_profile_covers_added_reference_fixtures (test_evidence.EvidenceTests) ... ok
+test_failed_summary_returns_nonzero (test_evidence.EvidenceTests) ... ok
 test_generated_oracle_evidence_covers_added_fixtures (test_evidence.EvidenceTests) ... ok
 test_interface_evidence_covers_cli (test_evidence.EvidenceTests) ... ok
 test_legacy_clean_pass_without_input_binding_is_rejected (test_evidence.EvidenceTests) ... ok
@@ -39,6 +41,6 @@ test_register_names_are_thread_local (test_reference.SemanticsTests) ... ok
 test_store_buffering (test_reference.SemanticsTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 38 tests in 0.160s
+Ran 40 tests in 0.183s
 
 OK

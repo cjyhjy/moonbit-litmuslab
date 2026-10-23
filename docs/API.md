@@ -1,6 +1,6 @@
 # API 与命令行接口
 
-`dist/engine.mjs` 是公开 ES module，包含少量宿主类型检查并调用 MoonBit 编译的 `engine.raw.mjs`，不依赖 npm 包。公开的稳定边界是两个返回 JSON 字符串的函数；内部状态结构不属于 JavaScript API。
+`dist/engine.mjs` 是公开 ES module，包含少量宿主类型检查并调用 MoonBit 编译的 `engine.raw.mjs`，不依赖 npm 包。公开的稳定边界是返回 JSON 字符串的函数；内部状态结构不属于 JavaScript API。
 
 ```js
 import { analyze, replay } from './dist/engine.mjs';
@@ -57,7 +57,7 @@ node bin/litmuslab.mjs replay FILE --model TSO --witness 't0 f0'
 cat FILE | node bin/litmuslab.mjs analyze - --model TSO
 ```
 
-单模型直接输出引擎对象；`both` 返回 results.SC/results.TSO 和 comparison。`comparison.definitive` 只有两个模型都完整才为 true。最终退出码 0 完成、3 不完整、2 错误。stdout 为单个 JSON 对象；帮助命令例外。相同程序重复运行的结果顺序确定，但调用者应按集合比较。
+单模型直接输出引擎对象；`analyze --model both` 返回 results.SC/results.TSO 和 comparison。`comparison.definitive` 只有两个模型都完整才为 true。analyze 退出码 0 完成、3 不完整、2 错误。stdout 为单个 JSON 对象；帮助命令例外。相同程序重复运行的结果顺序确定，但调用者应按集合比较。query/compare-fences 的 both 模式返回 results.SC/results.TSO、command 和 target，没有根级 comparison；判定与退出码见下方 0.3.0 说明。
 
 路径由 CLI 负责读取，引擎不访问文件或网络。CLI 原始输入字节上限 128 KiB，核心另设 32768 码点上限；两者含义不同。
 
@@ -73,3 +73,21 @@ cat FILE | node bin/litmuslab.mjs analyze - --model TSO
 | fence | bufferEmpty=true |
 
 实验配置文件与结果下载属于浏览器界面格式，详见教学指南；导入配置会清除旧分析，必须重新计算，结果包不能当作配置导入。
+
+
+## 0.3.0 query 与 compareFences
+
+```js
+const queryResult = JSON.parse(query(source, 'TSO', 'bfs', 20000, 256,
+  'reg.P0.r0=0 && reg.P1.r1=0'));
+const comparison = JSON.parse(compareFences(source, 'TSO', 'bfs', 20000, 256,
+  'reg.P0.r0=0 && reg.P1.r1=0', 'P0:1,P1:1'));
+```
+
+两者从 `dist/engine.mjs` 导入。target/fences 必须是字符串；所有 DSL、目标、插入和判定逻辑都在 MoonBit 中执行。
+
+query 返回 `status:'ok'`、`exitCode`、model、strategy、target、program、search、verdict、match。search 含 status/reason/stats；verdict 是 reachable/unreachable/unknown，match 是一份完整 outcome 或 null。unknown 退出 3，其余合法答案退出 0；不要把 status=ok 当作目标已确定。
+
+compareFences 返回 status/exitCode/model/strategy/target/fences/afterSource/before/after/sets/mapping。before/after 各含 program/search/verdict/match/outcomes。sets.complete 仅当两侧完整，removed/added 此时是结果 ID 数组，否则 null；commonObserved/beforeOnlyObserved/afterOnlyObserved 始终只是已观察集合比较。mapping.scope 为 this_ordered_witness_only，preserveOriginalActions 为 true；blocked 的 firstBlock 给出第一次屏障等待的原动作与状态。完整定义与使用示例见 [EXPERIMENTS.md](EXPERIMENTS.md)。
+
+新函数的 MoonBit 核心输入诊断含 `error.input`，区分 source、target、fences 和 options。宿主包装器的类型及预算校验返回 InvalidType/InvalidBudget，不保证含 `error.input`；消费方不要解析自然语言 message。

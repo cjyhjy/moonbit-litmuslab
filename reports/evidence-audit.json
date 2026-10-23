@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
   "kind": "evidence-binding-regressions",
-  "generatedAt": "2026-10-22T16:27:28.163565+00:00",
+  "generatedAt": "2026-10-23T15:53:45.455085+00:00",
   "status": "passed",
   "command": [
-    "python3",
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
     "-m",
     "unittest",
     "discover",
@@ -14,20 +15,19 @@
     "test_evidence.py",
     "-v"
   ],
-  "checks": 15,
   "exitCode": 0,
   "auditedInputs": {
     "algorithm": "sha256-path-nul-hash-newline-v1",
-    "digest": "92b1effe0654ecf4e27c9a6c4cf155f98ed5891c9915a7b3c05dd375231db72e",
+    "digest": "e0af1119624fd2262b638f16a8e958cb8737da90bd054897a7a5ba49e07e67e9",
     "files": {
-      "tools/evidence.py": "3c66c600cd60e9e93ff94880a7619b55a4daff8cc445f0cb72000f0145666983",
-      "tools/summarize.py": "e600e3ce45131ddb949aa64afbe5922f8e421a6629b76752ab64462820a3db87",
-      "tools/acceptance.py": "02ccd1c24ee4fc0d9adde08c9dba92a8f21cb964eaac7252b8c9c674918b8a89",
-      "tests/test_evidence.py": "d5bf9af7a453063008821372024338ead49f6286d64a9ac31cdfe57160cb5812"
+      "tools/evidence.py": "d6ebea48705c526572a0b076a8a1262d8875776c164a17aa6801d06400b9a273",
+      "tools/summarize.py": "3acf10609bee423256360a08bbc5d08bd815a85f5e7b7c8120a115430462bd84",
+      "tools/acceptance.py": "9764f6e20d00ac337a3185f740c79a4d86868ce3d3932fabbc1e601ee47367ae",
+      "tests/test_evidence.py": "25c1ace76d97ca09c329d6b8986763a1eee63cd991679b7de17f4161a23412b9"
     }
   },
   "inputsUnchanged": true,
   "stdout": "",
-  "stderr": "test_archive_change_preserves_only_source_tree_proof (test_evidence.EvidenceTests) ... ok\ntest_changed_inputs_invalidate_old_clean_pass (test_evidence.EvidenceTests) ... ok\ntest_complete_bound_summary_does_not_attest_embedded_archive (test_evidence.EvidenceTests) ... ok\ntest_crosscheck_cannot_reuse_old_reference_evidence (test_evidence.EvidenceTests) ... ok\ntest_documentation_reports_archives_and_caches_do_not_self_invalidate (test_evidence.EvidenceTests) ... ok\ntest_generated_oracle_evidence_covers_added_fixtures (test_evidence.EvidenceTests) ... ok\ntest_interface_evidence_covers_cli (test_evidence.EvidenceTests) ... ok\ntest_legacy_clean_pass_without_input_binding_is_rejected (test_evidence.EvidenceTests) ... ok\ntest_manifest_requires_exact_coverage (test_evidence.EvidenceTests) ... ok\ntest_new_and_deleted_inputs_are_detected (test_evidence.EvidenceTests) ... ok\ntest_old_browser_pass_cannot_gain_new_web_hashes (test_evidence.EvidenceTests) ... ok\ntest_oracle_evidence_covers_upstream_recorded_output (test_evidence.EvidenceTests) ... ok\ntest_performance_must_use_current_candidate (test_evidence.EvidenceTests) ... ok\ntest_public_wrapper_change_is_a_rebuild_failure_even_when_raw_matches (test_evidence.EvidenceTests) ... ok\ntest_recorded_digest_and_profile_cannot_be_relabelled (test_evidence.EvidenceTests) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.194s\n\nOK\n",
-  "scope": "Synthetic isolated file mutations; tests rejection of stale evidence, exact archive binding, and wrapper rebuild mismatches. Does not retroactively validate old reports."
+  "stderr": "test_archive_change_preserves_only_source_tree_proof (test_evidence.EvidenceTests) ... ok\ntest_changed_inputs_invalidate_old_clean_pass (test_evidence.EvidenceTests) ... ok\ntest_complete_bound_summary_does_not_attest_embedded_archive (test_evidence.EvidenceTests) ... ok\ntest_crosscheck_cannot_reuse_old_reference_evidence (test_evidence.EvidenceTests) ... ok\ntest_documentation_reports_archives_and_caches_do_not_self_invalidate (test_evidence.EvidenceTests) ... ok\ntest_experiment_profile_covers_added_reference_fixtures (test_evidence.EvidenceTests) ... ok\ntest_failed_summary_returns_nonzero (test_evidence.EvidenceTests) ... ok\ntest_generated_oracle_evidence_covers_added_fixtures (test_evidence.EvidenceTests) ... ok\ntest_interface_evidence_covers_cli (test_evidence.EvidenceTests) ... ok\ntest_legacy_clean_pass_without_input_binding_is_rejected (test_evidence.EvidenceTests) ... ok\ntest_manifest_requires_exact_coverage (test_evidence.EvidenceTests) ... ok\ntest_new_and_deleted_inputs_are_detected (test_evidence.EvidenceTests) ... ok\ntest_old_browser_pass_cannot_gain_new_web_hashes (test_evidence.EvidenceTests) ... ok\ntest_oracle_evidence_covers_upstream_recorded_output (test_evidence.EvidenceTests) ... ok\ntest_performance_must_use_current_candidate (test_evidence.EvidenceTests) ... ok\ntest_public_wrapper_change_is_a_rebuild_failure_even_when_raw_matches (test_evidence.EvidenceTests) ... ok\ntest_recorded_digest_and_profile_cannot_be_relabelled (test_evidence.EvidenceTests) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.183s\n\nOK\n",
+  "scope": "Synthetic isolated file mutations; tests rejection of stale evidence, exact archive binding, wrapper rebuild mismatches, failed summary exit and experiment fixture binding. Does not retroactively validate old reports."
 }

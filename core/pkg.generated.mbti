@@ -4,6 +4,10 @@ package "litmuslab/engine/core"
 // Values
 pub fn analyze(String, String, String, Int, Int) -> String
 
+pub fn compare_fences(String, String, String, Int, Int, String, String) -> String
+
+pub fn query(String, String, String, Int, Int, String) -> String
+
 pub fn replay(String, String, String) -> String
 
 // Errors

@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "commit": "4174d616c4fe84236aa57782dd247f7320e20738",
   "kind": "upstream-neighbor-run-not-memory-model-oracle",
-  "run_at": "2026-10-23T15:35:20.753386+00:00",
+  "run_at": "2026-10-23T15:50:03.158114+00:00",
   "runs": [
     {
       "case": "tests",

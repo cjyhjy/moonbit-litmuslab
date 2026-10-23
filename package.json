@@ -1,6 +1,6 @@
 {
   "name": "litmuslab",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "Finite SC/TSO litmus experiments with a MoonBit semantics engine and replayable witnesses.",
@@ -16,6 +16,8 @@
     "serve": "node tools/serve.mjs",
     "analyze": "node bin/litmuslab.mjs analyze",
     "replay": "node bin/litmuslab.mjs replay",
-    "check:interfaces": "node tools/check-interfaces.mjs"
+    "check:interfaces": "node tools/check-interfaces.mjs",
+    "check:experiments": "node tools/check-experiments.mjs",
+    "check:browser": "node tools/browser-qa.mjs"
   }
 }

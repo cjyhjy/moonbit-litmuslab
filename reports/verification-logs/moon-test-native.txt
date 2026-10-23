@@ -1,2 +1,2 @@
 $ ./tools/moon test --target native
-Total tests: 15, passed: 15, failed: 0.
+Total tests: 32, passed: 32, failed: 0.

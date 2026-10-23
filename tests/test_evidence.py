@@ -1,9 +1,12 @@
 """Regression tests for stale evidence, archive binding, and rebuild coverage."""
 import json
+import io
+from contextlib import redirect_stdout
 from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
@@ -152,6 +155,17 @@ class EvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError, 'engine.mjs'):
             acceptance.verify_rebuild({'engine.mjs': 'old', 'engine.raw.mjs': 'same'},
                                       {'engine.mjs': 'new', 'engine.raw.mjs': 'same'})
+
+    def test_failed_summary_returns_nonzero(self):
+        with patch.object(summarize, 'assemble', return_value={'status': 'failed'}), redirect_stdout(io.StringIO()):
+            self.assertEqual(summarize.main(self.root), 1)
+        self.assertEqual(json.loads((self.root / 'reports/verification.json').read_text())['status'], 'failed')
+
+    def test_experiment_profile_covers_added_reference_fixtures(self):
+        before = evidence.snapshot(self.root, 'experiments')
+        self.write('tests/experiments/new.json', '{}')
+        with self.assertRaisesRegex(evidence.EvidenceError, 'added'):
+            evidence.verify_snapshot(self.root, before, 'experiments')
 
     def test_manifest_requires_exact_coverage(self):
         isolated = self.root / 'manifest-case'

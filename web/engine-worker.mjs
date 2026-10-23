@@ -1,12 +1,16 @@
-import { analyze, replay } from '../dist/engine.mjs';
+import { analyze, query, compareFences, replay } from '../dist/engine.mjs';
 
 // All program semantics are provided by the compiled MoonBit module.
 self.onmessage = ({ data }) => {
   try {
-    if (data.command === 'analyze') {
+    if (['analyze', 'query', 'compare-fences'].includes(data.command)) {
       const results = {};
       for (const model of data.models) {
-        results[model] = JSON.parse(analyze(data.source, model, data.strategy, data.maxStates, data.maxOutcomes));
+        const args = [data.source, model, data.strategy, data.maxStates, data.maxOutcomes];
+        const raw = data.command === 'query' ? query(...args, data.target)
+          : data.command === 'compare-fences' ? compareFences(...args, data.target, data.fences)
+          : analyze(...args);
+        results[model] = JSON.parse(raw);
         if (results[model].status === 'error') break;
       }
       self.postMessage({ id: data.id, command: data.command, results });

@@ -1,0 +1,2 @@
+$ node tools/check-experiments.mjs
+{"status":"passed","passed":1733,"failed":0,"queries":40,"comparisons":37,"mappings":30,"report":"reports/experiments.json"}

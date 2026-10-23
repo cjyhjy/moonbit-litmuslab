@@ -74,7 +74,7 @@ try {
   for (const [name, value] of [
     ['unknown root field', { ...fixture, results: {} }],
     ['result bundle import', { ...fixture, kind: 'litmuslab.results' }],
-    ['unsupported version', { ...fixture, version: 2 }],
+    ['unsupported version', { ...fixture, version: 3 }],
     ['string version', { ...fixture, version: '1' }],
     ['source type', { ...fixture, source: [] }],
     ['oversized source', { ...fixture, source: 'x'.repeat(32769) }],
@@ -96,6 +96,17 @@ try {
   verify('config rejects byte limit', rejected(new Uint8Array(MAX_CONFIG_BYTES + 1)));
   const limits = createExperiment('😀'.repeat(32768), { model: 'TSO', strategy: 'dfs', maxStates: 100000, maxOutcomes: 1024 });
   verify('config accepts Unicode codepoint and budget upper boundaries', parseExperiment(encoded(limits)).source === limits.source);
+  const queryConfig = { ...fixture, version: 2, options: { ...fixture.options, mode: 'query', target: 'reg.P0.r0=0', fences: '' } };
+  verify('v2 query config round trip', JSON.stringify(parseExperiment(encoded(queryConfig))) === JSON.stringify(queryConfig));
+  verify('v2 compare config round trip', parseExperiment(encoded({ ...queryConfig, options: { ...queryConfig.options, mode: 'compare-fences', fences: 'P0:0' } })).options.fences === 'P0:0');
+  for (const [name, options] of [
+    ['unknown mode', { ...queryConfig.options, mode: 'repair' }],
+    ['empty target', { ...queryConfig.options, target: '' }],
+    ['oversized target', { ...queryConfig.options, target: 'x'.repeat(4097) }],
+    ['non-string target', { ...queryConfig.options, target: [] }],
+    ['empty fences', { ...queryConfig.options, mode: 'compare-fences', fences: '' }],
+    ['non-string fences', { ...queryConfig.options, fences: null }],
+  ]) verify(`v2 rejects ${name}`, rejected(encoded({ ...queryConfig, options })));
   let rejectedResults = false;
   try { createResultBundle(fixture, {}); } catch { rejectedResults = true; }
   verify('result export rejects missing actual results', rejectedResults);

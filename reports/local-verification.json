@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T15:35:10.295226+00:00",
+  "generatedAt": "2026-10-23T15:49:52.650171+00:00",
   "platform": "macOS-26.5.1-arm64-arm-64bit",
   "sourceCommit": null,
   "status": "passed",
@@ -15,7 +15,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.048,
+      "elapsedSeconds": 0.067,
       "log": "verification-logs/build-js.txt",
       "outputs": []
     },
@@ -23,12 +23,12 @@
       "name": "provided-js-consistency",
       "passed": true,
       "before": {
-        "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
-        "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0"
+        "dist/engine.mjs": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
+        "dist/engine.raw.mjs": "f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1"
       },
       "rebuilt": {
-        "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
-        "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0"
+        "dist/engine.mjs": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
+        "dist/engine.raw.mjs": "f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1"
       }
     },
     {
@@ -41,7 +41,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.065,
+      "elapsedSeconds": 0.078,
       "log": "verification-logs/moon-check-js.txt",
       "outputs": []
     },
@@ -56,7 +56,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.017,
+      "elapsedSeconds": 0.019,
       "log": "verification-logs/moon-build-js.txt",
       "outputs": []
     },
@@ -70,7 +70,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.059,
+      "elapsedSeconds": 0.19,
       "log": "verification-logs/moon-test-js.txt",
       "outputs": []
     },
@@ -84,7 +84,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.051,
+      "elapsedSeconds": 0.072,
       "log": "verification-logs/moon-check-native.txt",
       "outputs": []
     },
@@ -100,7 +100,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 1.395,
+      "elapsedSeconds": 0.038,
       "log": "verification-logs/moon-build-native-test-executable.txt",
       "outputs": []
     },
@@ -114,7 +114,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.036,
+      "elapsedSeconds": 0.741,
       "log": "verification-logs/moon-test-native.txt",
       "outputs": []
     },
@@ -128,7 +128,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.051,
+      "elapsedSeconds": 0.071,
       "log": "verification-logs/moon-check-wasm-gc.txt",
       "outputs": []
     },
@@ -143,7 +143,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.085,
+      "elapsedSeconds": 0.105,
       "log": "verification-logs/moon-build-wasm-gc.txt",
       "outputs": []
     },
@@ -157,7 +157,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.06,
+      "elapsedSeconds": 0.065,
       "log": "verification-logs/moon-test-wasm-gc.txt",
       "outputs": []
     },
@@ -176,7 +176,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.21,
+      "elapsedSeconds": 0.257,
       "log": "verification-logs/reference-unit-tests.txt",
       "outputs": []
     },
@@ -188,16 +188,16 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 1.486,
+      "elapsedSeconds": 1.536,
       "log": "verification-logs/crosscheck.txt",
       "outputs": [
         {
           "path": "crosscheck.json",
-          "sha256": "207ce6d1097a1f52e7926455459a8ef8225998cbf2708505685df660823cb465"
+          "sha256": "0c51b89faddcd145a69377a4a09d75cbe11936c6abb565daa357cf6650feefe6"
         },
         {
           "path": "crosscheck.md",
-          "sha256": "ac9c9cfa5df04c7db9ff864330b81bb12b4db8788c3d8c9dac99096d0eda2480"
+          "sha256": "45e30f74b3c03c784d830960debe35152edf61ea61d600adb9603781dc134665"
         }
       ]
     },
@@ -209,12 +209,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.33,
+      "elapsedSeconds": 0.344,
       "log": "verification-logs/upper-state-budget.txt",
       "outputs": [
         {
           "path": "resource-stress.json",
-          "sha256": "70cc826e1e2cfa5d50bdcf4d171f74fec4ac0ad14be64c71e1913c1d6e9e009d"
+          "sha256": "ee7835e7070154ec2a272bc3dd09adce4210134f387d6f8f98369f3d0ad0d76d"
         }
       ]
     },
@@ -226,12 +226,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 1.788,
+      "elapsedSeconds": 1.963,
       "log": "verification-logs/interfaces.txt",
       "outputs": [
         {
           "path": "interfaces.json",
-          "sha256": "91623f505bd0699e97e2e031e5bb1ed740d2f2bc74b1c89af12813392d17ba4a"
+          "sha256": "3150d71c7adc746629931ffff9a3e9e3e7751a5d9a72b905124689430bc08fee"
         }
       ]
     },
@@ -243,12 +243,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.136,
+      "elapsedSeconds": 0.134,
       "log": "verification-logs/live-herd7.txt",
       "outputs": [
         {
           "path": "oracle-herd7.json",
-          "sha256": "1bf8914c0c70ae7029b41036bd34fea11a662ec9395cfcc721426ae01594ef9b"
+          "sha256": "34fe113ff47c1ad0c9bb2b47b8ba48f167beb7a4379995b0f6c03083503c675a"
         }
       ]
     },
@@ -260,12 +260,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.087,
+      "elapsedSeconds": 0.093,
       "log": "verification-logs/fresh-herd-comparison.txt",
       "outputs": [
         {
           "path": "oracle-comparison.json",
-          "sha256": "deea5b41f24af166c8f40313a530fa32a19859cc1737341799a8915242b7b745"
+          "sha256": "afcc99edc4cb15887523c71752c6d048146eaef93b7ce5db1a26f039ba0d4cab"
         }
       ]
     },
@@ -277,12 +277,12 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 4.502,
+      "elapsedSeconds": 4.673,
       "log": "verification-logs/generated-herd-comparison.txt",
       "outputs": [
         {
           "path": "oracle-generated.json",
-          "sha256": "bb3a6151a69b7349bce64cfe7f081278b50d40adf978c38eb98168c7e6e1924f"
+          "sha256": "e9d92e2bbf134b1284036b6a990e03b48ab5a31f957c17c8474fbb23b0b4d3fd"
         }
       ]
     },
@@ -294,12 +294,29 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedSeconds": 0.226,
+      "elapsedSeconds": 0.199,
       "log": "verification-logs/live-moonctl.txt",
       "outputs": [
         {
           "path": "oracle-moonctl.json",
-          "sha256": "55fb489b7266c05bb916ea05f2a28d83a83643543904431c2256c8d731af6857"
+          "sha256": "84d33b57d6b41c1b1d9b3a16fc5589208a9153ce9c930364d7fe0552a115cc58"
+        }
+      ]
+    },
+    {
+      "name": "experiments",
+      "command": [
+        "node",
+        "tools/check-experiments.mjs"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedSeconds": 0.987,
+      "log": "verification-logs/experiments.txt",
+      "outputs": [
+        {
+          "path": "experiments.json",
+          "sha256": "cba58326c5efd22ce4bf2ca65be3d2fab9ed4590b9f7a0606992709cc09cbf8b"
         }
       ]
     }
@@ -308,21 +325,23 @@
     "schemaVersion": 1,
     "profile": "local",
     "algorithm": "sha256-path-nul-hash-newline-v1",
-    "digest": "54b70da5dec7e39887a5a2ae60f6039858e1d5ff6da1047cb950ed1f922e1519",
+    "digest": "495f7d821c6ba03682297feb4a0d10397bc787e3e7365fe0ed2d5f388d7c40b7",
     "files": {
       ".github/workflows/ci.yml": "42ea2e2093e336fba79597fd425d9b387d341690b2cdc67472cba2c5df2476c1",
-      "bin/litmuslab.mjs": "66ab004bc6dc708506137ed1852706a85005d1e1f38b9b260a7c6e44386c4eed",
+      "bin/litmuslab.mjs": "c8ba870d71dbfb74e6c90b36a7596c01d27f63594b5d7b1b6c594505a533172f",
+      "core/experiments.mbt": "45d5f827a68e57629abbe7fb572fcccfe40902a01059b3f5f8421bdfc3ffc06a",
+      "core/experiments_wbtest.mbt": "e90041c5d93b7afa53d38d84778c60dcbae1f46ca44f11c2db0a5d34328894aa",
       "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
       "core/moon.pkg": "b32472696f96a51655b55cadd81b11d967370fa92aadd7e83207b90ebe04dc80",
       "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
-      "core/pkg.generated.mbti": "ad31343121a21efb434d54822d666fe4cac0259be9c1bcb068dbd772784ab22c",
+      "core/pkg.generated.mbti": "33685dfb4e1ea61dd2e66f6fe95b7f9e00b28725d2df771cd9cb3169241f3920",
       "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
-      "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+      "core/search.mbt": "bfea916b0378c2456cfc00d49c770bda4cbffb42d8ed079a48afdc8c72a0d8b3",
       "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
       "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
       "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243",
-      "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
-      "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0",
+      "dist/engine.mjs": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
+      "dist/engine.raw.mjs": "f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1",
       "examples/fifo.litmus": "44d35f9c6f710d7ae5b4495402b7bfe895370c1b03faae7ab0173d95f69d462f",
       "examples/forwarding.litmus": "742b80e12ba97a01848862219949bacb21039581054402da1d82b4504e07ff81",
       "examples/load-buffering.litmus": "7d21f2e4b05eb41b97dd30c34747f60b6ef610034606853c3126590424c1d0c2",
@@ -330,8 +349,10 @@
       "examples/message-passing.litmus": "c6b8fbd81a9af265baca29f4960a0b3c847b42fe6daa688790a03311ffe15bf8",
       "examples/store-buffering-fence.litmus": "a345ccd0307be76944d371d519bf63274a2637332960ff6ac49d7c53008f6642",
       "examples/store-buffering.litmus": "1f483069366eb046a07a5033b596f2a5b7d55701f7556b676f985c89a2c93d66",
-      "moon.mod": "25227956d4644d8e347c16c50f982af8adf5c525611ce547fba0520ecaeefe38",
-      "package.json": "3f2f405a6a9836751afac4830ee38cd743fe339aaf468cedfe75ed033658a072",
+      "moon.mod": "9bed3fa3653d81e98fd99d731bd87cf65597ca48e59d69af4b3196f955f38f7b",
+      "package.json": "c6911584eb03c590de41964b9230e3a6331530f5347b32f04c5e03f8e4fe02ab",
+      "tests/experiments/cases.json": "a114e03bac4f0befc5599a32a4abff70de81d35c7b452e5eb5819a458841965d",
+      "tests/experiments/reference_bridge.py": "fce51b3e85bc227da93ec3b18a04da164176d293dcf748975e91684f8ac52d04",
       "tests/oracle-generated/README.md": "763194f29c13b56d5a091f2db009c0648dcd80125121c03fbf1b75996b7928f2",
       "tests/oracle-generated/cases.json": "c74a36e33ed27449587c4bccf3a9c7ed4c21f720ed2f283560575694609eb9a4",
       "tests/oracle-generated/exploration/cases.json": "86cdb3bf96afb1636242a174940e51925314a7050e2ac1b53fd610c976c1aa8a",
@@ -439,18 +460,19 @@
       "tests/performance-baseline/NOTICE.md": "1d10a3ccc943fcb98e7c40c95e00db918513c991b54b310224988d9c0960b1ad",
       "tests/performance-baseline/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
       "tests/performance-baseline/engine.raw.mjs": "be03fb3c8da97608894a701846f15b43b02f30bd74a20b27c70720a2f14c91af",
-      "tests/test_evidence.py": "d5bf9af7a453063008821372024338ead49f6286d64a9ac31cdfe57160cb5812",
+      "tests/test_evidence.py": "25c1ace76d97ca09c329d6b8986763a1eee63cd991679b7de17f4161a23412b9",
       "tests/test_reference.py": "9735d04303eeead302e071a3bd150a8c1beeeef6c4b551031de7b8442db425ed",
       "toolchain.lock.json": "472026cb4fbd405c9f6ad98bbb15a0fab9d4e7f1a576807ae39f96777c3312a0",
-      "tools/acceptance.py": "02ccd1c24ee4fc0d9adde08c9dba92a8f21cb964eaac7252b8c9c674918b8a89",
+      "tools/acceptance.py": "9764f6e20d00ac337a3185f740c79a4d86868ce3d3932fabbc1e601ee47367ae",
       "tools/benchmark.py": "10d655b4466d0281250622b4f54df131b47650327afb0eeac3468078fd4fb1a1",
       "tools/bootstrap.py": "8a7699d4090c168b975c9ce5590a1fb8a9e251dd023c0261745ec00499655e00",
-      "tools/browser-qa.mjs": "3cecadaa267d7118a1f79d901f72528d8af01dd703cc2cb5bb8211864d0db8ba",
+      "tools/browser-qa.mjs": "a7d4e6db55a833aa2374fb20c1f2447d031b717fca188abd65e08b4b6985b75c",
       "tools/build.sh": "96889b2ba8e53c27857f7abb15bae27c5566fe413cb92d55b9153db32fb154f8",
-      "tools/check-interfaces.mjs": "07c18586794bc37ed343144e5e1b085fa2c20624d955a23061771c7c5f09902d",
+      "tools/check-experiments.mjs": "14fd4d955395c86d88ff4a7b861f933be6ae7c9f0d15ccc98573d7a22feb4d99",
+      "tools/check-interfaces.mjs": "6fa77d3f2f64223571e54345ba40c234f9e19b2e6573292a0172b2c9cb378c61",
       "tools/crosscheck.py": "00bd118540bf2645b7f982a3148fff02f828d9aeb929a3b4c7284026b8180db4",
-      "tools/engine-wrapper.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
-      "tools/evidence.py": "3c66c600cd60e9e93ff94880a7619b55a4daff8cc445f0cb72000f0145666983",
+      "tools/engine-wrapper.mjs": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
+      "tools/evidence.py": "d6ebea48705c526572a0b076a8a1262d8875776c164a17aa6801d06400b9a273",
       "tools/moon": "36c3942b693e5d8ce1cfffd09d328eff14659646a84a24d74cbfc9a88b99eb3f",
       "tools/oracle-bootstrap.sh": "54004925ab1b219efe4eaafc5ee421a4ee0df5946e7a5bb1d80ecdf58504f7ac",
       "tools/oracle-compare.mjs": "815a8b280304443f8a5abf3b7998dda7b548a518453dc9278bff3ad3f85ceb6d",
@@ -462,25 +484,27 @@
       "tools/reference.py": "6cf99f29b11854ad487af8ee103a7a584b833760f87eabaafebb75f2a66f2b91",
       "tools/serve.mjs": "6f5ac5722a409acedcd795c80cebb626b60ef0cfb4b4f9a0426865bc5d236adf",
       "tools/stress.mjs": "1c4fb6e76d53990ef06aa5477df20af03546ec1c3d2add5df177674373c59691",
-      "tools/summarize.py": "e600e3ce45131ddb949aa64afbe5922f8e421a6629b76752ab64462820a3db87",
-      "tools/verify.py": "b26389a0aabd889fabc0e41924120b4d6012c0635c9fcb2ac24176cbc30f1180",
-      "web/app.mjs": "977d208340ef75195cb7b65a83c6b5d645b7983504f26da93c1946d5cbdcd9df",
-      "web/engine-worker.mjs": "7be69e46cb15055c2e5846e6b5637b0566d6f85dcbded83208ea1a5a05fd9ce6",
-      "web/experiment.mjs": "1d7f9ab10d2021c8da2600b25ef97e8f65296628bae18133eb878bbd21fa05bf",
-      "web/index.html": "9d150df773d0507f67206bd7903c5bc01d229dcf1084d3e6f6410f4529148af9",
-      "web/style.css": "26a95144548ce35812a22321fcf52e121549d5394ce561a4f5b170f306bb109e"
+      "tools/summarize.py": "3acf10609bee423256360a08bbc5d08bd815a85f5e7b7c8120a115430462bd84",
+      "tools/verify.py": "5df73d72add7f3b5357e2728286440db43d5617969efc1478579e76547fd32ae",
+      "web/app.mjs": "fde0ff442ba68a7703dc7eb815fe6d2261ae86401c1c87d23e16cf3d36beac60",
+      "web/engine-worker.mjs": "c1de2de8271f6ca90ea0434fed9752c3904d13f8ce16ec63b5b82e495844402e",
+      "web/experiment.mjs": "1322763b058d077fb4351ba6407d9bb14fc7c596c8325fa0956b917d846dfe67",
+      "web/index.html": "cb849e724e90f305af5d43d32a08ae6e29efb7abd75ac1656f71ba420bab42bd",
+      "web/style.css": "be916f10930673e6032699f5f91a2d07dc1ea0a44ca483b1c6df9cc07792445e"
     }
   },
   "hashes": {
+    "core/experiments.mbt": "45d5f827a68e57629abbe7fb572fcccfe40902a01059b3f5f8421bdfc3ffc06a",
+    "core/experiments_wbtest.mbt": "e90041c5d93b7afa53d38d84778c60dcbae1f46ca44f11c2db0a5d34328894aa",
     "core/json.mbt": "af17b5e5c20adbe28000ac4855654d2db676637de6629a002e3cb8f8f91b7256",
     "core/parser.mbt": "5dbe05ed7053b85006d2280a559ba13bba072180ea0a789d41cf16bbdaf3e8f4",
     "core/replay.mbt": "bb2763f93c8d5791793820d42eb48f4e263c4716b0b6944d6c5bd21fec14d849",
-    "core/search.mbt": "8d126ad0ef915c3d2afc101139cf051297365d22a5828705fe5b1bbe63ec0e09",
+    "core/search.mbt": "bfea916b0378c2456cfc00d49c770bda4cbffb42d8ed079a48afdc8c72a0d8b3",
     "core/semantics.mbt": "0d3b82e1c15c3e3ec7cd4be834a4de96b464863dba9f6e31155823f5c1252f8c",
     "core/semantics_wbtest.mbt": "b9629d932b4befc7c31e81b6ec2150db9eada3ba4ea038a33ede606128d08095",
     "core/types.mbt": "13f5c7942b2746ed29a81ba7e5398c9abe35ad6815bc6ebb9b1c7471e79f3243",
-    "dist/engine.mjs": "31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869",
-    "dist/engine.raw.mjs": "47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0"
+    "dist/engine.mjs": "35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c",
+    "dist/engine.raw.mjs": "f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1"
   },
-  "finishedAt": "2026-10-23T15:35:20.968652+00:00"
+  "finishedAt": "2026-10-23T15:50:04.333876+00:00"
 }

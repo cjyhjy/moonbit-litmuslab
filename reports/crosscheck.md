@@ -1,6 +1,6 @@
 # LitmusLab independent implementation cross-check
 
-Status: **passed**. Generated at 2026-10-23T15:35:12.462575+00:00.
+Status: **passed**. Generated at 2026-10-23T15:49:54.456249+00:00.
 
 This report compares the compiled MoonBit implementation with a separately written
 Python operational-semantics implementation. It is **not an external hardware or
@@ -39,9 +39,9 @@ python3 tools/crosscheck.py
 ```
 
 Python `3.9.6`; Node `v26.7.0`.
-Engine SHA-256: `31c92a01e7a8290c580d795a82dd51e21e711047bdfbab9cb9eed5966dd8b869`.
-Raw MoonBit engine SHA-256: `47cd1f7f524ca7e44ca22c994e116e75d965aa84b821179126a349a99fe8f7a0`.
-Combined MoonBit source SHA-256: `46c2c318e4fb84febf5867e9f4e143e373413d1cf86f5eff116afede12ee853a` (sorted relative
+Engine SHA-256: `35d9b8294743571f3062faa8898dd029f65c7c48d3ca728107626adfe304690c`.
+Raw MoonBit engine SHA-256: `f54fe630fb5c1a94cc778c93f0376c69a99df2269faba60894d8049b0ed2e2f1`.
+Combined MoonBit source SHA-256: `7e8cc20f2f97c7c51a098be9a94ab80ce17d199b50d43e75e0d91a5971b4245d` (sorted relative
 path, NUL, file bytes, NUL for each `core/*.mbt`; individual hashes are in JSON).
 Reference SHA-256: `6cf99f29b11854ad487af8ee103a7a584b833760f87eabaafebb75f2a66f2b91`.
 Structured cases, state counts, exact error evidence and failures: `crosscheck.json`.
